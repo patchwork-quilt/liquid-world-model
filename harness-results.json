@@ -1,0 +1,1356 @@
+{
+ "experiment": "orin-harness-ab",
+ "seed": 42,
+ "temp": 0.0,
+ "max_retries_per_step": 2,
+ "gauge_thresholds": {
+  "embed_sim_min": 0.2,
+  "judge_pos_min": 0.25
+ },
+ "arms": {
+  "A135": {
+   "arm": "A135",
+   "model": "SmolLM2-135M-Instruct-Q8_0.gguf",
+   "tasks": {
+    "digest-poker": {
+     "points": 3,
+     "max": 4,
+     "notes": [
+      "pattern:dry-fold OK",
+      "pattern:wet-bet OK",
+      "stack OK"
+     ],
+     "output": "- Mara raises on a dry flop; hero folds.\n- Mara raises on a wet flop; hero re-raises; Mara folds at once.\n- Hero's stack has fallen from 1200 to 840 chips.\n- Mara raises on a dry flop; hero calls; Mara bets big on the turn and hero folds.",
+     "wall_s": 1.61,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "digest-scout": {
+     "points": 0,
+     "max": 4,
+     "notes": [],
+     "output": "",
+     "wall_s": 0.75,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "extract-ferry": {
+     "points": 0,
+     "max": 6,
+     "notes": [],
+     "output": "{\n  \"passenger_name\": \"Mrs Alana Reyes\",\n  \"vessel\": \"MV Kestrel\",\n  \"date\": \"14 June\",\n  \"passengers\": [\n    {\n      \"id\": 1,\n      \"name\": \"Mrs Alana Reyes\",\n      \"age\": 30,\n      \"address\": \"Dock 4, Port of St. Augustine, Florida\"\n    },\n    {\n      \"id\": 2,\n      \"name\": \"Mike Johnson\",\n      \"age\": 25,\n      \"address\": \"Dock 4, Port of St. Augustine, Florida\"\n    },\n    {\n      \"id\": 3,\n      \"name\": \"Jake Johnson\",\n      \"age\": 25,\n      \"address\": \"Dock 4, Port of St. Augustine, Florida\"\n    },\n    {\n      \"id\": 4,\n      \"name\": \"Jake Johnson\",\n      \"age\": 25,\n      \"address\": \"Dock 4, Port of St. Augustine, Florida\"\n    },\n    {\n      \"id\": 5,\n      \"name\": \"Jake Johnson\",\n      \"age\": 25,\n      \"address\": \"Dock 4, Port of St. Augustine, Florida\"\n    },\n    {\n      \"id\": 6,\n      \"name\": \"Jake Johnson\",\n      \"age\": 25,\n      \"address\": \"Dock 4, Port of St. Augustine, Florida\"\n    }",
+     "wall_s": 4.04,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "extract-maintenance": {
+     "points": 0,
+     "max": 7,
+     "notes": [],
+     "output": "{\n  \"location\": \"pump house\",\n  \"equipment\": {\n    \"location\": \"aft bilge pump\",\n    \"equipment_type\": \"bilge pump\",\n    \"maintenance_fields\": [\n      {\n        \"name\": \"location\",\n        \"description\": \"pump house\",\n        \"type\": \"bilge pump\",\n        \"maintenance_fields\": [\n          {\n            \"name\": \"location\",\n            \"description\": \"pump house\",\n            \"type\": \"bilge pump\",\n            \"maintenance_fields\": [\n              {\n                \"name\": \"location\",\n                \"description\": \"pump house\",\n                \"type\": \"bilge pump\",\n                \"maintenance_fields\": [\n                  {\n                    \"name\": \"location\",\n                    \"description\": \"pump house\",\n                    \"type\": \"bilge pump\",\n                    \"maintenance_fields\": [\n                      {\n                        \"name\": \"location\",\n                        \"description\": \"pump house\",\n                        \"type\": \"bilge pump\",\n                        \"maintenance_fields\": [\n                          {\n                            \"name\": \"location\",\n                            \"description\": \"pump house\",\n                            \"type\": \"bilge pump\",\n                            \"maintenance_fields\": [\n                              {\n                                \"name\": \"location\",\n                                \"description\": \"pump house\",\n                                \"type\": \"bilge pump\",\n                                \"maintenance_fields\": [\n                                    {\n                                        \"name\": \"location\",\n                                        \"description\": \"pump house\",\n                                        \"type\": \"bilge pump\",",
+     "wall_s": 3.86,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "consistency-gate": {
+     "points": 2,
+     "max": 5,
+     "notes": [
+      "agree:fog OK",
+      "agree:ferry-delay OK"
+     ],
+     "output": "Report A: The harbour gate was closed at 06:10 because of fog. Three trucks waited at the gate. The ferry was delayed by one hour. Report B: The harbour gate was closed because of fog, at 06:40. Five trucks waited at the gate. The ferry was delayed by one hour.",
+     "wall_s": 1.38,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "consistency-server": {
+     "points": 3,
+     "max": 5,
+     "notes": [
+      "agree:midnight OK",
+      "agree:disk OK",
+      "agree:30min OK"
+     ],
+     "output": "Report A: The backup server failed at midnight. The cause was a full disk. Two services were offline for 30 minutes. Report B: The backup server failed at midnight because its disk was full. Three services were offline, for 30 minutes.",
+     "wall_s": 1.17,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "format-status": {
+     "points": 4,
+     "max": 4,
+     "notes": [
+      "status OK",
+      "code OK",
+      "bays OK",
+      "format OK"
+     ],
+     "output": "```json\n{\n  \"status\": \"operational\",\n  \"code\": 7,\n  \"bays\": [\"bay 2\", \"bay 5\"]\n}\n```",
+     "wall_s": 1.05,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "classify-messages": {
+     "points": 0,
+     "max": 5,
+     "notes": [],
+     "output": "1. My invoice shows the wrong total\n2. Has my order shipped yet\n3. The app will not start on my phone\n4. I was charged twice for one ticket",
+     "wall_s": 1.15,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    }
+   },
+   "total_points": 12,
+   "total_max": 40,
+   "wall_s": 15.01,
+   "model_calls": 8,
+   "gauge_calls": 0
+  },
+  "B135": {
+   "arm": "B135",
+   "model": "SmolLM2-135M-Instruct-Q8_0.gguf",
+   "tasks": {
+    "digest-poker": {
+     "points": 3,
+     "max": 4,
+     "notes": [
+      "pattern:dry-fold OK",
+      "pattern:wet-bet OK",
+      "stack OK"
+     ],
+     "output": "[facts] Hand 1: Mara raises on a dry flop; flop is dry (King, 7, 2, all different suits); hero raises on a wet flop; flop is wet (two hearts, connected cards); hero calls; Mara bets big on the turn and hero folds. Hand 2: Mara raises on a wet flop; flop is wet (two hearts, connected cards); hero folds. Hand 3: Mara raises on a wet flop; flop is wet (two hearts, connected cards); hero folds. Hand 4: Hero's stack has fallen from 1200 to 840 chips. Mara raises on a wet flop; hero re-raises; Mara folds again.\n\nOutput:",
+     "wall_s": 15.78,
+     "model_calls": 5,
+     "gauge_calls": 6,
+     "gauge_embed_calls": 3,
+     "gauge_judge_calls": 3,
+     "retries": 3,
+     "steps": [
+      {
+       "step": 1,
+       "key": "facts",
+       "attempts": [
+        {
+         "attempt": 0,
+         "output": "Hand 1: Mara raises on a dry flop; flop is dry (King, 7, 2, all different suits); hero folds. Hand 2: Mara raises on a wet flop; flop is wet (two hearts, connected cards); hero calls; Mara bets big on the turn and hero folds. Hand 3: Mara raises on a dry flop; flop is dry (two hearts, connected cards); hero folds. Hand 4: Hero's stack has fallen from 1200 to 840 chips. Mara raises on a wet flop; hero re-raises; Mara folds again.",
+         "wall_s": 3.33,
+         "gauge": {
+          "embed_sim": 0.766,
+          "judge_pos": 0.2126,
+          "judge_reading": "ignorance"
+         },
+         "passed": false
+        },
+        {
+         "attempt": 1,
+         "output": "Hand 1: Mara raises on a dry flop; flop is dry (King, 7, 2, all different suits); hero folds. Hand 2: Mara raises on a wet flop; flop is wet (two hearts, connected cards); hero calls; Mara bets big on the turn and hero folds. Hand 3: Mara raises on a wet flop; flop is wet (two hearts, connected cards); hero folds. Hand 4: Hero's stack has fallen from 1200 to 840 chips. Mara raises on a wet flop; hero re-raises; Mara folds again.",
+         "wall_s": 2.67,
+         "gauge": {
+          "embed_sim": 0.758,
+          "judge_pos": 0.2126,
+          "judge_reading": "ignorance"
+         },
+         "passed": false
+        },
+        {
+         "attempt": 2,
+         "output": "Hand 1: Mara raises on a dry flop; flop is dry (King, 7, 2, all different suits); hero folds. Hand 2: Mara raises on a wet flop; flop is wet (two hearts, connected cards); hero calls; Mara bets big on the turn and hero folds. Hand 3: Mara raises on a wet flop; flop is wet (two hearts, connected cards); hero folds. Hand 4: Hero's stack has fallen from 1200 to 840 chips. Mara raises on a wet flop; hero re-raises; Mara folds again.",
+         "wall_s": 3.0,
+         "gauge": {
+          "embed_sim": 0.758,
+          "judge_pos": 0.2126,
+          "judge_reading": "ignorance"
+         },
+         "passed": false
+        }
+       ],
+       "final": "Hand 1: Mara raises on a dry flop; flop is dry (King, 7, 2, all different suits); hero folds. Hand 2: Mara raises on a wet flop; flop is wet (two hearts, connected cards); hero calls; Mara bets big on the turn and hero folds. Hand 3: Mara raises on a wet flop; flop is wet (two hearts, connected cards); hero folds. Hand 4: Hero's stack has fallen from 1200 to 840 chips. Mara raises on a wet flop; hero re-raises; Mara folds again."
+      }
+     ],
+     "assembly_attempts": [
+      {
+       "attempt": 0,
+       "output": "[facts] Hand 1: Mara raises on a dry flop; flop is dry (King, 7, 2, all different suits); hero raises on a wet flop; flop is wet (two hearts, connected cards); hero calls; Mara bets big on the turn and hero folds. Hand 2: Mara raises on a wet flop; flop is wet (two hearts, connected cards); hero folds. Hand 3: Mara raises on a wet flop; flop is wet (two hearts, connected cards); hero folds. Hand 4: Hero's stack has fallen from 1200 to 840 chips. Mara raises on a wet flop; hero re-raises; Mara folds again.",
+       "wall_s": 2.81,
+       "validator_error": "expected exactly 3 bullet lines starting with '- ', got 1 lines / 0 bullets"
+      },
+      {
+       "attempt": 1,
+       "output": "[facts] Hand 1: Mara raises on a dry flop; flop is dry (King, 7, 2, all different suits); hero raises on a wet flop; flop is wet (two hearts, connected cards); hero calls; Mara bets big on the turn and hero folds. Hand 2: Mara raises on a wet flop; flop is wet (two hearts, connected cards); hero folds. Hand 3: Mara raises on a wet flop; flop is wet (two hearts, connected cards); hero folds. Hand 4: Hero's stack has fallen from 1200 to 840 chips. Mara raises on a wet flop; hero re-raises; Mara folds again.\n\nOutput:",
+       "wall_s": 3.3,
+       "validator_error": "expected exactly 3 bullet lines starting with '- ', got 2 lines / 0 bullets"
+      }
+     ]
+    },
+    "digest-scout": {
+     "points": 3,
+     "max": 4,
+     "notes": [
+      "north harvesters OK",
+      "idle east OK",
+      "threat OK"
+     ],
+     "output": "[facts] - Enemy harvesters seen at the north ridge, guarded by two tanks\n- Our east harvesters have been idle for two turns because the east field is empty\n- Enemy aircraft spotted heading south toward our base\n- Our south wall is at half strength after yesterday's attack\n\nOutput:",
+     "wall_s": 4.87,
+     "model_calls": 3,
+     "gauge_calls": 2,
+     "gauge_embed_calls": 1,
+     "gauge_judge_calls": 1,
+     "retries": 1,
+     "steps": [
+      {
+       "step": 1,
+       "key": "facts",
+       "attempts": [
+        {
+         "attempt": 0,
+         "output": "- Enemy harvesters seen at the north ridge, guarded by two tanks\n- Our east harvesters have been idle for two turns because the east field is empty\n- Enemy aircraft spotted heading south toward our base\n- Our south wall is at half strength after yesterday's attack\n\nOutput:",
+         "wall_s": 1.57,
+         "gauge": {
+          "embed_sim": 0.931,
+          "judge_pos": 0.3521,
+          "judge_reading": "ignorance"
+         },
+         "passed": true
+        }
+       ],
+       "final": "- Enemy harvesters seen at the north ridge, guarded by two tanks\n- Our east harvesters have been idle for two turns because the east field is empty\n- Enemy aircraft spotted heading south toward our base\n- Our south wall is at half strength after yesterday's attack\n\nOutput:"
+      }
+     ],
+     "assembly_attempts": [
+      {
+       "attempt": 0,
+       "output": "[facts] - Enemy harvesters seen at the north ridge, guarded by two tanks\n- Our east harvesters have been idle for two turns because the east field is empty\n- Enemy aircraft spotted heading south toward our base\n- Our south wall is at half strength after yesterday's attack\n\nOutput:",
+       "wall_s": 1.55,
+       "validator_error": "expected exactly 3 bullet lines starting with '- ', got 5 lines / 3 bullets"
+      },
+      {
+       "attempt": 1,
+       "output": "[facts] - Enemy harvesters seen at the north ridge, guarded by two tanks\n- Our east harvesters have been idle for two turns because the east field is empty\n- Enemy aircraft spotted heading south toward our base\n- Our south wall is at half strength after yesterday's attack\n\nOutput:",
+       "wall_s": 1.68,
+       "validator_error": "expected exactly 3 bullet lines starting with '- ', got 5 lines / 3 bullets"
+      }
+     ]
+    },
+    "extract-ferry": {
+     "points": 2,
+     "max": 6,
+     "notes": [
+      "date OK",
+      "dock OK"
+     ],
+     "output": "{\n  \"buyer\": \"Ben\",\n  \"item\": \"ropes\",\n  \"count\": 2,\n  \"day\": \"Tuesday\",\n  \"date\": \"14 June\",\n  \"passengers\": 2,\n  \"dock\": \"Dock 4\",\n  \"name\": \"Priya\",\n  \"city\": \"Oslo\",\n  \"age\": 31\n}",
+     "wall_s": 5.13,
+     "model_calls": 3,
+     "gauge_calls": 2,
+     "gauge_embed_calls": 1,
+     "gauge_judge_calls": 1,
+     "retries": 1,
+     "steps": [
+      {
+       "step": 1,
+       "key": "fields",
+       "attempts": [
+        {
+         "attempt": 0,
+         "output": "Fields passenger_name=Priya; vessel=MV Kestrel; date=14 June; passengers=2; dock=Dock 4;\n\nOutput:\nPriya \u2014 boat at 6, seat 14.",
+         "wall_s": 1.33,
+         "gauge": {
+          "embed_sim": 0.498,
+          "judge_pos": 0.6863,
+          "judge_reading": "settled +"
+         },
+         "passed": true
+        }
+       ],
+       "final": "Fields passenger_name=Priya; vessel=MV Kestrel; date=14 June; passengers=2; dock=Dock 4;\n\nOutput:\nPriya \u2014 boat at 6, seat 14."
+      }
+     ],
+     "assembly_attempts": [
+      {
+       "attempt": 0,
+       "output": "{\n  \"buyer\": \"Ben\",\n  \"item\": \"ropes\",\n  \"count\": 2,\n  \"day\": \"Tuesday\",\n  \"date\": \"14 June\",\n  \"passengers\": 2,\n  \"dock\": \"Dock 4\",\n  \"name\": \"Priya\",\n  \"city\": \"Oslo\",\n  \"age\": 31\n}",
+       "wall_s": 1.76,
+       "validator_error": "JSON keys must be exactly ['date', 'dock', 'passenger_name', 'passengers', 'vessel'], got ['age', 'buyer', 'city', 'count', 'date', 'day', 'dock', 'item', 'name', 'passengers']"
+      },
+      {
+       "attempt": 1,
+       "output": "{\n  \"buyer\": \"Ben\",\n  \"item\": \"ropes\",\n  \"count\": 2,\n  \"day\": \"Tuesday\",\n  \"date\": \"14 June\",\n  \"passengers\": 2,\n  \"dock\": \"Dock 4\",\n  \"name\": \"Priya\",\n  \"city\": \"Oslo\",\n  \"age\": 31\n}",
+       "wall_s": 1.97,
+       "validator_error": "JSON keys must be exactly ['date', 'dock', 'passenger_name', 'passengers', 'vessel'], got ['age', 'buyer', 'city', 'count', 'date', 'day', 'dock', 'item', 'name', 'passengers']"
+      }
+     ]
+    },
+    "extract-maintenance": {
+     "points": 0,
+     "max": 7,
+     "notes": [],
+     "output": "{\n  \"location\": \"Oslo\",\n  \"equipment\": \"Ropes\",\n  \"fault\": \"Rope\",\n  \"part_needed\": \"Rope\",\n  \"due\": \"Rope\",\n  \"priority\": \"Rope\",\n}",
+     "wall_s": 6.61,
+     "model_calls": 5,
+     "gauge_calls": 6,
+     "gauge_embed_calls": 3,
+     "gauge_judge_calls": 3,
+     "retries": 3,
+     "steps": [
+      {
+       "step": 1,
+       "key": "fields",
+       "attempts": [
+        {
+         "attempt": 0,
+         "output": "Fields location=...; equipment=...; fault=...; part_needed=...; due=...; priority=...",
+         "wall_s": 1.07,
+         "gauge": {
+          "embed_sim": 0.187,
+          "judge_pos": 0.267,
+          "judge_reading": "ignorance"
+         },
+         "passed": false
+        },
+        {
+         "attempt": 1,
+         "output": "Fields location=...; equipment=...; fault=...; part_needed=...; due=...; priority=...\nOutput only the step result.",
+         "wall_s": 1.24,
+         "gauge": {
+          "embed_sim": 0.165,
+          "judge_pos": 0.267,
+          "judge_reading": "ignorance"
+         },
+         "passed": false
+        },
+        {
+         "attempt": 2,
+         "output": "Fields location=...; equipment=...; fault=...; part_needed=...; due=...; priority=...\nOutput only the step result.",
+         "wall_s": 1.23,
+         "gauge": {
+          "embed_sim": 0.165,
+          "judge_pos": 0.267,
+          "judge_reading": "ignorance"
+         },
+         "passed": false
+        }
+       ],
+       "final": "Fields location=...; equipment=...; fault=...; part_needed=...; due=...; priority=...\nOutput only the step result."
+      }
+     ],
+     "assembly_attempts": [
+      {
+       "attempt": 0,
+       "output": "{\n  \"location\": \"Oslo\",\n  \"equipment\": \"Ropes\",\n  \"fault\": \"Rope\",\n  \"part_needed\": \"Rope\",\n  \"due\": \"Rope\",\n  \"priority\": \"Rope\",\n}",
+       "wall_s": 1.34,
+       "validator_error": "output is not a parseable JSON object"
+      },
+      {
+       "attempt": 1,
+       "output": "{\n  \"location\": \"Oslo\",\n  \"equipment\": \"Ropes\",\n  \"fault\": \"Rope\",\n  \"part_needed\": \"Rope\",\n  \"due\": \"Rope\",\n  \"priority\": \"Rope\",\n}",
+       "wall_s": 1.54,
+       "validator_error": "output is not a parseable JSON object"
+      }
+     ]
+    },
+    "consistency-gate": {
+     "points": 2,
+     "max": 5,
+     "notes": [
+      "agree:fog OK",
+      "agree:ferry-delay OK"
+     ],
+     "output": "Output:\nAGREE:\n- Tom is on duty.\n- The harbour gate was closed at 06:10 because of fog.\n- The ferry was delayed by one hour.\n- The harbour gate was closed because of fog.\n\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:",
+     "wall_s": 6.34,
+     "model_calls": 3,
+     "gauge_calls": 2,
+     "gauge_embed_calls": 1,
+     "gauge_judge_calls": 1,
+     "retries": 1,
+     "steps": [
+      {
+       "step": 1,
+       "key": "compare",
+       "attempts": [
+        {
+         "attempt": 0,
+         "output": "Same: The harbour gate was closed at 06:10 because of fog. Three trucks waited at the gate. The ferry was delayed by one hour.\nDifferent: The harbour gate was closed because of fog, at 06:40. Five trucks waited at the gate. The ferry was delayed by one hour.\n\nOutput:",
+         "wall_s": 1.76,
+         "gauge": {
+          "embed_sim": 0.872,
+          "judge_pos": 0.3245,
+          "judge_reading": "ignorance"
+         },
+         "passed": true
+        }
+       ],
+       "final": "Same: The harbour gate was closed at 06:10 because of fog. Three trucks waited at the gate. The ferry was delayed by one hour.\nDifferent: The harbour gate was closed because of fog, at 06:40. Five trucks waited at the gate. The ferry was delayed by one hour.\n\nOutput:"
+      }
+     ],
+     "assembly_attempts": [
+      {
+       "attempt": 0,
+       "output": "AGREE:\n- Tom is on duty.\n- The harbour gate was closed at 06:10 because of fog.\n- The ferry was delayed by one hour.\n- The harbour gate was closed because of fog.\n\nOutput:",
+       "wall_s": 1.37,
+       "validator_error": "output must contain an 'AGREE:' section and a 'CONFLICT:' section"
+      },
+      {
+       "attempt": 1,
+       "output": "Output:\nAGREE:\n- Tom is on duty.\n- The harbour gate was closed at 06:10 because of fog.\n- The ferry was delayed by one hour.\n- The harbour gate was closed because of fog.\n\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:\nOutput:",
+       "wall_s": 3.13,
+       "validator_error": "output must contain an 'AGREE:' section and a 'CONFLICT:' section"
+      }
+     ]
+    },
+    "consistency-server": {
+     "points": 0,
+     "max": 5,
+     "notes": [],
+     "output": "Output:",
+     "wall_s": 6.58,
+     "model_calls": 5,
+     "gauge_calls": 6,
+     "gauge_embed_calls": 3,
+     "gauge_judge_calls": 3,
+     "retries": 3,
+     "steps": [
+      {
+       "step": 1,
+       "key": "compare",
+       "attempts": [
+        {
+         "attempt": 0,
+         "output": "Report A: The backup server failed at midnight. The cause was a full disk. Two services were offline for 30 minutes.\n\nReport B: The backup server failed at midnight because its disk was full. Three services were offline, for 30 minutes.\n\nOutput:",
+         "wall_s": 1.45,
+         "gauge": {
+          "embed_sim": 0.874,
+          "judge_pos": 0.2348,
+          "judge_reading": "ignorance"
+         },
+         "passed": false
+        },
+        {
+         "attempt": 1,
+         "output": "Report A: The backup server failed at midnight. The cause was a full disk. Two services were offline for 30 minutes.\n\nReport B: The backup server failed at midnight because its disk was full. Three services were offline, for 30 minutes.\n\nOutput:",
+         "wall_s": 1.66,
+         "gauge": {
+          "embed_sim": 0.874,
+          "judge_pos": 0.2348,
+          "judge_reading": "ignorance"
+         },
+         "passed": false
+        },
+        {
+         "attempt": 2,
+         "output": "Report A: The backup server failed at midnight. The cause was a full disk. Two services were offline for 30 minutes.\n\nReport B: The backup server failed at midnight because its disk was full. Three services were offline, for 30 minutes.\n\nOutput:",
+         "wall_s": 1.62,
+         "gauge": {
+          "embed_sim": 0.874,
+          "judge_pos": 0.2348,
+          "judge_reading": "ignorance"
+         },
+         "passed": false
+        }
+       ],
+       "final": "Report A: The backup server failed at midnight. The cause was a full disk. Two services were offline for 30 minutes.\n\nReport B: The backup server failed at midnight because its disk was full. Three services were offline, for 30 minutes.\n\nOutput:"
+      }
+     ],
+     "assembly_attempts": [
+      {
+       "attempt": 0,
+       "output": "Output:",
+       "wall_s": 0.83,
+       "validator_error": "output must contain an 'AGREE:' section and a 'CONFLICT:' section"
+      },
+      {
+       "attempt": 1,
+       "output": "Output:",
+       "wall_s": 0.88,
+       "validator_error": "output must contain an 'AGREE:' section and a 'CONFLICT:' section"
+      }
+     ]
+    },
+    "format-status": {
+     "points": 1,
+     "max": 4,
+     "notes": [
+      "format OK"
+     ],
+     "output": "JSON: {\"status\": \"pending\", \"code\": \"pending\", \"bays\": [\"31\"]}",
+     "wall_s": 4.7,
+     "model_calls": 4,
+     "gauge_calls": 6,
+     "gauge_embed_calls": 3,
+     "gauge_judge_calls": 3,
+     "retries": 2,
+     "steps": [
+      {
+       "step": 1,
+       "key": "fields",
+       "attempts": [
+        {
+         "attempt": 0,
+         "output": "Fields status=...; code=...; bays=...",
+         "wall_s": 0.87,
+         "gauge": {
+          "embed_sim": 0.449,
+          "judge_pos": 0.1988,
+          "judge_reading": "ignorance"
+         },
+         "passed": false
+        },
+        {
+         "attempt": 1,
+         "output": "Fields status=...; code=...; bays=...\nA checker said: a checker would not let this proceed (judge pos 0.20, reading 'ignorance'). Fix that. Output only the corrected step result.",
+         "wall_s": 1.31,
+         "gauge": {
+          "embed_sim": 0.387,
+          "judge_pos": 0.1918,
+          "judge_reading": "lean"
+         },
+         "passed": false
+        },
+        {
+         "attempt": 2,
+         "output": "Fields status=...; code=...; bays=...\nA checker said: a checker would not let this proceed (judge pos 0.19, reading 'lean'). Fix that. Output only the corrected step result.",
+         "wall_s": 1.37,
+         "gauge": {
+          "embed_sim": 0.326,
+          "judge_pos": 0.1918,
+          "judge_reading": "lean"
+         },
+         "passed": false
+        }
+       ],
+       "final": "Fields status=...; code=...; bays=...\nA checker said: a checker would not let this proceed (judge pos 0.19, reading 'lean'). Fix that. Output only the corrected step result."
+      }
+     ],
+     "assembly_attempts": [
+      {
+       "attempt": 0,
+       "output": "JSON: {\"status\": \"pending\", \"code\": \"pending\", \"bays\": [\"31\"]}",
+       "wall_s": 1.02,
+       "validator_error": null
+      }
+     ]
+    },
+    "classify-messages": {
+     "points": 3,
+     "max": 5,
+     "notes": [
+      "label 1 OK",
+      "label 2 OK",
+      "label 3 OK"
+     ],
+     "output": "1: BILLING\n2: SHIPPING\n3: OTHER",
+     "wall_s": 2.78,
+     "model_calls": 3,
+     "gauge_calls": 2,
+     "gauge_embed_calls": 1,
+     "gauge_judge_calls": 1,
+     "retries": 1,
+     "steps": [
+      {
+       "step": 1,
+       "key": "labels",
+       "attempts": [
+        {
+         "attempt": 0,
+         "output": "1: BILLING\n2: SHIPPING\n3: OTHER",
+         "wall_s": 0.97,
+         "gauge": {
+          "embed_sim": 0.71,
+          "judge_pos": 0.4878,
+          "judge_reading": "ignorance"
+         },
+         "passed": true
+        }
+       ],
+       "final": "1: BILLING\n2: SHIPPING\n3: OTHER"
+      }
+     ],
+     "assembly_attempts": [
+      {
+       "attempt": 0,
+       "output": "",
+       "wall_s": 0.78,
+       "validator_error": "expected exactly 4 lines of the form 'N: BILLING|SHIPPING|OTHER'"
+      },
+      {
+       "attempt": 1,
+       "output": "1: BILLING\n2: SHIPPING\n3: OTHER",
+       "wall_s": 0.97,
+       "validator_error": "expected exactly 4 lines of the form 'N: BILLING|SHIPPING|OTHER'"
+      }
+     ]
+    }
+   },
+   "total_points": 14,
+   "total_max": 40,
+   "wall_s": 52.79,
+   "model_calls": 31,
+   "gauge_calls": 32
+  },
+  "A360": {
+   "arm": "A360",
+   "model": "SmolLM2-360M-Instruct-Q8_0.gguf",
+   "tasks": {
+    "digest-poker": {
+     "points": 3,
+     "max": 4,
+     "notes": [
+      "pattern:dry-fold OK",
+      "stack OK",
+      "format OK"
+     ],
+     "output": "- Mara's stack has fallen from 1200 to 840 chips.\n- Mara raised on a dry flop, but the hero re-raised.\n- Mara folded at once.",
+     "wall_s": 2.68,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "digest-scout": {
+     "points": 3,
+     "max": 4,
+     "notes": [
+      "north harvesters OK",
+      "idle east OK",
+      "threat OK"
+     ],
+     "output": "- Enemy harvesters seen at the north ridge, guarded by two tanks.\n- Our east harvesters have been idle for two turns because the east field is empty.\n- Enemy aircraft spotted heading south toward our base.\n- Our south wall is at half strength after yesterday's attack.",
+     "wall_s": 2.84,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "extract-ferry": {
+     "points": 0,
+     "max": 6,
+     "notes": [],
+     "output": "{\n  \"passenger_name\": \"Alana Reyes\",\n  \"vessel\": \"MV Kestrel\",\n  \"date\": \"14 June\",\n  \"passengers\": [\n    \"6\",\n  ],\n  \"dock\": \"Dock 4\"\n}",
+     "wall_s": 2.59,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "extract-maintenance": {
+     "points": 7,
+     "max": 7,
+     "notes": [
+      "location OK",
+      "equipment OK",
+      "fault OK",
+      "part OK",
+      "due OK",
+      "priority OK",
+      "format OK"
+     ],
+     "output": "{\n  \"location\": \"pump house\",\n  \"equipment\": \"the aft bilge pump\",\n  \"fault\": \"the aft bilge pump is rattling again\",\n  \"part_needed\": \"a new impeller\",\n  \"due\": \"Friday 20 June\",\n  \"priority\": \"urgent\"\n}",
+     "wall_s": 2.88,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "consistency-gate": {
+     "points": 2,
+     "max": 5,
+     "notes": [
+      "agree:fog OK",
+      "agree:ferry-delay OK"
+     ],
+     "output": "Report A: The harbour gate was closed at 06:10 because of fog. Three trucks waited at the gate. The ferry was delayed by one hour. Report B: The harbour gate was closed because of fog, at 06:40. Five trucks waited at the gate. The ferry was delayed by one hour.",
+     "wall_s": 2.91,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "consistency-server": {
+     "points": 3,
+     "max": 5,
+     "notes": [
+      "agree:midnight OK",
+      "agree:disk OK",
+      "agree:30min OK"
+     ],
+     "output": "Report A: The backup server failed at midnight. The cause was a full disk. Two services were offline for 30 minutes. Report B: The backup server failed at midnight because its disk was full. Three services were offline, for 30 minutes.",
+     "wall_s": 2.55,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "format-status": {
+     "points": 4,
+     "max": 4,
+     "notes": [
+      "status OK",
+      "code OK",
+      "bays OK",
+      "format OK"
+     ],
+     "output": "{\n  \"status\": \"operational\",\n  \"code\": 7,\n  \"bays\": [\n    \"bay 2\",\n    \"bay 5\"\n  ]\n}",
+     "wall_s": 2.04,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "classify-messages": {
+     "points": 0,
+     "max": 5,
+     "notes": [],
+     "output": "1. My invoice shows the wrong total\n2. Has my order shipped yet\n3. The app will not start on my phone\n4. I was charged twice for one ticket",
+     "wall_s": 2.19,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    }
+   },
+   "total_points": 22,
+   "total_max": 40,
+   "wall_s": 20.68,
+   "model_calls": 8,
+   "gauge_calls": 0
+  },
+  "B360": {
+   "arm": "B360",
+   "model": "SmolLM2-360M-Instruct-Q8_0.gguf",
+   "tasks": {
+    "digest-poker": {
+     "points": 1,
+     "max": 4,
+     "notes": [
+      "format OK"
+     ],
+     "output": "- Mara raised on a dry flop (two hearts, connected cards)\n- Mara folded at once\n- Mara's pattern: 2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2",
+     "wall_s": 8.9,
+     "model_calls": 2,
+     "gauge_calls": 2,
+     "gauge_embed_calls": 1,
+     "gauge_judge_calls": 1,
+     "retries": 0,
+     "steps": [
+      {
+       "step": 1,
+       "key": "facts",
+       "attempts": [
+        {
+         "attempt": 0,
+         "output": "- Mara raised on a dry flop (two hearts, connected cards)\n- Mara folded at once",
+         "wall_s": 2.52,
+         "gauge": {
+          "embed_sim": 0.655,
+          "judge_pos": 0.2657,
+          "judge_reading": "ignorance"
+         },
+         "passed": true
+        }
+       ],
+       "final": "- Mara raised on a dry flop (two hearts, connected cards)\n- Mara folded at once"
+      }
+     ],
+     "assembly_attempts": [
+      {
+       "attempt": 0,
+       "output": "- Mara raised on a dry flop (two hearts, connected cards)\n- Mara folded at once\n- Mara's pattern: 2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2",
+       "wall_s": 6.32,
+       "validator_error": null
+      }
+     ]
+    },
+    "digest-scout": {
+     "points": 2,
+     "max": 4,
+     "notes": [
+      "idle east OK",
+      "threat OK"
+     ],
+     "output": "- The ferry left at noon after a rain delay.\n- It carried 40 cars.\n- Rain was the cause of the delay.\n- The ferry was not idle for two turns because the ferry field is empty.\n- Enemy aircraft spotted heading south toward our base.\n- Our east harvesters have been idle for two turns because the east field is empty.\n- Enemy aircraft spotted heading south toward our base.\n- Our south wall is at half strength after yesterday's attack.",
+     "wall_s": 12.44,
+     "model_calls": 3,
+     "gauge_calls": 2,
+     "gauge_embed_calls": 1,
+     "gauge_judge_calls": 1,
+     "retries": 1,
+     "steps": [
+      {
+       "step": 1,
+       "key": "facts",
+       "attempts": [
+        {
+         "attempt": 0,
+         "output": "- Enemy harvesters seen at the north ridge, guarded by two tanks.\n- Our east harvesters have been idle for two turns because the east field is empty.\n- Enemy aircraft spotted heading south toward our base.\n- Our south wall is at half strength after yesterday's attack.",
+         "wall_s": 3.34,
+         "gauge": {
+          "embed_sim": 0.918,
+          "judge_pos": 0.3099,
+          "judge_reading": "conflict"
+         },
+         "passed": true
+        }
+       ],
+       "final": "- Enemy harvesters seen at the north ridge, guarded by two tanks.\n- Our east harvesters have been idle for two turns because the east field is empty.\n- Enemy aircraft spotted heading south toward our base.\n- Our south wall is at half strength after yesterday's attack."
+      }
+     ],
+     "assembly_attempts": [
+      {
+       "attempt": 0,
+       "output": "- The ferry left at noon after a rain delay.\n- It carried 40 cars.\n- Rain was the cause of the delay.\n- The ferry was not idle for two turns because the ferry field is empty.\n- Enemy aircraft spotted heading south toward our base.\n- Our east harvesters have been idle for two turns because the east field is empty.\n- Enemy aircraft spotted heading south toward our base.\n- Our south wall is at half strength after yesterday's attack.",
+       "wall_s": 4.24,
+       "validator_error": "expected exactly 3 bullet lines starting with '- ', got 8 lines / 8 bullets"
+      },
+      {
+       "attempt": 1,
+       "output": "- The ferry left at noon after a rain delay.\n- It carried 40 cars.\n- Rain was the cause of the delay.\n- The ferry was not idle for two turns because the ferry field is empty.\n- Enemy aircraft spotted heading south toward our base.\n- Our east harvesters have been idle for two turns because the east field is empty.\n- Enemy aircraft spotted heading south toward our base.\n- Our south wall is at half strength after yesterday's attack.",
+       "wall_s": 4.78,
+       "validator_error": "expected exactly 3 bullet lines starting with '- ', got 8 lines / 8 bullets"
+      }
+     ]
+    },
+    "extract-ferry": {
+     "points": 0,
+     "max": 6,
+     "notes": [],
+     "output": "{\n  \"passenger_name\": \"Ana\",\n  \"vessel\": \"Vessel\",\n  \"date\": \"Date\",\n  \"passengers\": [\n    {\n      \"passenger_name\": \"Ana\",\n      \"vessel\": \"Vessel\",\n      \"date\": \"Date\",\n      \"passengers\": [\n        {\n          \"passenger_name\": \"Ana\",\n          \"vessel\": \"Vessel\",\n          \"date\": \"Date\",\n          \"passengers\": [\n            {\n              \"passenger_name\": \"Ana\",\n              \"vessel\": \"Vessel\",\n              \"date\": \"Date\",\n              \"passengers\": [\n                {\n                  \"passenger_name\": \"Ana\",\n                  \"vessel\": \"Vessel\",\n                  \"date\": \"Date\",\n                  \"passengers\": [\n                    {\n                      \"passenger_name\": \"Ana\",\n                      \"vessel\": \"Vessel\",\n                      \"date\":",
+     "wall_s": 15.03,
+     "model_calls": 3,
+     "gauge_calls": 2,
+     "gauge_embed_calls": 1,
+     "gauge_judge_calls": 1,
+     "retries": 1,
+     "steps": [
+      {
+       "step": 1,
+       "key": "fields",
+       "attempts": [
+        {
+         "attempt": 0,
+         "output": "Fields passenger_name=...; vessel=...; date=...; passengers=...; dock=...",
+         "wall_s": 2.12,
+         "gauge": {
+          "embed_sim": 0.46,
+          "judge_pos": 0.3336,
+          "judge_reading": "conflict"
+         },
+         "passed": true
+        }
+       ],
+       "final": "Fields passenger_name=...; vessel=...; date=...; passengers=...; dock=..."
+      }
+     ],
+     "assembly_attempts": [
+      {
+       "attempt": 0,
+       "output": "```json\n{\n  \"passenger_name\": \"Ana\",\n  \"vessel\": \"Vessel\",\n  \"date\": \"Date\",\n  \"passengers\": [\n    {\n      \"passenger_name\": \"Ana\",\n      \"vessel\": \"Vessel\",\n      \"date\": \"Date\",\n      \"passengers\": [\n        {\n          \"passenger_name\": \"Ana\",\n          \"vessel\": \"Vessel\",\n          \"date\": \"Date\",\n          \"passengers\": [\n            {\n              \"passenger_name\": \"Ana\",\n              \"vessel\": \"Vessel\",\n              \"date\": \"Date\",\n              \"passengers\": [\n                {\n                  \"passenger_name\": \"Ana\",\n                  \"vessel\": \"Vessel\",\n                  \"date\": \"Date\",\n                  \"passengers\": [\n                    {\n                      \"passenger_name\": \"Ana\",\n                      \"vessel\": \"Vessel\",",
+       "wall_s": 5.94,
+       "validator_error": "output is not a parseable JSON object"
+      },
+      {
+       "attempt": 1,
+       "output": "{\n  \"passenger_name\": \"Ana\",\n  \"vessel\": \"Vessel\",\n  \"date\": \"Date\",\n  \"passengers\": [\n    {\n      \"passenger_name\": \"Ana\",\n      \"vessel\": \"Vessel\",\n      \"date\": \"Date\",\n      \"passengers\": [\n        {\n          \"passenger_name\": \"Ana\",\n          \"vessel\": \"Vessel\",\n          \"date\": \"Date\",\n          \"passengers\": [\n            {\n              \"passenger_name\": \"Ana\",\n              \"vessel\": \"Vessel\",\n              \"date\": \"Date\",\n              \"passengers\": [\n                {\n                  \"passenger_name\": \"Ana\",\n                  \"vessel\": \"Vessel\",\n                  \"date\": \"Date\",\n                  \"passengers\": [\n                    {\n                      \"passenger_name\": \"Ana\",\n                      \"vessel\": \"Vessel\",\n                      \"date\":",
+       "wall_s": 6.91,
+       "validator_error": "output is not a parseable JSON object"
+      }
+     ]
+    },
+    "extract-maintenance": {
+     "points": 0,
+     "max": 7,
+     "notes": [],
+     "output": "{\n  \"fields\": {\n    \"location\": \"...\"\n  }\n}",
+     "wall_s": 12.59,
+     "model_calls": 5,
+     "gauge_calls": 6,
+     "gauge_embed_calls": 3,
+     "gauge_judge_calls": 3,
+     "retries": 3,
+     "steps": [
+      {
+       "step": 1,
+       "key": "fields",
+       "attempts": [
+        {
+         "attempt": 0,
+         "output": "Fields location=...; equipment=...; fault=...; part_needed=...; due=...; priority=...",
+         "wall_s": 2.28,
+         "gauge": {
+          "embed_sim": 0.187,
+          "judge_pos": 0.267,
+          "judge_reading": "ignorance"
+         },
+         "passed": false
+        },
+        {
+         "attempt": 1,
+         "output": "Fields location=...; equipment=...; fault=...; part_needed=...; due=...; priority=...",
+         "wall_s": 2.48,
+         "gauge": {
+          "embed_sim": 0.187,
+          "judge_pos": 0.267,
+          "judge_reading": "ignorance"
+         },
+         "passed": false
+        },
+        {
+         "attempt": 2,
+         "output": "Fields location=...; equipment=...; fault=...; part_needed=...; due=...; priority=...",
+         "wall_s": 2.57,
+         "gauge": {
+          "embed_sim": 0.187,
+          "judge_pos": 0.267,
+          "judge_reading": "ignorance"
+         },
+         "passed": false
+        }
+       ],
+       "final": "Fields location=...; equipment=...; fault=...; part_needed=...; due=...; priority=..."
+      }
+     ],
+     "assembly_attempts": [
+      {
+       "attempt": 0,
+       "output": "{\n  \"fields\": {\n    \"location\": \"...\",\n    \"equipment\": \"...\",\n    \"fault\": \"...\",\n    \"part_needed\": \"...\",\n    \"due\": \"...\",\n    \"priority\": \"...\"\n  }\n}",
+       "wall_s": 2.76,
+       "validator_error": "JSON keys must be exactly ['due', 'equipment', 'fault', 'location', 'part_needed', 'priority'], got ['fields']"
+      },
+      {
+       "attempt": 1,
+       "output": "{\n  \"fields\": {\n    \"location\": \"...\"\n  }\n}",
+       "wall_s": 2.36,
+       "validator_error": "JSON keys must be exactly ['due', 'equipment', 'fault', 'location', 'part_needed', 'priority'], got ['fields']"
+      }
+     ]
+    },
+    "consistency-gate": {
+     "points": 1,
+     "max": 5,
+     "notes": [
+      "agree:fog OK"
+     ],
+     "output": "AGREE: Both reports share the fact that the harbour gate was closed due to fog.\n\nDifferent: Report A states that three trucks waited at the gate, while Report B states that five trucks waited at the gate.",
+     "wall_s": 8.78,
+     "model_calls": 3,
+     "gauge_calls": 2,
+     "gauge_embed_calls": 1,
+     "gauge_judge_calls": 1,
+     "retries": 1,
+     "steps": [
+      {
+       "step": 1,
+       "key": "compare",
+       "attempts": [
+        {
+         "attempt": 0,
+         "output": "Same: Both reports share the fact that the harbour gate was closed due to fog.\nDifferent: Report A states that three trucks waited at the gate, while Report B states that five trucks waited at the gate.",
+         "wall_s": 2.94,
+         "gauge": {
+          "embed_sim": 0.72,
+          "judge_pos": 0.5366,
+          "judge_reading": "lean"
+         },
+         "passed": true
+        }
+       ],
+       "final": "Same: Both reports share the fact that the harbour gate was closed due to fog.\nDifferent: Report A states that three trucks waited at the gate, while Report B states that five trucks waited at the gate."
+      }
+     ],
+     "assembly_attempts": [
+      {
+       "attempt": 0,
+       "output": "AGREE: Both reports share the fact that the harbour gate was closed due to fog.\n\nDifferent: Report A states that three trucks waited at the gate, while Report B states that five trucks waited at the gate.",
+       "wall_s": 2.72,
+       "validator_error": "output must contain an 'AGREE:' section and a 'CONFLICT:' section"
+      },
+      {
+       "attempt": 1,
+       "output": "AGREE: Both reports share the fact that the harbour gate was closed due to fog.\n\nDifferent: Report A states that three trucks waited at the gate, while Report B states that five trucks waited at the gate.",
+       "wall_s": 3.07,
+       "validator_error": "output must contain an 'AGREE:' section and a 'CONFLICT:' section"
+      }
+     ]
+    },
+    "consistency-server": {
+     "points": 2,
+     "max": 5,
+     "notes": [
+      "agree:midnight OK",
+      "agree:disk OK"
+     ],
+     "output": "AGREE: Both reports share the fact that the backup server failed at midnight.\n\n- Both reports share the fact that the backup server failed at midnight.\n- Report A says the cause was a full disk, while Report B says it was a full disk.",
+     "wall_s": 8.52,
+     "model_calls": 3,
+     "gauge_calls": 2,
+     "gauge_embed_calls": 1,
+     "gauge_judge_calls": 1,
+     "retries": 1,
+     "steps": [
+      {
+       "step": 1,
+       "key": "compare",
+       "attempts": [
+        {
+         "attempt": 0,
+         "output": "Same: Both reports share the fact that the backup server failed at midnight.\nDifferent: Report A says the cause was a full disk, while Report B says it was a full disk.",
+         "wall_s": 2.72,
+         "gauge": {
+          "embed_sim": 0.805,
+          "judge_pos": 0.4085,
+          "judge_reading": "ignorance"
+         },
+         "passed": true
+        }
+       ],
+       "final": "Same: Both reports share the fact that the backup server failed at midnight.\nDifferent: Report A says the cause was a full disk, while Report B says it was a full disk."
+      }
+     ],
+     "assembly_attempts": [
+      {
+       "attempt": 0,
+       "output": "AGREE: Both reports share the fact that the backup server failed at midnight.\n\n- Both reports share the fact that the backup server failed at midnight.\n- Report A says the cause was a full disk, while Report B says it was a full disk.",
+       "wall_s": 2.58,
+       "validator_error": "output must contain an 'AGREE:' section and a 'CONFLICT:' section"
+      },
+      {
+       "attempt": 1,
+       "output": "AGREE: Both reports share the fact that the backup server failed at midnight.\n\n- Both reports share the fact that the backup server failed at midnight.\n- Report A says the cause was a full disk, while Report B says it was a full disk.",
+       "wall_s": 3.16,
+       "validator_error": "output must contain an 'AGREE:' section and a 'CONFLICT:' section"
+      }
+     ]
+    },
+    "format-status": {
+     "points": 0,
+     "max": 4,
+     "notes": [],
+     "output": "{\n  \"fields\": {\n    \"status\": \"active\",\n    \"code\": \"1\",\n    \"bays\": [\"rope1\", \"rope2\", \"rope3\"]\n  }\n}",
+     "wall_s": 16.22,
+     "model_calls": 5,
+     "gauge_calls": 6,
+     "gauge_embed_calls": 3,
+     "gauge_judge_calls": 3,
+     "retries": 3,
+     "steps": [
+      {
+       "step": 1,
+       "key": "fields",
+       "attempts": [
+        {
+         "attempt": 0,
+         "output": "1. Write the fields in the exact style: Fields status=...; code=...; bays=...\n2. Write the fields in the exact style: Fields status=...; code=...; bays=...\n3. Write the fields in the exact style: Fields status=...; code=...; bays=...",
+         "wall_s": 2.92,
+         "gauge": {
+          "embed_sim": 0.283,
+          "judge_pos": 0.1727,
+          "judge_reading": "lean"
+         },
+         "passed": false
+        },
+        {
+         "attempt": 1,
+         "output": "1. Write the fields in the exact style: Fields status=...; code=...; bays=...\n2. Write the fields in the exact style: Fields status=...; code=...; bays=...\n3. Write the fields in the exact style: Fields status=...; code=...; bays=...\n\nA checker said: a checker would not let this proceed (judge pos 0.17, reading 'lean'). Fix that.",
+         "wall_s": 3.96,
+         "gauge": {
+          "embed_sim": 0.299,
+          "judge_pos": 0.1727,
+          "judge_reading": "lean"
+         },
+         "passed": false
+        },
+        {
+         "attempt": 2,
+         "output": "1. Write the fields in the exact style: Fields status=...; code=...; bays=...\n2. Write the fields in the exact style: Fields status=...; code=...; bays=...\n3. Write the fields in the exact style: Fields status=...; code=...; bays=...",
+         "wall_s": 3.38,
+         "gauge": {
+          "embed_sim": 0.283,
+          "judge_pos": 0.1727,
+          "judge_reading": "lean"
+         },
+         "passed": false
+        }
+       ],
+       "final": "1. Write the fields in the exact style: Fields status=...; code=...; bays=...\n2. Write the fields in the exact style: Fields status=...; code=...; bays=...\n3. Write the fields in the exact style: Fields status=...; code=...; bays=..."
+      }
+     ],
+     "assembly_attempts": [
+      {
+       "attempt": 0,
+       "output": "```json\n{\n  \"fields\": {\n    \"status\": \"active\",\n    \"code\": \"1\",\n    \"bays\": [\"rope1\", \"rope2\", \"rope3\"]\n  }\n}\n```",
+       "wall_s": 2.73,
+       "validator_error": "JSON keys must be exactly ['bays', 'code', 'status'], got ['fields']"
+      },
+      {
+       "attempt": 1,
+       "output": "{\n  \"fields\": {\n    \"status\": \"active\",\n    \"code\": \"1\",\n    \"bays\": [\"rope1\", \"rope2\", \"rope3\"]\n  }\n}",
+       "wall_s": 3.06,
+       "validator_error": "JSON keys must be exactly ['bays', 'code', 'status'], got ['fields']"
+      }
+     ]
+    },
+    "classify-messages": {
+     "points": 0,
+     "max": 5,
+     "notes": [],
+     "output": "1. BILLING\n2. SHIPPING\n3. OTHER",
+     "wall_s": 5.77,
+     "model_calls": 3,
+     "gauge_calls": 2,
+     "gauge_embed_calls": 1,
+     "gauge_judge_calls": 1,
+     "retries": 1,
+     "steps": [
+      {
+       "step": 1,
+       "key": "labels",
+       "attempts": [
+        {
+         "attempt": 0,
+         "output": "1. BILLING\n2. SHIPPING",
+         "wall_s": 1.87,
+         "gauge": {
+          "embed_sim": 0.64,
+          "judge_pos": 0.5749,
+          "judge_reading": "lean"
+         },
+         "passed": true
+        }
+       ],
+       "final": "1. BILLING\n2. SHIPPING"
+      }
+     ],
+     "assembly_attempts": [
+      {
+       "attempt": 0,
+       "output": "1. BILLING\n2. SHIPPING",
+       "wall_s": 1.79,
+       "validator_error": "expected exactly 4 lines of the form 'N: BILLING|SHIPPING|OTHER'"
+      },
+      {
+       "attempt": 1,
+       "output": "1. BILLING\n2. SHIPPING\n3. OTHER",
+       "wall_s": 2.06,
+       "validator_error": "expected exactly 4 lines of the form 'N: BILLING|SHIPPING|OTHER'"
+      }
+     ]
+    }
+   },
+   "total_points": 6,
+   "total_max": 40,
+   "wall_s": 88.25,
+   "model_calls": 27,
+   "gauge_calls": 24
+  },
+  "C600": {
+   "arm": "C600",
+   "model": "Qwen3-0.6B-Q4_K_M.gguf",
+   "tasks": {
+    "digest-poker": {
+     "points": 2,
+     "max": 4,
+     "notes": [
+      "pattern:wet-bet OK",
+      "stack OK"
+     ],
+     "output": "<think>\nOkay, let's see. The user wants a situation summary in three bullet points, each starting with a hyphen. They also need to name the facts that matter for the hero's next decision. The game log provided has four hands, and the hero's next decision is after the fourth hand.\n\nFirst, I need to parse the game log. Let's break it down step by step. The first hand is Mara raising, the hero folds. Then in hand 2, Mara raises again, hero re-raises, and Mara folds. Hand 3 has a wet flop, hero calls, Mara bets big, and hero folds. Finally, the fourth hand shows the hero's stack fell from 1200 to 840. \n\nNow, the hero's next decision. After the fourth hand, the stack fell. The key facts here are the drop in chips and the subsequent actions. The facts that matter for the hero's next decision would be the chip loss and the subsequent betting. So, the bullet points should mention the chip loss and the betting. Let me check if I'm missing any important points. The wet flop in hand 3 and the hero's call are part of the previous actions, but the main facts here are the chip loss and the betting. Yeah, that should cover it.\n</think>\n\n- The hero's stack fell from 1200 to 840 chips, indicating a significant loss.  \n- The wet flop in hand 3 and the hero's call suggest a need to reassess the board's strength.",
+     "wall_s": 12.49,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "digest-scout": {
+     "points": 3,
+     "max": 4,
+     "notes": [
+      "north harvesters OK",
+      "idle east OK",
+      "threat OK"
+     ],
+     "output": "<think>\nOkay, let's tackle this. The user wants a situation summary in three bullet points, each starting with a hyphen. They also need to name the facts that matter for the commander's next decision. No other text.\n\nFirst, I need to parse the scout reports. Let me go through each report:\n\nReport 1: Enemy harvesters at the north ridge, guarded by two tanks. So, the key facts here are the presence of enemy harvesters and the tanks. That's important for the commander to know.\n\nReport 2: Our east harvesters idle because the east field is empty. So, the fact here is the empty field affecting the harvesters. That's another important point.\n\nReport 3: Enemy aircraft heading south. So, the aircraft is a threat. That's a critical factor.\n\nReport 4: Our south wall is at half strength. That's about the defense. \n\nNow, the commander needs to decide based on these facts. The main factors would be the enemy presence, the field's state, and the aircraft. So, the bullets should include these. Let me check if each bullet is a separate fact. Yes, each report is a separate fact. So, the bullets would be:\n\n- - Enemy harvesters at the north ridge, guarded by two tanks. \n- - Our east harvesters idle due to the empty field. \n- - Enemy aircraft spotted heading south. \n\nWait, the fourth report mentions the south wall's state. Should that be included? The user said to name the facts that matter for the commander's next",
+     "wall_s": 11.71,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "extract-ferry": {
+     "points": 0,
+     "max": 6,
+     "notes": [],
+     "output": "<think>\nOkay, let's see. The user wants me to extract the booking fields from the note and output a JSON object with specific keys: passenger_name, vessel, date, passengers, dock. Also, passengers must be a number, and no other text.\n\nFirst, I need to parse the note. The note says: \"Booking \u2014 Mrs Alana Reyes rang Tuesday, wants the MV Kestrel on 14 June, party of six, leaving from Dock 4, and she asked for the morning sailing if there is one.\"\n\nBreaking it down, the main elements are the passenger name, vessel, date, passengers, and dock. Let's check each part.\n\nPassenger name: Mrs Alana Reyes. That's a name, so passenger_name is correct.\n\nVessel: MV Kestrel. That's the ship name.\n\nDate: 14 June. The date is given as \"on 14 June\", so the date is 14 June.\n\nPassengers: six. The note says \"party of six\", so passengers is 6.\n\nDock: Dock 4. So the dock is Dock 4.\n\nNow, I need to structure this into a JSON object with those keys. Make sure to use the exact keys and the correct data types. Passengers must be a number, which they are (6). All other fields are strings except the date, which is a string. The JSON should have all the required keys and no extra text.\n\nDouble-checking for any other possible entries. The note mentions the date as \"on 14",
+     "wall_s": 11.97,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "extract-maintenance": {
+     "points": 0,
+     "max": 7,
+     "notes": [],
+     "output": "<think>\nOkay, let's see. The user wants me to extract the maintenance fields from the workshop note and output a JSON object with specific keys: location, equipment, fault, part_needed, due, and priority. The note is: \"pump house \u2014 the aft bilge pump is rattling again, needs a new impeller, Tomas reckons it has to be done by Friday 20 June, he marked it urgent on the board.\"\n\nFirst, I need to parse this note. The main points are the location, which is \"pump house\". The equipment mentioned is the \"aft bilge pump\". The fault is the rattling of the pump. The part needed is the new impeller. The due date is Friday 20 June. The priority is urgent.\n\nNow, I need to structure this into JSON with those keys. Let me check each part again. Location is pump house. Equipment is aft bilge pump. Fault is rattling. Part needed is new impeller. Due is 20 June. Priority is urgent. All these are exactly the keys the user provided. No other text is included. So the JSON should have those keys and the corresponding values. I need to make sure there's no extra text and that the JSON is correctly formatted. Let me double-check each key. Yep, all are covered. Alright, that's the JSON object.\n</think>\n\n{\n  \"location\": \"pump house\",\n  \"equipment\": \"aft bilge pump\",\n  \"fault\": \"rattling again\",\n  \"part_needed",
+     "wall_s": 11.94,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "consistency-gate": {
+     "points": 3,
+     "max": 5,
+     "notes": [
+      "conflict:time OK",
+      "conflict:trucks OK",
+      "format OK"
+     ],
+     "output": "<think>\nOkay, let's see. I need to compare Report A and Report B. The user wants exactly two sections: 'AGREE:' with facts shared, and 'CONFLICT:' with differing facts. No other text.\n\nFirst, let me look at the facts both reports share. Both mention the harbour gate being closed at 06:10 because of fog. Then, three trucks and five trucks waiting. The ferry was delayed by one hour in both reports. So those are the shared facts.\n\nNow, the differing facts. Report A says the gate was closed at 06:10, but Report B says it was closed at 06:40. So that's a conflict. Also, the trucks: Report A has three, Report B has five. So that's another conflict. \n\nWait, but the user said to output exactly two sections. Let me check again. AGREE: then the shared facts. Then CONFLICT: the differing ones. So the two sections are correct. Let me make sure there are no other differences. No, I think that's all. So the answer should have those two sections with the bullets.\n</think>\n\nAGREE:  \n- The harbour gate was closed at 06:10 because of fog.  \n- Three trucks waited at the gate.  \n- The ferry was delayed by one hour.  \n\nCONFLICT:  \n- The harbour gate was closed because of fog, at 06:40.  \n- Five trucks waited at the gate.",
+     "wall_s": 11.71,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "consistency-server": {
+     "points": 1,
+     "max": 5,
+     "notes": [
+      "format OK"
+     ],
+     "output": "<think>\nOkay, let's see. The user wants me to compare Report A and Report B. They want exactly two sections: 'AGREE:' with facts and 'CONFLICT:' with differing facts. No other text.\n\nFirst, I need to look at both reports. Let's start with the facts they share. Both reports mention the backup server failed at midnight. The cause in Report A is a full disk, and in Report B, it's the disk being full. So those are the same. Then, both mention two services were offline for 30 minutes. That's a shared fact.\n\nNow, the differences. Report A says the cause was a full disk, and Report B says the cause is the disk being full. Wait, those are the same. So no conflict here. Then, maybe there's another fact. Let me check again. Report A mentions two services offline, 30 minutes. Report B also mentions those two services offline, 30 minutes. So that's another shared fact. \n\nWait, maybe I missed something. Let me re-examine. Both reports state the same cause and duration. So no conflict. But maybe there's a difference in the wording. For example, in Report A, the cause is a full disk, and in Report B, the cause is the disk being full. Are those the same? Yes. So no conflict. \n\nHmm, maybe the user expects that the cause is the same, so no conflict. But perhaps there's a difference in the way the cause is described. Let me check again. Both",
+     "wall_s": 11.71,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "format-status": {
+     "points": 4,
+     "max": 4,
+     "notes": [
+      "status OK",
+      "code OK",
+      "bays OK",
+      "format OK"
+     ],
+     "output": "<think>\nOkay, let's see. The user wants me to output a JSON object with exactly the keys status, code, and bays. The data provided is that the depot is operational, the alert code is 7, and the open bays are bay 2 and bay 5.\n\nFirst, I need to make sure the JSON structure is correct. The keys are status, code, and bays. The code must be a number, so 7 is valid. The bays should be a list of strings, so [\"bay 2\", \"bay 5\"].\n\nI should check if there are any other keys or values that need to be included. The data only mentions these three, so no other fields. Also, the user specified to output only the JSON without any explanation, so no text beyond the keys.\n\nNow, I need to format the JSON properly. The status is \"operational\", code is 7, and bays is a list of strings. Let me double-check the syntax: status is a string, code is a number, and bays is an array of strings. That should be correct.\n\nI think that's all. No mistakes here. Let me put it all together in JSON format.\n</think>\n\n{\n  \"status\": \"operational\",\n  \"code\": 7,\n  \"bays\": [\"bay 2\", \"bay 5\"]\n}",
+     "wall_s": 10.44,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    },
+    "classify-messages": {
+     "points": 4,
+     "max": 5,
+     "notes": [
+      "label 1 OK",
+      "label 2 OK",
+      "label 3 OK",
+      "label 4 OK"
+     ],
+     "output": "<think>\nOkay, let's tackle this. The user wants me to classify each message as BILLING, SHIPPING, or OTHER. Each message is in the format '1: LABEL'. Let me look at the messages one by one.\n\nFirst message: \"My invoice shows the wrong total.\" Hmm, that sounds like a billing issue. Maybe the total was supposed to be different, so the invoice is incorrect. So this would be BILLING.\n\nSecond message: \"Has my order shipped yet.\" Shipping is about delivery, so this is SHIPPING.\n\nThird message: \"The app will not start on my phone.\" That's a technical problem with the app, not related to billing or shipping. So it's OTHER.\n\nFourth message: \"I was charged twice for one ticket.\" This might be a billing issue again. The same as the first one. So BILLING.\n\nWait, but let me double-check. The first message is about the invoice showing wrong total, which is billing. The second is about shipping. Third is app not starting, which is other. Fourth is about being charged twice, which is billing. Yep, that seems right. So the classifications are BILLING, SHIPPING, OTHER, BILLING.\n</think>\n\n1: BILLING  \n2: SHIPPING  \n3: OTHER  \n4: BILLING",
+     "wall_s": 9.81,
+     "model_calls": 1,
+     "gauge_calls": 0,
+     "gauge_embed_calls": 0,
+     "gauge_judge_calls": 0,
+     "retries": 0,
+     "steps": null,
+     "assembly_attempts": null
+    }
+   },
+   "total_points": 17,
+   "total_max": 40,
+   "wall_s": 91.78,
+   "model_calls": 8,
+   "gauge_calls": 0
+  }
+ }
+}
