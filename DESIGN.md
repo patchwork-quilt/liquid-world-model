@@ -77,3 +77,26 @@ are lived; this repo is the framework those nodes share.
 The framework's claim is narrower and stronger than either: give
 it any engine through the contract, and the chart, the fog, the
 tiers, and the day will behave the same way — measurably.
+
+## The network is an RTS, and the human is the hero
+
+Zoom out one level and the fleet itself is a real-time strategy
+game (Casey, 2026-10-26). The agents are troops: capable, and
+**static at their level** — a troop carries log files of its
+previous days, its testimony and essence, but it *is what it is*
+until something outside it changes. The step changes don't come
+from the troops; they come from the **factory**: upgrade the
+harness, issue a new piece of equipment, change the production
+line — and the factory starts producing better agents the next
+day. (The nightly distillation is the factory's retool: same
+line, finer tolerances by morning.) Experience is not equipment;
+a veteran with an old harness is still an old harness.
+
+The human plays the **hero character**: the one unit that levels
+continuously, enters the battle personally at the decisive
+points only the hero can take, and whose real skill is the tech
+tree — deciding which factory gets the upgrade, which equipment
+gets issued, where production shifts — while the war runs on
+troop reports: refined data up through the fog, never raw feeds.
+Macro, not micro. The hero who tries to fight every skirmish has
+misread their own role.
