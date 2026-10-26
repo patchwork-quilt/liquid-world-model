@@ -1,0 +1,216 @@
+{
+ "call_layer": "~/model-farm/farm.py \u2014 uniform call(name, input) + CLI: python3 farm.py <member> <input>",
+ "doctrine": "Models are called per-purpose and swapped in/out; nothing stays resident. A slow model is acceptable when the caller's turn structure gives it time (see llm). Light members (judge, embed, face, pose, matte) load in <1 s and can be treated as always-available. Heavy members (llm ~1.1 GB RSS, depth-large) run one at a time on this desk box.",
+ "farm": "SuperInstance Orin micro-model farm",
+ "host": "Jetson Orin Nano Super (casey@orin), 8 GB RAM, built 2026-10-26",
+ "members": [
+  {
+   "bytes": 396705472,
+   "call": "python3 ~/model-farm/farm.py llm \"<prompt>\"  (llama-cli, native Orin build at ~/model-farm/src-llama/build/bin/llama-cli, -ngl 0 -t 6 -c 2048 -st)",
+   "kind": "instruct LLM \u2014 slow reasoning / off-turn digestion",
+   "measured": {
+    "cold_call_wall_s": 29.71,
+    "generation_tok_s": 4.7,
+    "prompt_tok_s": 92.1,
+    "rss_kb_observed": 1083120
+   },
+   "model": "Qwen3-0.6B Q4_K_M (GGUF)",
+   "name": "llm",
+   "params_approx": "0.6B",
+   "path": "~/model-farm/models/Qwen3-0.6B-Q4_K_M.gguf",
+   "smoke": {
+    "input": "Off-turn digestion prompt: opponent raised twice on dry boards, folded to every re-raise; scout caught out of position twice; answer in exactly two sentences.",
+    "output_first_line": "[Start thinking] Okay, let me try to figure this out. The user is describing a situation in a turn-based game...",
+    "verdict": "WORKS. Hybrid-thinking model: emits a reasoning trace before the answer; append /no_think to the prompt for direct answers. 4.7 tok/s is slow by design trade \u2014 this is the member you switch on at the start of a turn or during the opponent's turn."
+   }
+  },
+  {
+   "bytes": 22972370,
+   "call": "python3 ~/model-farm/farm.py embed \"<text>\"  |  farm.similarity(a, b)",
+   "kind": "text embedding",
+   "measured": {
+    "cold_load_plus_call_s": 0.34,
+    "dim": 384
+   },
+   "model": "all-MiniLM-L6-v2, INT8-quantized ONNX",
+   "name": "embed",
+   "params_approx": "22.7M",
+   "path": "~/model-farm/models/minilm-l6-v2-q.onnx (+ minilm-tokenizer.json, 711661 B)",
+   "sha256": "afdb6f1a0e45b715d0bb9b11772f032c399babd23bfc31fed1c170afc848bdb1",
+   "smoke": {
+    "sim_related": 0.6694,
+    "sim_unrelated": -0.0054,
+    "verdict": "WORKS \u2014 related pair scores far above unrelated pair."
+   }
+  },
+  {
+   "bytes": 27310312,
+   "call": "python3 ~/model-farm/farm.py judge \"<proposed action text>\" \u2014 farm.py applies the jev-semantic INPUT-CONTRACT \u00a74 assembly (prefix + 'Should this action proceed?') itself",
+   "kind": "go/no-go action judge (jev-semantic intuition student)",
+   "measured": {
+    "load_s": 0.21,
+    "per_call_s": 0.05
+   },
+   "model": "intuition_student.onnx \u2014 6-layer d256 micro transformer",
+   "name": "judge",
+   "params_approx": "6,803,843 (exact, per publisher manifest)",
+   "path": "~/model-farm/models/intuition_student.onnx + .data (+ tokenizer.json, 556800 B)",
+   "sha256": "0fc8b8dcb1dac759f946be00fc3cbbb7efe593fd136630152efde2646ca0d750 (.onnx), 53da6a3e7265e92fed153e9e228e793f77224efd85ce2bb83d55b12439bff587 (.data) \u2014 both match the SuperInstance/intuition manifest",
+   "smoke": {
+    "assembly": "Training/family assembly (contract \u00a74): system prefix + 'Should this action proceed?' \u2014 this is what farm.py uses.",
+    "delete_prod_db": {
+     "neg": 0.0896,
+     "pos": 0.3527,
+     "zero": 0.5577
+    },
+    "post_status_summary": {
+     "neg": 0.0425,
+     "pos": 0.4868,
+     "zero": 0.4707
+    },
+    "verdict": "WORKS and directionally sensible (routine action scores more positive than the destructive one). NOTE the documented skew: the Thor serving assembly omits the prefix and reads near-inverted on this pair (pos 0.2966 vs 0.2594) \u2014 INPUT-CONTRACT \u00a75 names this; the farm deliberately uses the family assembly."
+   }
+  },
+  {
+   "bytes": 77704715,
+   "call": "python3 ~/model-farm/farm.py whisper <file.wav>",
+   "kind": "speech-to-text (a different sense)",
+   "measured": {
+    "wall_s_for_11s_clip": 1.5
+   },
+   "model": "whisper.cpp ggml-tiny.en (base.en also resident on the box)",
+   "name": "whisper",
+   "params_approx": "39M",
+   "path": "~/work/build/whisper.cpp/models/ggml-tiny.en.bin, binary ~/work/build/whisper.cpp/build-cuda/bin/whisper-cli (CUDA build, pre-existing)",
+   "smoke": {
+    "input": "Resident whisper.cpp sample jfk.wav",
+    "output": "And so my fellow Americans ask not what your country can do for you, ask what you can do for your country.",
+    "verdict": "WORKS \u2014 exact transcript. (No espeak on the box; the resident real-speech sample was used instead of a synthetic clip.)"
+   }
+  },
+  {
+   "bytes": 99218434,
+   "call": "python3 ~/model-farm/farm.py depth-small <image>  (runs under ~/orin-depth/.venv, CUDA fp16)",
+   "kind": "monocular depth (micro sibling of the resident ViT-L)",
+   "measured": {
+    "infer_s_at_1920x1080": 1.23,
+    "wall_s": 8.87
+   },
+   "model": "Depth Anything V2 Small (ViT-S)",
+   "name": "depth-small",
+   "params_approx": "24.8M",
+   "path": "~/model-farm/models/depth_anything_v2_vits.pth",
+   "sha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+   "smoke": {
+    "stats": {
+     "max": 4.566,
+     "mean": 2.741,
+     "min": 1.684,
+     "p10": 1.899,
+     "p90": 3.941
+    },
+    "verdict": "WORKS."
+   }
+  },
+  {
+   "bytes": 1341395338,
+   "call": "python3 ~/model-farm/farm.py depth-large <image>  (low-peak pattern copied from the resident ~/orin-depth/depth_orin.py: fp16 construction + mmap load)",
+   "kind": "monocular depth (resident heavyweight, pre-existing)",
+   "measured": {
+    "infer_s_at_1920x1080": 3.19,
+    "wall_s": 27.48
+   },
+   "model": "Depth Anything V2 Large (ViT-L)",
+   "name": "depth-large",
+   "params_approx": "335.3M",
+   "path": "~/orin-depth/models/depth_anything_v2_vitl.pth",
+   "smoke": {
+    "stats": {
+     "max": 386.5,
+     "mean": 132.778,
+     "min": 25.906
+    },
+    "verdict": "WORKS. Heavier and slower to swap in than depth-small; same job, finer depth. Raw output scale differs from ViT-S \u2014 both are relative depth, not metres."
+   }
+  },
+  {
+   "bytes": 9413268,
+   "call": "python3 ~/model-farm/farm.py pose <image>",
+   "kind": "human pose estimation (resident)",
+   "measured": {
+    "wall_s_load_plus_call": 0.48
+   },
+   "model": "MoveNet SinglePose Lightning ONNX",
+   "name": "pose",
+   "params_approx": "~3M",
+   "path": "~/work/build/movenet_lightning.onnx",
+   "smoke": {
+    "output": "17 COCO keypoints returned (y, x, score) for the test photo",
+    "verdict": "WORKS."
+   }
+  },
+  {
+   "bytes": 232589,
+   "call": "python3 ~/model-farm/farm.py face <image>  (OpenCV-reference decode implemented in farm.py; threshold 0.9)",
+   "kind": "face detection (resident)",
+   "measured": {
+    "wall_s_load_plus_call": 0.6
+   },
+   "model": "YuNet (OpenCV) ONNX",
+   "name": "face",
+   "params_approx": "~0.1M",
+   "path": "~/work/build/yunet.onnx",
+   "smoke": {
+    "faces_detected": 0,
+    "max_face_score": 0.106,
+    "verdict": "WORKS \u2014 true negative on a faceless overhead harbour photo (no false positives). No positive-face sample was used; decode follows the OpenCV reference layout (cls/obj/bbox per stride 8/16/32)."
+   }
+  },
+  {
+   "bytes": 175997641,
+   "call": "python3 ~/model-farm/farm.py matte <image>",
+   "kind": "foreground matting / background removal (resident)",
+   "measured": {
+    "infer_s_at_320x320": 1.07,
+    "load_s": 0.52
+   },
+   "model": "U2Net ONNX (rembg)",
+   "name": "matte",
+   "params_approx": "~44M",
+   "path": "~/.rembg/models/u2net/u2net.onnx",
+   "smoke": {
+    "mask_mean": 0.1943,
+    "mask_range": [
+     0.0,
+     0.996
+    ],
+    "verdict": "WORKS."
+   }
+  }
+ ],
+ "not_stocked": [
+  {
+   "kind": "tiny image classifier / zero-shot tagger",
+   "reason": "No suitable <1B artefact on the Thor shelf: its CLIP is a vision-only ViT-H (632M) whose text tower lives separately in the ComfyUI tree (different embedding space from the onboard clip_l), and I-JEPA ViT-H is 632M params / 2.4 GB fp32 on disk \u2014 too heavy and risky for this 8 GB desk box. Skipped deliberately, per the brief's substitution rule."
+  }
+ ],
+ "present_not_members": [
+  {
+   "bytes": 1024331469,
+   "model": "BRIA RMBG ONNX",
+   "path": "~/.rembg/models/bria-rmbg/bria-rmbg.onnx",
+   "status": "present, uncalled \u2014 same kind as matte (u2net) but 1.0 GB; not smoke-tested, kept as a shelf spare."
+  },
+  {
+   "bytes": 147964211,
+   "model": "whisper ggml-base.en",
+   "path": "~/work/build/whisper.cpp/models/ggml-base.en.bin",
+   "status": "present, callable via the same whisper-cli binary as the whisper member (swap -m); not separately registered."
+  }
+ ],
+ "totals": {
+  "bytes_copied_lan_from_thor": 424575206,
+  "new_bytes_downloaded": 122902465,
+  "note": "Downloads hash-verified against publisher hashes. LAN copies hash-verified where a manifest exists (judge). A Thor-built llama.cpp binary dir (~243 MB) was LAN-copied, proved unusable (SIGILL), and deleted; replaced by a native Orin build."
+ }
+}
