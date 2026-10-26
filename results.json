@@ -1,0 +1,201 @@
+{
+  "experiment": "lwm-thor: I-JEPA perception, S1 scripts / S2 nights",
+  "config": {
+    "seed": 7,
+    "days": 3,
+    "max_steps": 150,
+    "tau0": 0.97,
+    "rooms": 7,
+    "goal": "vault"
+  },
+  "rack": {
+    "health": {
+      "ok": true,
+      "device": "cuda",
+      "loaded": {
+        "ijepa": true,
+        "vjepa2": false,
+        "judge": true
+      }
+    },
+    "ijepa_card_cost": "87.9 ms mean over 5444 calls (this server, Thor GPU/CPU)",
+    "ijepa_measured": {
+      "calls": 5444,
+      "mean_ms": 87.9,
+      "last_ms": 90.6
+    }
+  },
+  "days": [
+    {
+      "observations": 10,
+      "recognition_accuracy": 0.8,
+      "merges": 1,
+      "splits": 0,
+      "places_perceived": 5,
+      "low_trust_observations": 0,
+      "confusion_detail": {
+        "place-2": {
+          "library": 3,
+          "observatory": 2
+        }
+      },
+      "day": 1,
+      "steps": 9,
+      "surprises": 6,
+      "goal_reached_perceived": true,
+      "goal_reached_true": true,
+      "final_true_room": "vault",
+      "chart_places_total": 5,
+      "chart_places_observed": 5,
+      "true_rooms_visited": 6,
+      "tau_in_force": 0.97,
+      "wall_s": 1.27
+    },
+    {
+      "observations": 4,
+      "recognition_accuracy": 1.0,
+      "merges": 0,
+      "splits": 0,
+      "places_perceived": 4,
+      "low_trust_observations": 1,
+      "confusion_detail": {},
+      "day": 2,
+      "steps": 3,
+      "surprises": 0,
+      "goal_reached_perceived": true,
+      "goal_reached_true": true,
+      "final_true_room": "vault",
+      "chart_places_total": 5,
+      "chart_places_observed": 5,
+      "true_rooms_visited": 4,
+      "tau_in_force": 0.95,
+      "wall_s": 0.51
+    },
+    {
+      "observations": 4,
+      "recognition_accuracy": 1.0,
+      "merges": 0,
+      "splits": 0,
+      "places_perceived": 4,
+      "low_trust_observations": 1,
+      "confusion_detail": {},
+      "day": 3,
+      "steps": 3,
+      "surprises": 0,
+      "goal_reached_perceived": true,
+      "goal_reached_true": true,
+      "final_true_room": "vault",
+      "chart_places_total": 5,
+      "chart_places_observed": 5,
+      "true_rooms_visited": 4,
+      "tau_in_force": 0.95,
+      "wall_s": 0.51
+    }
+  ],
+  "nights": [
+    {
+      "corpus_size": 10,
+      "tau_before": 0.97,
+      "tau_after": 0.95,
+      "corpus_accuracy_before": 0.8,
+      "corpus_accuracy_after": 1.0,
+      "purified": {
+        "place-1": {
+          "room": "atrium",
+          "purity": 1.0,
+          "sightings": 2,
+          "clean": 2
+        },
+        "place-2": {
+          "room": "library",
+          "purity": 0.6,
+          "sightings": 5,
+          "clean": 3
+        },
+        "place-3": {
+          "room": "gallery",
+          "purity": 1.0,
+          "sightings": 1,
+          "clean": 1
+        },
+        "place-4": {
+          "room": "conservatory",
+          "purity": 1.0,
+          "sightings": 1,
+          "clean": 1
+        },
+        "place-5": {
+          "room": "vault",
+          "purity": 1.0,
+          "sightings": 1,
+          "clean": 1
+        }
+      },
+      "added_prototypes": {
+        "place-6": "observatory"
+      },
+      "contamination": {
+        "place-2": {
+          "observatory": 2
+        }
+      },
+      "after_day": 1
+    },
+    {
+      "corpus_size": 14,
+      "tau_before": 0.95,
+      "tau_after": 0.95,
+      "corpus_accuracy_before": 1.0,
+      "corpus_accuracy_after": 1.0,
+      "purified": {
+        "place-1": {
+          "room": "atrium",
+          "purity": 1.0,
+          "sightings": 3,
+          "clean": 3
+        },
+        "place-2": {
+          "room": "library",
+          "purity": 0.667,
+          "sightings": 6,
+          "clean": 4
+        },
+        "place-3": {
+          "room": "gallery",
+          "purity": 1.0,
+          "sightings": 1,
+          "clean": 1
+        },
+        "place-4": {
+          "room": "conservatory",
+          "purity": 1.0,
+          "sightings": 2,
+          "clean": 2
+        },
+        "place-5": {
+          "room": "vault",
+          "purity": 1.0,
+          "sightings": 2,
+          "clean": 2
+        }
+      },
+      "added_prototypes": {
+        "place-7": "observatory"
+      },
+      "contamination": {
+        "place-2": {
+          "observatory": 2
+        }
+      },
+      "after_day": 2
+    }
+  ],
+  "footprint": {
+    "total_wall_s": 2.33,
+    "embed_calls": 18,
+    "embed_cache_hits": 0,
+    "embed_latency_ms_mean": 94.4,
+    "harness_peak_rss_mb": 53.4,
+    "note": "rack is a shared service on this box; its GPU cost is the rack's own, metered per call above. Harness process holds no model."
+  }
+}

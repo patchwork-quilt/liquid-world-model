@@ -128,10 +128,17 @@ the demo is therefore attributable to the chart, not the explorer.
 
 - **The liquid model here is chart + cycle machinery.** JEPA-class
   perception and learned nightly adapters are *named provider
-  slots, not built*: the seams are the observation's trust flag
-  (where a perception provider would grade the senses) and the
-  dream's distillation (where an adapter would be trained). Nothing
-  in this slice learns weights.
+  slots*: the seams are the observation's trust flag (where a
+  perception provider would grade the senses) and the dream's
+  distillation (where an adapter would be trained). Nothing in
+  this slice learns weights. **One slot now has a receipt:**
+  [THOR-TEST.md](THOR-TEST.md) ran the trust seam against a real
+  I-JEPA on the Thor — the chart keyed places by embedding
+  similarity, confused two near-twin rooms, and a night upgrade
+  (prototypes re-derived from the day's labelled replay)
+  measurably repaired recognition while the player script never
+  changed. Numbers, caveats, and warts are in the report;
+  `results.json` is its raw record.
 - The policy is intentionally minimal — it reacts to a locked door
   after meeting it rather than planning for the key (see the curve:
   that cost is visible, and it is the policy's, not the chart's).
