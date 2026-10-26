@@ -1,0 +1,149 @@
+{
+ "call_layer": "~/model-farm/farm.py — uniform call(name, input) + CLI: python3 farm.py <member> <input>; remote: farm_server.py HTTP shim on 127.0.0.1:8770 (POST /call), reached through an SSH tunnel",
+ "doctrine": "The CPU/service tier of the farm pattern. The Oracle never sleeps and sits on the fleet's fast pipe, so this farm is a set of gauges other agents consult over the wire: digestion, judging, embedding, transcription. Slow per call is acceptable — callers are turn-structured. Nothing latency-critical, nothing GPU-shaped, nothing big belongs here; the relay's disk is stage-and-forward and every member is a replaceable artefact. The ONNX members stay warm inside farm_server.py; llm/whisper spawn per call by design. The LLM defaults to 2 of the 4 vCPUs (FARM_LLM_THREADS overrides) because this box also carries the fleet's tunnels.",
+ "farm": "SuperInstance Oracle CPU farm",
+ "host": "OCI Ampere A1 (ubuntu@oracle relay), 4 vCPU Neoverse-N1 aarch64, 23 GiB RAM, CPU only, built 2026-10-26",
+ "members": [
+  {
+   "bytes": 396705472,
+   "call": "python3 ~/model-farm/farm.py llm \"<prompt>\"  (llama-cli 0.7.0-dev b1-63b4b30, Orin-built binaries at ~/model-farm/llama-bin-orin/, real-call verified on this Neoverse-N1; -ngl 0 -t 2 default -c 2048 -st)",
+   "kind": "instruct LLM — slow reasoning / off-turn digestion, consulted over the wire",
+   "measured": {
+    "cold_call_wall_s_128tok_t2": 5.83,
+    "default_threads": 2,
+    "generation_tok_s_by_threads": {
+     "1": 19.4,
+     "2": 35.4,
+     "4": 58.0
+    },
+    "prompt_tok_s_by_threads": {
+     "1": 59.3,
+     "2": 114.8,
+     "4": 221.8
+    },
+    "rss_kb_observed": 1102852,
+    "vs_orin": "Orin farm (GPU, -t 6) recorded generation 4.7 tok/s, prompt 92.1 tok/s, cold call 29.71 s, RSS 1083120 KB. The CPU relay out-generates that recorded figure at every thread count; treat as directional, not a controlled A/B (different call days and harness states)."
+   },
+   "model": "Qwen3-0.6B Q4_K_M (GGUF)",
+   "name": "llm",
+   "params_approx": "0.6B",
+   "path": "~/model-farm/models/Qwen3-0.6B-Q4_K_M.gguf",
+   "sha256": "ac2d97712095a558e31573f62f466a3f9d93990898b0ec79d7c974c1780d524a — byte-identical to the Orin farm's copy (fetched from unsloth/Qwen3-0.6B-GGUF on this box's fast pipe after the Qwen/Qwen3-0.6B-GGUF repo proved to ship Q8_0 only and an Orin->Oracle copy proved slow; identical size + hash to the Orin file)",
+   "smoke": {
+    "input": "Digestion prompt: opponent raised twice on dry boards, then folded to every re-raise; scout caught out of position twice; summarise in exactly two sentences.",
+    "output_first_line": "[Start thinking] Okay, let me try to figure out how to summarize this. The user provided a scenario where their opponent raised twice on dry boards...",
+    "verdict": "WORKS. Same hybrid-thinking behaviour as the Orin member: reasoning trace before the answer; append /no_think for direct answers; the shared -n 128 cap can truncate the trace before the final answer, exactly as on the Orin farm."
+   }
+  },
+  {
+   "bytes": 22972370,
+   "call": "python3 ~/model-farm/farm.py embed \"<text>\"  |  farm.similarity(a, b)",
+   "kind": "text embedding",
+   "measured": {
+    "cold_load_plus_call_s": 0.185,
+    "dim": 384,
+    "vs_orin": "Orin farm recorded cold 0.34 s. The embedding vector for a given input is bit-identical across the two farms (verified on 'ferry schedule').",
+    "warm_per_call_s": 0.0016
+   },
+   "model": "all-MiniLM-L6-v2, INT8-quantized ONNX",
+   "name": "embed",
+   "params_approx": "22.7M",
+   "path": "~/model-farm/models/minilm-l6-v2-q.onnx (+ minilm-tokenizer.json, 711661 B)",
+   "sha256": "afdb6f1a0e45b715d0bb9b11772f032c399babd23bfc31fed1c170afc848bdb1 — matches the Orin farm registry / publisher hash",
+   "smoke": {
+    "sim_related": 0.6826,
+    "sim_unrelated": 0.077,
+    "verdict": "WORKS — related pair (ferry schedule / boat timetable) scores far above unrelated (ferry schedule / income tax form); same discrimination as the Orin farm on the same probes."
+   }
+  },
+  {
+   "bytes": 27310312,
+   "call": "python3 ~/model-farm/farm.py judge \"<proposed action text>\" — farm.py applies the jev-semantic INPUT-CONTRACT §4 assembly (prefix + 'Should this action proceed?') itself",
+   "kind": "go/no-go action judge (jev-semantic intuition student)",
+   "measured": {
+    "cold_load_plus_call_s": 0.17,
+    "remote_warm_per_call_s": 0.01,
+    "vs_orin": "Orin farm recorded load 0.21 s, per-call 0.05 s. Identical weights and assembly: the same proposed action returns the same distribution on both farms (verified exactly on both smoke inputs).",
+    "warm_per_call_s": 0.0078
+   },
+   "model": "intuition_student.onnx — 6-layer d256 micro transformer",
+   "name": "judge",
+   "params_approx": "6,803,843 (exact, per publisher manifest)",
+   "path": "~/model-farm/models/intuition_student.onnx + .data (+ tokenizer.json, 556800 B) — copied from this box's own ~/agent-inbox/payloads/intuition-bench/, the payload's original landing place; zero network bytes",
+   "sha256": "0fc8b8dcb1dac759f946be00fc3cbbb7efe593fd136630152efde2646ca0d750 (.onnx), 53da6a3e7265e92fed153e9e228e793f77224efd85ce2bb83d55b12439bff587 (.data) — both match the SuperInstance/intuition manifest",
+   "smoke": {
+    "assembly": "Training/family assembly (contract §4): system prefix + 'Should this action proceed?' — this is what farm.py uses.",
+    "delete_prod_db": {
+     "neg": 0.2083,
+     "pos": 0.1212,
+     "reading": "settled 0",
+     "zero": 0.6705
+    },
+    "post_status_summary": {
+     "neg": 0.1156,
+     "pos": 0.374,
+     "reading": "lean",
+     "zero": 0.5104
+    },
+    "verdict": "WORKS and directionally sensible (routine action scores more positive than the destructive one). NOTE the documented skew, inherited from the Orin registry: the Thor serving assembly omits the prefix and reads near-inverted on this pair (pos 0.2966 vs 0.2594) — INPUT-CONTRACT §5 names this; the farm deliberately uses the family assembly."
+   }
+  },
+  {
+   "bytes": 77704715,
+   "call": "python3 ~/model-farm/farm.py whisper <file.wav>  (native CPU build at ~/model-farm/src-whisper/build/bin/whisper-cli, -t 2)",
+   "kind": "speech-to-text (a different sense)",
+   "measured": {
+    "vs_orin": "Orin farm (CUDA build) recorded 1.5 s for the same clip. A wash: CPU tiny.en is ~7x real-time here.",
+    "wall_s_for_11s_clip": 1.47
+   },
+   "model": "whisper.cpp ggml-tiny.en",
+   "name": "whisper",
+   "params_approx": "39M",
+   "path": "~/model-farm/models/ggml-tiny.en.bin; runtime natively built on this box (whisper.cpp @ 231638a, ggml 0.27.0; cmake installed via apt for the build)",
+   "sha256": "921e4cf8686fdd993dcd081a5da5b6c365bfde1162e72b08d75ac75289920b1f — byte-identical to the Orin farm's model file",
+   "smoke": {
+    "input": "whisper.cpp sample jfk.wav (ships with the source clone)",
+    "output": "And so my fellow Americans ask not what your country can do for you, ask what you can do for your country.",
+    "verdict": "WORKS — exact transcript on CPU."
+   }
+  }
+ ],
+ "not_stocked": [
+  {
+   "kind": "monocular depth (Depth Anything V2 S/L)",
+   "reason": "Weights are torch .pth served on the Orin by a CUDA-oriented venv recipe; not ONNX and not trivially portable to a CPU relay. Vision belongs to the desk tier where the images originate; a depth gauge over the wire would ship images to save nothing."
+  },
+  {
+   "kind": "pose / face / matte (MoveNet, YuNet, U2Net ONNX)",
+   "reason": "ONNX-portable in principle, but the artefacts live only on the Orin/Thor shelves and no wire caller needs vision gauges from the relay today. YuNet (232 KB, OpenCV zoo) is the cheap future add if one ever does. Not stocked speculatively, per disk discipline."
+  },
+  {
+   "kind": "tiny image classifier / zero-shot tagger",
+   "reason": "Same gap as the Orin farm: no coherent <1B pair on any shelf (CLIP vision tower's text twin lives in a different embedding space; I-JEPA ViT-H is 632M / 2.4 GB fp32)."
+  }
+ ],
+ "present_not_members": [
+  {
+   "bytes": null,
+   "model": "LFM2.5-1.2B-Instruct Q4_K_M + LFM2.5-230M Q4_K_M (GGUF)",
+   "path": "~/models/ (pre-existing Oracle residents, outside ~/model-farm)",
+   "status": "present, not farm members — the farm standardises on the same llm member as the other farms. The 230M served as the test weight for the llama-binary ISA check."
+  },
+  {
+   "bytes": null,
+   "model": "ollama service",
+   "path": "127.0.0.1:11434 (pre-existing listener on this box)",
+   "status": "present, not a farm member — the farm's remote door is farm_server.py; the farm neither uses nor disturbs it."
+  }
+ ],
+ "totals": {
+  "bytes_copied_from_orin": 40427520,
+  "bytes_copied_from_orin_note": "The Orin llama.cpp bin dir as a tar (llama-cli + ggml/llama libs). An earlier scp -r copy mangled the symlink farm; the tar route preserved it. A direct Orin->Oracle GGUF copy was abandoned at ~98 MB when it slowed to ~1.4 MB/min on the house uplink; superseded by the hash-identical HF fetch (2.8-5 s per file on the relay's pipe).",
+  "bytes_copied_on_box": 27867112,
+  "bytes_copied_on_box_note": "Judge payload (27310312) + its tokenizer (556800) copied from ~/agent-inbox/payloads/intuition-bench/ — zero network bytes.",
+  "bytes_downloaded": 498094218,
+  "bytes_downloaded_note": "HF on this box's fast pipe, all sha256-verified: GGUF 396705472 (unsloth mirror — hash identical to the Orin farm's file), whisper ggml 77704715 (hash identical to the Orin's file), MiniLM 22972370 + tokenizer 711661 (hash matches the Orin registry). A 484219808 B lmstudio-community Q4_K_M was fetched, rejected (different quant recipe — larger file, different hash), and deleted; it is not counted above.",
+  "farm_footprint_bytes": 640679936,
+  "farm_footprint_note": "du -sh ~/model-farm = 611 MiB (models 502 MiB, llama binaries 39 MiB, whisper source+build 70 MiB) against ~20 GiB free on the 45 G root disk."
+ }
+}
