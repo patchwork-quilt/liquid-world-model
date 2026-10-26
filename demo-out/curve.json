@@ -1,0 +1,32 @@
+{
+  "seed": 7,
+  "days": [
+    {
+      "day": 1,
+      "steps": 21,
+      "rooms_charted": 13,
+      "uncharted_exits": 9,
+      "surprises": 0,
+      "recall_spent": 0,
+      "goal_reached": true
+    },
+    {
+      "day": 2,
+      "steps": 27,
+      "rooms_charted": 13,
+      "uncharted_exits": 1,
+      "surprises": 1,
+      "recall_spent": 1,
+      "goal_reached": true
+    },
+    {
+      "day": 3,
+      "steps": 33,
+      "rooms_charted": 13,
+      "uncharted_exits": 1,
+      "surprises": 0,
+      "recall_spent": 0,
+      "goal_reached": true
+    }
+  ]
+}

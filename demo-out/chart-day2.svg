@@ -1,0 +1,98 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 772 708' width='772' height='708' font-family='monospace'>
+<text x='46' y='26' font-size='17' font-weight='bold'>Day 2 — the chart as the model believes it</text>
+<line x1='282' y1='549' x2='282' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='431' x2='282' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='431' x2='282' y2='549' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='431' x2='112' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='431' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='313' x2='112' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='313' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='313' x2='282' y2='195' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='313' x2='282' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='112' y1='313' x2='282' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='112' y1='313' x2='112' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='622' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='282' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='622' y1='431' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='622' y1='431' x2='452' y2='195' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='195' x2='282' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='112' y1='431' x2='282' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='112' y1='431' x2='112' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='622' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='452' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='282' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='622' y1='431' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='622' y1='431' x2='452' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='313' x2='452' y2='195' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='313' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='195' x2='452' y2='77' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='195' x2='452' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='195' x2='622' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='77' x2='452' y2='124' stroke='#999' stroke-width='2' stroke-dasharray='4 4'/>
+<text x='452' y='124' font-size='13' fill='#999' text-anchor='middle'>?</text>
+<g opacity='1'>
+<rect x='386' y='282' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='304' font-size='14' font-weight='bold' text-anchor='middle'>armory</text>
+<text x='452' y='322' font-size='10' fill='#555' text-anchor='middle'>rusted spear</text>
+</g>
+<g opacity='1'>
+<rect x='386' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='422' font-size='14' font-weight='bold' text-anchor='middle'>cellar</text>
+<text x='452' y='440' font-size='10' fill='#555' text-anchor='middle'>wine barrels</text>
+</g>
+<g opacity='1'>
+<rect x='216' y='282' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='282' y='304' font-size='14' font-weight='bold' text-anchor='middle'>chapel</text>
+<text x='282' y='322' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='556' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='622' y='422' font-size='14' font-weight='bold' text-anchor='middle'>crypt</text>
+<text x='622' y='440' font-size='10' fill='#555' text-anchor='middle'>old bones</text>
+</g>
+<g opacity='1'>
+<rect x='216' y='518' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='282' y='540' font-size='14' font-weight='bold' text-anchor='middle'>entrance</text>
+<text x='282' y='558' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='386' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='422' font-size='14' font-weight='bold' text-anchor='middle'>gallery</text>
+<text x='452' y='440' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='556' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='622' y='422' font-size='14' font-weight='bold' text-anchor='middle'>garden</text>
+<text x='622' y='440' font-size='10' fill='#555' text-anchor='middle'>pale flowers</text>
+</g>
+<g opacity='1'>
+<rect x='216' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='282' y='422' font-size='14' font-weight='bold' text-anchor='middle'>hall</text>
+<text x='282' y='440' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='46' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='112' y='422' font-size='14' font-weight='bold' text-anchor='middle'>library</text>
+<text x='112' y='440' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='216' y='164' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='282' y='186' font-size='14' font-weight='bold' text-anchor='middle'>shrine</text>
+<text x='282' y='204' font-size='10' fill='#555' text-anchor='middle'>lit candles</text>
+</g>
+<g opacity='1'>
+<rect x='46' y='282' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='112' y='304' font-size='14' font-weight='bold' text-anchor='middle'>study</text>
+<text x='112' y='322' font-size='10' fill='#555' text-anchor='middle'>dusty maps</text>
+</g>
+<g opacity='1'>
+<rect x='386' y='164' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='186' font-size='14' font-weight='bold' text-anchor='middle'>treasury</text>
+<text x='452' y='204' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='386' y='46' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='68' font-size='14' font-weight='bold' text-anchor='middle'>vault ★</text>
+<text x='452' y='86' font-size='10' fill='#555' text-anchor='middle'>treasure</text>
+</g>
+</svg>

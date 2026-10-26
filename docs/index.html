@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>liquid-world-model — SuperInstance</title>
+<style>
+body{font-family:Georgia,serif;margin:0;color:#1a1d21;background:#fbfaf6}
+main{max-width:1060px;margin:0 auto;padding:32px 20px 64px}
+h1{font-size:2em;margin:.2em 0} h2{margin-top:1.6em}
+code,pre{font-family:ui-monospace,monospace}
+pre{background:#14181d;color:#e8e6df;padding:14px;border-radius:8px;overflow-x:auto;font-size:.82em}
+.maps{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.map{background:#fff;border:1px solid #ddd6c4;border-radius:10px;padding:10px}
+.map svg{width:100%;height:auto}
+table{border-collapse:collapse;font-size:.92em}
+td,th{border:1px solid #ccc4ae;padding:5px 10px;text-align:left}
+.honest{background:#fdf3e0;border:1px solid #e3cf9e;border-radius:8px;padding:4px 16px}
+footer{margin-top:3em;color:#777;font-size:.85em}
+</style></head><body><main>
+<h1>Liquid World Models</h1>
+<p><strong>An engine-agnostic framework for an agent that charts a world it has
+not finished learning</strong> — like a hero in a dungeon whose map he hasn't
+found, learning it room by room. It doubts its senses and its own beliefs,
+testifies each night before it forgets, and remembers through priced tiers.
+The world model is not the game engine: the engine never doubts; the internal
+model is built to.</p>
+<h2>Three days in the uncharted dungeon (seed 7)</h2>
+<p>Same deliberately dumb explorer every day; only the chart persists between
+days. The maps are drawn from the model's own chart — its beliefs, its fog,
+its question-mark stubs for exits never taken.</p>
+<div class="maps">
+<div class="map"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 772 708' data-w='772' data-h='708' font-family='monospace'>
+<text x='46' y='26' font-size='17' font-weight='bold'>Day 1 — the chart as the model believes it</text>
+<line x1='282' y1='549' x2='282' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='431' x2='282' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='431' x2='282' y2='549' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='431' x2='112' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='431' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='313' x2='112' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='313' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='313' x2='282' y2='195' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='313' x2='282' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='112' y1='313' x2='282' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='622' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='282' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='622' y1='431' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='195' x2='282' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='112' y1='431' x2='282' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='622' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='452' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='622' y1='431' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='313' x2='452' y2='195' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='195' x2='452' y2='77' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='313' x2='452' y2='360' stroke='#999' stroke-width='2' stroke-dasharray='4 4'/>
+<text x='452' y='360' font-size='13' fill='#999' text-anchor='middle'>?</text>
+<line x1='622' y1='431' x2='622' y2='384' stroke='#999' stroke-width='2' stroke-dasharray='4 4'/>
+<text x='622' y='384' font-size='13' fill='#999' text-anchor='middle'>?</text>
+<line x1='452' y1='431' x2='370' y2='431' stroke='#999' stroke-width='2' stroke-dasharray='4 4'/>
+<text x='370' y='431' font-size='13' fill='#999' text-anchor='middle'>?</text>
+<line x1='622' y1='431' x2='704' y2='431' stroke='#999' stroke-width='2' stroke-dasharray='4 4'/>
+<text x='704' y='431' font-size='13' fill='#999' text-anchor='middle'>?</text>
+<line x1='112' y1='431' x2='112' y2='384' stroke='#999' stroke-width='2' stroke-dasharray='4 4'/>
+<text x='112' y='384' font-size='13' fill='#999' text-anchor='middle'>?</text>
+<line x1='112' y1='313' x2='112' y2='360' stroke='#999' stroke-width='2' stroke-dasharray='4 4'/>
+<text x='112' y='360' font-size='13' fill='#999' text-anchor='middle'>?</text>
+<line x1='452' y1='195' x2='452' y2='242' stroke='#999' stroke-width='2' stroke-dasharray='4 4'/>
+<text x='452' y='242' font-size='13' fill='#999' text-anchor='middle'>?</text>
+<line x1='452' y1='195' x2='370' y2='195' stroke='#999' stroke-width='2' stroke-dasharray='4 4'/>
+<text x='370' y='195' font-size='13' fill='#999' text-anchor='middle'>?</text>
+<line x1='452' y1='77' x2='452' y2='124' stroke='#999' stroke-width='2' stroke-dasharray='4 4'/>
+<text x='452' y='124' font-size='13' fill='#999' text-anchor='middle'>?</text>
+<g opacity='1'>
+<rect x='386' y='282' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='304' font-size='14' font-weight='bold' text-anchor='middle'>armory</text>
+<text x='452' y='322' font-size='10' fill='#555' text-anchor='middle'>rusted spear</text>
+</g>
+<g opacity='1'>
+<rect x='386' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='422' font-size='14' font-weight='bold' text-anchor='middle'>cellar</text>
+<text x='452' y='440' font-size='10' fill='#555' text-anchor='middle'>wine barrels</text>
+</g>
+<g opacity='1'>
+<rect x='216' y='282' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='282' y='304' font-size='14' font-weight='bold' text-anchor='middle'>chapel</text>
+<text x='282' y='322' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='556' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='622' y='422' font-size='14' font-weight='bold' text-anchor='middle'>crypt</text>
+<text x='622' y='440' font-size='10' fill='#555' text-anchor='middle'>old bones</text>
+</g>
+<g opacity='1'>
+<rect x='216' y='518' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='282' y='540' font-size='14' font-weight='bold' text-anchor='middle'>entrance</text>
+<text x='282' y='558' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='386' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='422' font-size='14' font-weight='bold' text-anchor='middle'>gallery</text>
+<text x='452' y='440' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='556' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='622' y='422' font-size='14' font-weight='bold' text-anchor='middle'>garden</text>
+<text x='622' y='440' font-size='10' fill='#555' text-anchor='middle'>pale flowers</text>
+</g>
+<g opacity='1'>
+<rect x='216' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='282' y='422' font-size='14' font-weight='bold' text-anchor='middle'>hall</text>
+<text x='282' y='440' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='46' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='112' y='422' font-size='14' font-weight='bold' text-anchor='middle'>library</text>
+<text x='112' y='440' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='216' y='164' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='282' y='186' font-size='14' font-weight='bold' text-anchor='middle'>shrine</text>
+<text x='282' y='204' font-size='10' fill='#555' text-anchor='middle'>lit candles</text>
+</g>
+<g opacity='1'>
+<rect x='46' y='282' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='112' y='304' font-size='14' font-weight='bold' text-anchor='middle'>study</text>
+<text x='112' y='322' font-size='10' fill='#555' text-anchor='middle'>dusty maps</text>
+</g>
+<g opacity='1'>
+<rect x='386' y='164' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='186' font-size='14' font-weight='bold' text-anchor='middle'>treasury</text>
+<text x='452' y='204' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='386' y='46' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='68' font-size='14' font-weight='bold' text-anchor='middle'>vault ★</text>
+<text x='452' y='86' font-size='10' fill='#555' text-anchor='middle'>treasure</text>
+</g>
+</svg><p>Day 1 — 21 steps, goal reached; 9 exits still uncharted.</p></div>
+<div class="map"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 772 708' data-w='772' data-h='708' font-family='monospace'>
+<text x='46' y='26' font-size='17' font-weight='bold'>Day 2 — the chart as the model believes it</text>
+<line x1='282' y1='549' x2='282' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='431' x2='282' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='431' x2='282' y2='549' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='431' x2='112' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='431' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='313' x2='112' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='313' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='313' x2='282' y2='195' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='313' x2='282' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='112' y1='313' x2='282' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='112' y1='313' x2='112' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='622' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='282' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='622' y1='431' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='622' y1='431' x2='452' y2='195' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='195' x2='282' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='112' y1='431' x2='282' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='112' y1='431' x2='112' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='622' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='452' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='282' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='622' y1='431' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='622' y1='431' x2='452' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='313' x2='452' y2='195' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='313' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='195' x2='452' y2='77' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='195' x2='452' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='195' x2='622' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='77' x2='452' y2='124' stroke='#999' stroke-width='2' stroke-dasharray='4 4'/>
+<text x='452' y='124' font-size='13' fill='#999' text-anchor='middle'>?</text>
+<g opacity='1'>
+<rect x='386' y='282' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='304' font-size='14' font-weight='bold' text-anchor='middle'>armory</text>
+<text x='452' y='322' font-size='10' fill='#555' text-anchor='middle'>rusted spear</text>
+</g>
+<g opacity='1'>
+<rect x='386' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='422' font-size='14' font-weight='bold' text-anchor='middle'>cellar</text>
+<text x='452' y='440' font-size='10' fill='#555' text-anchor='middle'>wine barrels</text>
+</g>
+<g opacity='1'>
+<rect x='216' y='282' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='282' y='304' font-size='14' font-weight='bold' text-anchor='middle'>chapel</text>
+<text x='282' y='322' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='556' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='622' y='422' font-size='14' font-weight='bold' text-anchor='middle'>crypt</text>
+<text x='622' y='440' font-size='10' fill='#555' text-anchor='middle'>old bones</text>
+</g>
+<g opacity='1'>
+<rect x='216' y='518' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='282' y='540' font-size='14' font-weight='bold' text-anchor='middle'>entrance</text>
+<text x='282' y='558' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='386' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='422' font-size='14' font-weight='bold' text-anchor='middle'>gallery</text>
+<text x='452' y='440' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='556' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='622' y='422' font-size='14' font-weight='bold' text-anchor='middle'>garden</text>
+<text x='622' y='440' font-size='10' fill='#555' text-anchor='middle'>pale flowers</text>
+</g>
+<g opacity='1'>
+<rect x='216' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='282' y='422' font-size='14' font-weight='bold' text-anchor='middle'>hall</text>
+<text x='282' y='440' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='46' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='112' y='422' font-size='14' font-weight='bold' text-anchor='middle'>library</text>
+<text x='112' y='440' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='216' y='164' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='282' y='186' font-size='14' font-weight='bold' text-anchor='middle'>shrine</text>
+<text x='282' y='204' font-size='10' fill='#555' text-anchor='middle'>lit candles</text>
+</g>
+<g opacity='1'>
+<rect x='46' y='282' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='112' y='304' font-size='14' font-weight='bold' text-anchor='middle'>study</text>
+<text x='112' y='322' font-size='10' fill='#555' text-anchor='middle'>dusty maps</text>
+</g>
+<g opacity='1'>
+<rect x='386' y='164' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='186' font-size='14' font-weight='bold' text-anchor='middle'>treasury</text>
+<text x='452' y='204' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='386' y='46' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='68' font-size='14' font-weight='bold' text-anchor='middle'>vault ★</text>
+<text x='452' y='86' font-size='10' fill='#555' text-anchor='middle'>treasure</text>
+</g>
+</svg><p>Day 2 — 27 steps, 1 surprise (a locked door, met empty-handed); uncharted exits 9 → 1.</p></div>
+<div class="map"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 772 708' data-w='772' data-h='708' font-family='monospace'>
+<text x='46' y='26' font-size='17' font-weight='bold'>Day 3 — the chart as the model believes it</text>
+<line x1='282' y1='549' x2='282' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='431' x2='282' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='431' x2='282' y2='549' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='431' x2='112' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='431' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='313' x2='112' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='313' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='313' x2='282' y2='195' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='313' x2='282' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='112' y1='313' x2='282' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='112' y1='313' x2='112' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='622' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='282' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='622' y1='431' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='622' y1='431' x2='452' y2='195' stroke='#666' stroke-width='2'/>
+<line x1='282' y1='195' x2='282' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='112' y1='431' x2='282' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='112' y1='431' x2='112' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='622' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='452' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='431' x2='282' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='622' y1='431' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='622' y1='431' x2='452' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='313' x2='452' y2='195' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='313' x2='452' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='195' x2='452' y2='77' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='195' x2='452' y2='313' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='195' x2='622' y2='431' stroke='#666' stroke-width='2'/>
+<line x1='452' y1='77' x2='452' y2='124' stroke='#999' stroke-width='2' stroke-dasharray='4 4'/>
+<text x='452' y='124' font-size='13' fill='#999' text-anchor='middle'>?</text>
+<g opacity='1'>
+<rect x='386' y='282' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='304' font-size='14' font-weight='bold' text-anchor='middle'>armory</text>
+<text x='452' y='322' font-size='10' fill='#555' text-anchor='middle'>rusted spear</text>
+</g>
+<g opacity='1'>
+<rect x='386' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='422' font-size='14' font-weight='bold' text-anchor='middle'>cellar</text>
+<text x='452' y='440' font-size='10' fill='#555' text-anchor='middle'>wine barrels</text>
+</g>
+<g opacity='0.55'>
+<rect x='216' y='282' width='132' height='62' rx='8' fill='#d8d8d8' stroke='#777' stroke-width='2'/>
+<text x='282' y='304' font-size='14' font-weight='bold' text-anchor='middle'>chapel</text>
+<text x='282' y='322' font-size='10' fill='#555' text-anchor='middle'>—</text>
+<text x='282' y='337' font-size='10' font-style='italic' fill='#777' text-anchor='middle'>fogged</text>
+</g>
+<g opacity='1'>
+<rect x='556' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='622' y='422' font-size='14' font-weight='bold' text-anchor='middle'>crypt</text>
+<text x='622' y='440' font-size='10' fill='#555' text-anchor='middle'>old bones</text>
+</g>
+<g opacity='1'>
+<rect x='216' y='518' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='282' y='540' font-size='14' font-weight='bold' text-anchor='middle'>entrance</text>
+<text x='282' y='558' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='386' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='422' font-size='14' font-weight='bold' text-anchor='middle'>gallery</text>
+<text x='452' y='440' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='556' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='622' y='422' font-size='14' font-weight='bold' text-anchor='middle'>garden</text>
+<text x='622' y='440' font-size='10' fill='#555' text-anchor='middle'>pale flowers</text>
+</g>
+<g opacity='1'>
+<rect x='216' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='282' y='422' font-size='14' font-weight='bold' text-anchor='middle'>hall</text>
+<text x='282' y='440' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='46' y='400' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='112' y='422' font-size='14' font-weight='bold' text-anchor='middle'>library</text>
+<text x='112' y='440' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='0.55'>
+<rect x='216' y='164' width='132' height='62' rx='8' fill='#d8d8d8' stroke='#777' stroke-width='2'/>
+<text x='282' y='186' font-size='14' font-weight='bold' text-anchor='middle'>shrine</text>
+<text x='282' y='204' font-size='10' fill='#555' text-anchor='middle'>lit candles</text>
+<text x='282' y='219' font-size='10' font-style='italic' fill='#777' text-anchor='middle'>fogged</text>
+</g>
+<g opacity='1'>
+<rect x='46' y='282' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='112' y='304' font-size='14' font-weight='bold' text-anchor='middle'>study</text>
+<text x='112' y='322' font-size='10' fill='#555' text-anchor='middle'>dusty maps</text>
+</g>
+<g opacity='1'>
+<rect x='386' y='164' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='186' font-size='14' font-weight='bold' text-anchor='middle'>treasury</text>
+<text x='452' y='204' font-size='10' fill='#555' text-anchor='middle'>—</text>
+</g>
+<g opacity='1'>
+<rect x='386' y='46' width='132' height='62' rx='8' fill='#fdf6d8' stroke='#444' stroke-width='2'/>
+<text x='452' y='68' font-size='14' font-weight='bold' text-anchor='middle'>vault ★</text>
+<text x='452' y='86' font-size='10' fill='#555' text-anchor='middle'>treasure</text>
+</g>
+</svg><p>Day 3 — 33 steps, 0 surprises; rooms not revisited have fogged over.</p></div>
+</div>
+<table>
+<tr><th>day</th><th>steps</th><th>rooms charted</th><th>uncharted exits</th><th>surprises</th><th>recall spent</th><th>goal</th></tr>
+<tr><td>1</td><td>21</td><td>13</td><td>9</td><td>0</td><td>0</td><td>reached</td></tr>
+<tr><td>2</td><td>27</td><td>13</td><td>1</td><td>1</td><td>1</td><td>reached</td></tr>
+<tr><td>3</td><td>33</td><td>13</td><td>1</td><td>0</td><td>0</td><td>reached</td></tr>
+</table>
+<div class="honest"><h3>Read the curve honestly</h3>
+<p>Coverage and knowledge improved: uncharted exits fell 9 → 1, and the locked
+door surprised the model exactly once — by day 3 the chart <em>knows</em> it is
+locked and opens to the brass key. Steps did not fall (21 → 27 → 33): day 1's
+speed was luck (the key room came before the locked door), and the dumb policy
+pays honestly for beelining to a door it cannot open. The chart learned; the
+policy didn't. The separation is the point.</p></div>
+<h2>Remembering is routed, and priced</h2>
+<pre>essence (4 units):  Day 1: charted 13 places (13 new), 0 surprise(s), goal reached in 21 steps. (essence carries the distilled line; the full record is in the ledger.)
+truth   (12 units): {"type": "distrusted", "day": 1, "step": 5, "place": "cellar", "trust": 0.3, "reason": "senses flagged unreliable; belief not rewritten"}</pre>
+<p>One day-1 event, two routes: <b>essence</b> (4 units) serves the distilled
+line the dream left behind; <b>truth</b> (12 units) opens the archived episode
+and returns the full testified record. A third route, <b>reflex</b> (1 unit),
+serves today's still-live episode and never opens the archive at all.
+Retrieval is spent from the same purse as action.</p>
+<h2>Run it</h2>
+<pre>python3 -m lwm.dungeon_demo --days 3 --seed 7
+python3 tests/run_tests.py   # TEST SUMMARY: 10/10 PASS</pre>
+<p>Python 3, standard library only. The contract is three methods —
+<code>observe()</code>, <code>actions()</code>, <code>step()</code> — and any
+engine can host a liquid model; ground truth (<code>truth()</code>) exists for
+scoring only and is structurally unreachable from the agent.</p>
+<footer>liquid-world-model · SuperInstance · chart + day-cycle machinery —
+JEPA perception and learned adapters are named provider slots, not built.</footer>
+</main></body></html>
