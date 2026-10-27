@@ -1,0 +1,419 @@
+diff --git a/lwm/policy.py b/lwm/policy.py
+index d5d31de..5152e60 100644
+--- a/lwm/policy.py
++++ b/lwm/policy.py
+@@ -95,3 +95,84 @@ class ExplorerPolicy:
+         if exits:
+             return rng.choice(sorted(exits))
+         return None
++
++
++class ProbePolicy:
++    """A wrapper that spends the day's bought questions first.
++
++    The morning allocator (``tiers.allocate_probes``) turns ranked
++    questions into probe targets: a place to re-observe, or a place
++    plus an exit to traverse. This policy routes to each target in
++    order — over the graph the chart believes walkable — and then
++    hands the day back to the wrapped policy, unmodified. Routing
++    that cannot reach a target drops it rather than wandering.
++    Probe-directed steps are capped so a bought question can never
++    eat the whole day; the cap is part of the instrument, stated
++    here: MAX_PROBE_STEPS directed moves per day.
++    """
++
++    MAX_PROBE_STEPS = 200
++
++    def __init__(self, base: Any = None) -> None:
++        self.base = base if base is not None else ExplorerPolicy()
++        self.targets: List[Dict[str, Any]] = []
++        self.probe_steps = 0
++
++    def set_targets(self, targets: List[Dict[str, Any]]) -> None:
++        self.targets = [dict(t) for t in targets]
++        self.probe_steps = 0
++
++    def _route_graph(self, chart: Any, holding: List[str]) -> Dict[str, Dict[str, str]]:
++        graph = {pid: dict(dirs) for pid, dirs in
++                 chart.transit_graph(holding).items()}
++        for pid in chart.places:
++            for direction, belief in chart.known_exits(pid).items():
++                dest = belief.get("to")
++                if dest is None:
++                    continue
++                if direction in graph.get(pid, {}):
++                    continue
++                status = chart.edge_status(pid, direction)
++                last = status["last"]
++                if (last and last["outcome"] == "blocked-locked"
++                        and not set(holding) - set(last.get("holding", []))):
++                    continue  # known to refuse us as we are; don't route in
++                graph.setdefault(pid, {})[direction] = dest
++        return graph
++
++    def _first_step(self, chart: Any, start: str, goal: str,
++                    holding: List[str]) -> Optional[str]:
++        graph = self._route_graph(chart, holding)
++        seen = {start}
++        queue = deque([(start, None)])
++        while queue:
++            node, first = queue.popleft()
++            if node == goal and first is not None:
++                return first
++            for direction in sorted(graph.get(node, {})):
++                nxt = graph[node][direction]
++                if nxt not in seen:
++                    seen.add(nxt)
++                    queue.append((nxt, direction if first is None else first))
++        return None
++
++    def decide(self, chart: Any, obs: Observation,
++               rng: random.Random) -> Optional[str]:
++        while self.targets and self.probe_steps < self.MAX_PROBE_STEPS:
++            target = self.targets[0]
++            place = obs["place"]
++            if place == target["place"]:
++                direction = target.get("direction")
++                self.targets.pop(0)
++                if direction:
++                    self.probe_steps += 1
++                    return direction
++                continue  # arrival is the observation; target served
++            step = self._first_step(chart, place, target["place"],
++                                    list(obs.get("holding", [])))
++            if step is None:
++                self.targets.pop(0)  # unreachable on believed ways; drop it
++                continue
++            self.probe_steps += 1
++            return step
++        return self.base.decide(chart, obs, rng)
+diff --git a/lwm/tiers.py b/lwm/tiers.py
+index f5aea5f..ebb7364 100644
+--- a/lwm/tiers.py
++++ b/lwm/tiers.py
+@@ -146,3 +146,325 @@ def recall(model: Any, query: Dict[str, Any], route: str) -> Tuple[Any, int]:
+         return (f"truth: no matching entry in day {day}'s ledger.",
+                 COST_TRUTH)
+     return (dict(entry), COST_TRUTH)
++
++
++# ---------------------------------------------------------------------
++# The Faltering Walk — question-generating recall (MEMORY-PATHS §8–§9).
++#
++# The essence tier above answers by key lookup. This section turns
++# recall into a *walk*: the chart is already a graph (places, believed
++# exits, conditional edges), so a Personalized-PageRank spreading
++# activation over it — seeded at where the agent stands and what it
++# wants — ranks the places the current inquiry actually touches.
++# The walk's output is not an answer. It is a ranked list of
++# QUESTIONS, scored activation x disagreement, where disagreement is
++# everything at that node that could make the walk falter: two
++# beliefs in conflict, a destination never seen, confidence rotted
++# by fog, an exit on a hot route never taken. The morning allocator
++# then spends the day's purse strictly in question order: a conflict
++# buys the truth-tier recall of the exact testified event; the rest
++# buy an essence recall of the place — and every bought question
++# queues one physical probe for the day (see policy.ProbePolicy).
++# ---------------------------------------------------------------------
++
++WALK_DAMPING = 0.85
++WALK_ITERS = 100
++CONDITIONAL_SATISFIED = 1.0     # opens_with X, and X is known to exist
++CONDITIONAL_UNSATISFIED = 0.05  # opens_with X, X nowhere on the chart
++BLOCKED_UNKNOWN_KEY = 0.05      # known impassable, no key charted
++REVERSE_EDGE_FACTOR = 0.5       # believed ways usually lead back
++DEFAULT_PURSE = 24              # attention units per morning
++
++# disagreement weights — the falter signals, priced in one currency
++W_CONFLICT = 1.0        # a surprise/revision in the node's history
++W_AMBIGUITY = 0.6       # an exit whose destination was never seen
++W_UNCHARTED = 0.5       # an exit never traversed
++W_FOG = 0.3             # the node is fogged today
++
++
++def _conditional_factor(chart: Any, belief: Dict[str, Any]) -> float:
++    """How walkable a believed exit is, given what the chart knows:
++    an ``opens_with`` edge weighs full if the opener is charted as
++    existing somewhere (in some place's believed contents, or as
++    another exit's learned opener), near-zero otherwise."""
++    opener = belief.get("opens_with")
++    if opener:
++        for p in chart.places.values():
++            if opener in p.belief_contents:
++                return CONDITIONAL_SATISFIED
++        for p in chart.places.values():
++            for b in p.belief_exits.values():
++                if b.get("opens_with") == opener:
++                    return CONDITIONAL_SATISFIED
++        return CONDITIONAL_UNSATISFIED
++    if belief.get("passable") is False:
++        return BLOCKED_UNKNOWN_KEY
++    return 1.0
++
++
++def walk_graph(chart: Any, day: int) -> Dict[str, Dict[str, float]]:
++    """The chart as a weighted directed graph for spreading
++    activation: edge source->destination weighs the source's
++    effective (fog-decayed) confidence x the exit's conditional
++    factor. Reverse edges ride at half weight — believed ways
++    usually lead back — so the walk stays connected."""
++    graph: Dict[str, Dict[str, float]] = {pid: {} for pid in chart.places}
++    for pid, place in chart.places.items():
++        conf = chart.effective_confidence(pid, day) or 0.1
++        for belief in place.belief_exits.values():
++            dest = belief.get("to")
++            if dest is None:
++                continue
++            w = conf * _conditional_factor(chart, belief)
++            if w > graph[pid].get(dest, 0.0):
++                graph[pid][dest] = w
++            back = w * REVERSE_EDGE_FACTOR
++            if back > graph.setdefault(dest, {}).get(pid, 0.0):
++                graph[dest][pid] = back
++    return graph
++
++
++def _ppr(graph: Dict[str, Dict[str, float]],
++         seeds: Dict[str, float]) -> Dict[str, float]:
++    """Personalized PageRank: activation spreading from the seeds,
++    resetting preferentially to them (HippoRAG's move, §8.1)."""
++    nodes = list(graph)
++    if not nodes:
++        return {}
++    total = sum(seeds.values()) or 1.0
++    teleport = {n: seeds.get(n, 0.0) / total for n in nodes}
++    rank = dict(teleport)
++    out_weight = {n: sum(graph[n].values()) for n in nodes}
++    for _ in range(WALK_ITERS):
++        new = {n: (1.0 - WALK_DAMPING) * teleport[n] for n in nodes}
++        for n in nodes:
++            if out_weight[n] <= 0:
++                # a dangling node hands its activation back to the seeds
++                for m in nodes:
++                    new[m] += WALK_DAMPING * rank[n] * teleport[m]
++                continue
++            for m, w in graph[n].items():
++                new[m] += WALK_DAMPING * rank[n] * (w / out_weight[n])
++        rank = new
++    return rank
++
++
++def _disagreement(chart: Any, pid: str, day: int) -> Tuple[float, Dict[str, float]]:
++    """Everything at this node that could make a walk falter, as one
++    score plus its parts (the parts are the receipt)."""
++    place = chart.places[pid]
++    parts = {"conflict": 0.0, "ambiguity": 0.0, "uncharted": 0.0,
++             "ignorance": 0.0, "fog": 0.0}
++    seen = set()
++    for h in place.history:
++        key = (h.get("aspect"), h.get("key"), h.get("day"), h.get("step"))
++        if h.get("surprise") and key not in seen:
++            seen.add(key)
++            parts["conflict"] += W_CONFLICT
++    for (_p, _d), edge in chart.edges.items():
++        if _p != pid:
++            continue
++        dests = {a["to"] for a in edge["attempts"] if a["outcome"] == "traversed"}
++        if len(dests) > 1:
++            parts["conflict"] += W_CONFLICT
++    for belief in place.belief_exits.values():
++        if belief.get("to") is None:
++            parts["ambiguity"] += W_AMBIGUITY
++    if not place.observed:
++        parts["ambiguity"] += W_AMBIGUITY
++    for u in chart.uncharted():
++        if u["place"] == pid and u["direction"] is not None:
++            parts["uncharted"] += W_UNCHARTED
++    if place.observed:
++        parts["ignorance"] = 1.0 - chart.effective_confidence(pid, day)
++    else:
++        parts["ignorance"] = 1.0
++    if chart.is_fogged(pid, day):
++        parts["fog"] = W_FOG
++    return sum(parts.values()), parts
++
++
++def _question_kind(parts: Dict[str, float]) -> str:
++    """The dominant falter names the question — and its price."""
++    ranked = sorted(parts.items(), key=lambda kv: -kv[1])
++    top = ranked[0][0] if ranked else "fog"
++    if top == "conflict":
++        return "conflict"
++    if top == "ambiguity":
++        return "tie"
++    if top == "uncharted":
++        return "uncharted"
++    return "fog"  # ignorance / fog dominate
++
++
++def hyde_seed(chart: Any, description: str) -> Optional[str]:
++    """HyDE inverted for charts (§9 step 4): given a hypothetical
++    description of a place never visited, return the charted place
++    whose name/contents best match the picture — the answer's shape
++    used as bait for the walk's seed."""
++    words = {w.strip(".,") for w in description.lower().split() if len(w) > 2}
++    best, best_score = None, 0.0
++    for pid in sorted(chart.places):
++        p = chart.places[pid]
++        hay = set(pid.replace("-", " ").split())
++        for c in p.belief_contents:
++            hay |= set(c.lower().split())
++        score = len(words & hay)
++        if score > best_score:
++            best, best_score = pid, score
++    return best
++
++
++def question_walk(chart: Any, day: int, start: str,
++                  goal: Optional[str] = None,
++                  goal_description: str = "a place holding treasure, "
++                  "the vault") -> List[Dict[str, Any]]:
++    """Walk the chart and return its questions, ranked.
++
++    Seeds: the place the agent stands in, and the goal place if one
++    is believed — else a HyDE seed matched from a hypothetical goal
++    description. Each question carries its score's full anatomy."""
++    graph = walk_graph(chart, day)
++    if not graph:
++        return []
++    seeds: Dict[str, float] = {}
++    if start in graph:
++        seeds[start] = 0.6
++    goal_node = goal if goal in graph else None
++    hyde = None
++    if goal_node is not None:
++        seeds[goal_node] = 0.4
++    else:
++        hyde = hyde_seed(chart, goal_description)
++        if hyde in graph:
++            seeds[hyde] = 0.4
++    if not seeds:
++        seeds = {sorted(graph)[0]: 1.0}
++    activation = _ppr(graph, seeds)
++    questions: List[Dict[str, Any]] = []
++    for pid in sorted(graph):
++        dis, parts = _disagreement(chart, pid, day)
++        kind = _question_kind(parts)
++        target: Dict[str, Any] = {"place": pid, "direction": None}
++        if kind == "uncharted":
++            exits = [u for u in chart.uncharted()
++                     if u["place"] == pid and u["direction"] is not None]
++            if exits:
++                target = {"place": pid, "direction": exits[0]["direction"]}
++        questions.append({
++            "place": pid, "kind": kind,
++            "score": round(activation.get(pid, 0.0) * dis, 4),
++            "activation": round(activation.get(pid, 0.0), 4),
++            "disagreement": round(dis, 3),
++            "parts": {k: round(v, 3) for k, v in parts.items()},
++            "target": target,
++            "hyde_seed": hyde if pid == hyde else None,
++        })
++    questions.sort(key=lambda q: (-q["score"], q["place"]))
++    for i, q in enumerate(questions):
++        q["rank"] = i + 1
++    return questions
++
++
++def _truth_query_for(model: Any, place_id: str) -> Optional[Dict[str, Any]]:
++    """Locate, in the ledger, the exact testified surprise a conflict
++    question is about — so the truth tier answers *that* event."""
++    place = model.chart.places.get(place_id)
++    if place is None:
++        return None
++    surprises = [h for h in place.history if h.get("surprise")]
++    if not surprises:
++        return None
++    e = surprises[-1]
++    record = model.archive.get(e["day"])
++    if not record:
++        return None
++    pool = [x for x in record["entries"] if x.get("surprise")]
++    for i, x in enumerate(pool):
++        if (x.get("place") == e["place"] and x.get("step") == e["step"]
++                and x.get("aspect") == e["aspect"]
++                and x.get("key") == e["key"]):
++            return {"kind": "surprise", "day": e["day"], "index": i}
++    return None
++
++
++def _bfs_distances_on(graph: Dict[str, Dict[str, float]],
++                      start: str) -> Dict[str, int]:
++    from collections import deque
++    dist = {start: 0}
++    queue = deque([start])
++    while queue:
++        node = queue.popleft()
++        for nxt in sorted(graph.get(node, {})):
++            if nxt not in dist:
++                dist[nxt] = dist[node] + 1
++                queue.append(nxt)
++    return dist
++
++
++def allocate_probes(model: Any, mode: str, start: str,
++                    budget: int = DEFAULT_PURSE) -> Dict[str, Any]:
++    """The morning allocation: spend today's purse on questions.
++
++    ``mode="walk"`` (the Faltering Walk): questions ranked by
++    activation x disagreement; ``mode="nearest"`` (the strawman):
++    uncharted exits nearest-first. Either way the purse is spent
++    strictly in order — a conflict buys a truth recall of the exact
++    testified event (12), everything else an essence recall of the
++    place (4) — and each bought question queues one physical probe.
++    Returns the full question list, what was bought, the probe
++    targets, and the spend by tier. Charges land on the model via
++    ``recall`` itself."""
++    chart, day = model.chart, model.day
++    spend = {"reflex": 0, "essence": 0, "truth": 0}
++    bought: List[Dict[str, Any]] = []
++    targets: List[Dict[str, Any]] = []
++    if mode == "walk":
++        questions = question_walk(chart, day, start,
++                                  goal=chart.goal_place())
++    elif mode == "nearest":
++        graph = walk_graph(chart, day)
++        dist = _bfs_distances_on(graph, start)
++        questions = []
++        for u in chart.uncharted():
++            if u["direction"] is None:
++                continue
++            questions.append({
++                "place": u["place"], "kind": "uncharted",
++                "score": None, "activation": None,
++                "disagreement": None, "parts": {},
++                "distance": dist.get(u["place"]),
++                "target": {"place": u["place"],
++                           "direction": u["direction"]},
++            })
++        questions.sort(key=lambda q: (
++            q["distance"] if q["distance"] is not None else 10 ** 6,
++            q["place"], q["target"]["direction"]))
++        for i, q in enumerate(questions):
++            q["rank"] = i + 1
++    else:
++        raise ValueError(f"unknown probe mode: {mode!r}")
++
++    remaining = budget
++    for q in questions:
++        if mode == "walk" and q["score"] <= 0:
++            continue  # the walk has no question here; nothing to buy
++        cost = COST_TRUTH if q["kind"] == "conflict" else COST_ESSENCE
++        if cost > remaining:
++            break  # strict order: the purse stops at the first wall
++        if q["kind"] == "conflict":
++            query = _truth_query_for(model, q["place"])
++            if query is not None:
++                _ans, paid = recall(model, query, "truth")
++            else:
++                _ans, paid = recall(model, {"kind": "place",
++                                            "place": q["place"]}, "essence")
++        else:
++            _ans, paid = recall(model, {"kind": "place",
++                                        "place": q["place"]}, "essence")
++        spend["truth" if paid == COST_TRUTH else "essence"] += paid
++        remaining -= paid
++        bought.append(q)
++        targets.append(q["target"])
++    return {"mode": mode, "questions": questions, "bought": bought,
++            "targets": targets, "spend": spend, "budget": budget}
