@@ -1,0 +1,542 @@
+{
+ "x4-ab1": {
+  "result": "1-0",
+  "termination": "checkmate by hoardbox (A - Materialist)",
+  "final_clocks": {
+   "white": 430.9,
+   "black": 596.2
+  },
+  "engines": {
+   "hoardbox": {
+    "colour": "white",
+    "binary_bytes": 72464,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 300,
+    "moves": 21,
+    "host_s": 8.456,
+    "charged_sim_s": 169.1
+   },
+   "sliver": {
+    "colour": "black",
+    "binary_bytes": 71328,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 128,
+    "moves": 20,
+    "host_s": 0.192,
+    "charged_sim_s": 3.8
+   }
+  }
+ },
+ "x4-ab2": {
+  "result": "0-1",
+  "termination": "checkmate by hoardbox (A - Materialist)",
+  "final_clocks": {
+   "white": 597.5,
+   "black": 498.2
+  },
+  "engines": {
+   "sliver": {
+    "colour": "white",
+    "binary_bytes": 71328,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 128,
+    "moves": 14,
+    "host_s": 0.124,
+    "charged_sim_s": 2.5
+   },
+   "hoardbox": {
+    "colour": "black",
+    "binary_bytes": 72464,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 300,
+    "moves": 14,
+    "host_s": 5.092,
+    "charged_sim_s": 101.8
+   }
+  }
+ },
+ "x4-ab3": {
+  "result": "1-0",
+  "termination": "checkmate by hoardbox (A - Materialist)",
+  "final_clocks": {
+   "white": 431.0,
+   "black": 596.2
+  },
+  "engines": {
+   "hoardbox": {
+    "colour": "white",
+    "binary_bytes": 72464,
+    "size_gate": "PASS",
+    "ram_gate": "FAIL",
+    "peak_anon_kb": 2336,
+    "moves": 21,
+    "host_s": 8.45,
+    "charged_sim_s": 169.0
+   },
+   "sliver": {
+    "colour": "black",
+    "binary_bytes": 71328,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 128,
+    "moves": 20,
+    "host_s": 0.191,
+    "charged_sim_s": 3.8
+   }
+  }
+ },
+ "x4-ab4": {
+  "result": "0-1",
+  "termination": "checkmate by hoardbox (A - Materialist)",
+  "final_clocks": {
+   "white": 597.2,
+   "black": 498.2
+  },
+  "engines": {
+   "sliver": {
+    "colour": "white",
+    "binary_bytes": 71328,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 124,
+    "moves": 14,
+    "host_s": 0.138,
+    "charged_sim_s": 2.8
+   },
+   "hoardbox": {
+    "colour": "black",
+    "binary_bytes": 72464,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 300,
+    "moves": 14,
+    "host_s": 5.091,
+    "charged_sim_s": 101.8
+   }
+  }
+ },
+ "x4-ac1": {
+  "result": "1-0",
+  "termination": "checkmate by hoardbox (A - Materialist)",
+  "final_clocks": {
+   "white": 417.8,
+   "black": 350.5
+  },
+  "engines": {
+   "hoardbox": {
+    "colour": "white",
+    "binary_bytes": 72464,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 312,
+    "moves": 24,
+    "host_s": 9.109,
+    "charged_sim_s": 182.2
+   },
+   "tickbox": {
+    "colour": "black",
+    "binary_bytes": 72512,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 288,
+    "moves": 23,
+    "host_s": 12.474,
+    "charged_sim_s": 249.5
+   }
+  }
+ },
+ "x4-ac2": {
+  "result": "1/2-1/2",
+  "termination": "draw: FIVEFOLD_REPETITION",
+  "final_clocks": {
+   "white": 245.2,
+   "black": 348.8
+  },
+  "engines": {
+   "tickbox": {
+    "colour": "white",
+    "binary_bytes": 72512,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 288,
+    "moves": 30,
+    "host_s": 17.739,
+    "charged_sim_s": 354.8
+   },
+   "hoardbox": {
+    "colour": "black",
+    "binary_bytes": 72464,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 300,
+    "moves": 29,
+    "host_s": 12.558,
+    "charged_sim_s": 251.2
+   }
+  }
+ },
+ "x4-ac3": {
+  "result": "1-0",
+  "termination": "checkmate by hoardbox (A - Materialist)",
+  "final_clocks": {
+   "white": 418.0,
+   "black": 350.5
+  },
+  "engines": {
+   "hoardbox": {
+    "colour": "white",
+    "binary_bytes": 72464,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 308,
+    "moves": 24,
+    "host_s": 9.102,
+    "charged_sim_s": 182.0
+   },
+   "tickbox": {
+    "colour": "black",
+    "binary_bytes": 72512,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 292,
+    "moves": 23,
+    "host_s": 12.473,
+    "charged_sim_s": 249.5
+   }
+  }
+ },
+ "x4-ac4": {
+  "result": "0-1",
+  "termination": "checkmate by hoardbox (A - Materialist)",
+  "final_clocks": {
+   "white": 76.5,
+   "black": 187.4
+  },
+  "engines": {
+   "tickbox": {
+    "colour": "white",
+    "binary_bytes": 72512,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 292,
+    "moves": 51,
+    "host_s": 26.175,
+    "charged_sim_s": 523.5
+   },
+   "hoardbox": {
+    "colour": "black",
+    "binary_bytes": 72464,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 304,
+    "moves": 51,
+    "host_s": 20.631,
+    "charged_sim_s": 412.6
+   }
+  }
+ },
+ "x4-bc1": {
+  "result": "0-1",
+  "termination": "checkmate by tickbox (C - Accountant)",
+  "final_clocks": {
+   "white": 596.1,
+   "black": 345.6
+  },
+  "engines": {
+   "sliver": {
+    "colour": "white",
+    "binary_bytes": 71328,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 128,
+    "moves": 23,
+    "host_s": 0.197,
+    "charged_sim_s": 3.9
+   },
+   "tickbox": {
+    "colour": "black",
+    "binary_bytes": 72512,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 292,
+    "moves": 23,
+    "host_s": 12.718,
+    "charged_sim_s": 254.4
+   }
+  }
+ },
+ "x4-bc2": {
+  "result": "1-0",
+  "termination": "checkmate by tickbox (C - Accountant)",
+  "final_clocks": {
+   "white": 289.6,
+   "black": 595.2
+  },
+  "engines": {
+   "tickbox": {
+    "colour": "white",
+    "binary_bytes": 72512,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 284,
+    "moves": 26,
+    "host_s": 15.521,
+    "charged_sim_s": 310.4
+   },
+   "sliver": {
+    "colour": "black",
+    "binary_bytes": 71328,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 128,
+    "moves": 25,
+    "host_s": 0.24,
+    "charged_sim_s": 4.8
+   }
+  }
+ },
+ "x4-bc3": {
+  "result": "0-1",
+  "termination": "checkmate by tickbox (C - Accountant)",
+  "final_clocks": {
+   "white": 596.1,
+   "black": 345.6
+  },
+  "engines": {
+   "sliver": {
+    "colour": "white",
+    "binary_bytes": 71328,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 124,
+    "moves": 23,
+    "host_s": 0.196,
+    "charged_sim_s": 3.9
+   },
+   "tickbox": {
+    "colour": "black",
+    "binary_bytes": 72512,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 292,
+    "moves": 23,
+    "host_s": 12.72,
+    "charged_sim_s": 254.4
+   }
+  }
+ },
+ "x4-bc4": {
+  "result": "1-0",
+  "termination": "checkmate by tickbox (C - Accountant)",
+  "final_clocks": {
+   "white": 289.5,
+   "black": 595.1
+  },
+  "engines": {
+   "tickbox": {
+    "colour": "white",
+    "binary_bytes": 72512,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 284,
+    "moves": 26,
+    "host_s": 15.527,
+    "charged_sim_s": 310.5
+   },
+   "sliver": {
+    "colour": "black",
+    "binary_bytes": 71328,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 128,
+    "moves": 25,
+    "host_s": 0.245,
+    "charged_sim_s": 4.9
+   }
+  }
+ },
+ "x4-ctrl-b1": {
+  "result": "0-1",
+  "termination": "checkmate by pawnbox 1.0 (proof baseline)",
+  "final_clocks": {
+   "white": 594.3,
+   "black": 591.4
+  },
+  "engines": {
+   "sliver": {
+    "colour": "white",
+    "binary_bytes": 71328,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 124,
+    "moves": 51,
+    "host_s": 0.284,
+    "charged_sim_s": 5.7
+   },
+   "pawnbox": {
+    "colour": "black",
+    "binary_bytes": 67608,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 136,
+    "moves": 51,
+    "host_s": 0.431,
+    "charged_sim_s": 8.6
+   }
+  }
+ },
+ "x4-ctrl-b2": {
+  "result": "1/2-1/2",
+  "termination": "draw: FIVEFOLD_REPETITION",
+  "final_clocks": {
+   "white": 593.5,
+   "black": 596.1
+  },
+  "engines": {
+   "pawnbox": {
+    "colour": "white",
+    "binary_bytes": 67608,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 132,
+    "moves": 48,
+    "host_s": 0.325,
+    "charged_sim_s": 6.5
+   },
+   "sliver": {
+    "colour": "black",
+    "binary_bytes": 71328,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 128,
+    "moves": 47,
+    "host_s": 0.193,
+    "charged_sim_s": 3.9
+   }
+  }
+ },
+ "x4-ctrl-c1": {
+  "result": "1-0",
+  "termination": "checkmate by tickbox (C - Accountant)",
+  "final_clocks": {
+   "white": 464.2,
+   "black": 596.0
+  },
+  "engines": {
+   "tickbox": {
+    "colour": "white",
+    "binary_bytes": 72512,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 280,
+    "moves": 15,
+    "host_s": 6.79,
+    "charged_sim_s": 135.8
+   },
+   "pawnbox": {
+    "colour": "black",
+    "binary_bytes": 67608,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 136,
+    "moves": 14,
+    "host_s": 0.201,
+    "charged_sim_s": 4.0
+   }
+  }
+ },
+ "x4-ctrl-c2": {
+  "result": "0-1",
+  "termination": "checkmate by tickbox (C - Accountant)",
+  "final_clocks": {
+   "white": 595.8,
+   "black": 428.6
+  },
+  "engines": {
+   "pawnbox": {
+    "colour": "white",
+    "binary_bytes": 67608,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 136,
+    "moves": 17,
+    "host_s": 0.209,
+    "charged_sim_s": 4.2
+   },
+   "tickbox": {
+    "colour": "black",
+    "binary_bytes": 72512,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 292,
+    "moves": 17,
+    "host_s": 8.571,
+    "charged_sim_s": 171.4
+   }
+  }
+ },
+ "x4-ctrl-h1": {
+  "result": "1-0",
+  "termination": "checkmate by hoardbox (A - Materialist)",
+  "final_clocks": {
+   "white": 444.5,
+   "black": 593.4
+  },
+  "engines": {
+   "hoardbox": {
+    "colour": "white",
+    "binary_bytes": 72464,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 300,
+    "moves": 21,
+    "host_s": 7.777,
+    "charged_sim_s": 155.5
+   },
+   "pawnbox": {
+    "colour": "black",
+    "binary_bytes": 67608,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 144,
+    "moves": 20,
+    "host_s": 0.332,
+    "charged_sim_s": 6.6
+   }
+  }
+ },
+ "x4-ctrl-h2": {
+  "result": "0-1",
+  "termination": "checkmate by hoardbox (A - Materialist)",
+  "final_clocks": {
+   "white": 594.4,
+   "black": 472.3
+  },
+  "engines": {
+   "pawnbox": {
+    "colour": "white",
+    "binary_bytes": 67608,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 136,
+    "moves": 17,
+    "host_s": 0.278,
+    "charged_sim_s": 5.6
+   },
+   "hoardbox": {
+    "colour": "black",
+    "binary_bytes": 72464,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 296,
+    "moves": 17,
+    "host_s": 6.387,
+    "charged_sim_s": 127.7
+   }
+  }
+ }
+}
