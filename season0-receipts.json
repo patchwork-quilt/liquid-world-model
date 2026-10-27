@@ -1,0 +1,290 @@
+{
+ "ctrl-hoardbox": {
+  "result": "1-0",
+  "termination": "checkmate by hoardbox (A - Materialist)",
+  "final_clocks": {
+   "white": 443.3,
+   "black": 593.5
+  },
+  "engines": {
+   "hoardbox (A - Materialist)": {
+    "colour": "white",
+    "binary_bytes": 72464,
+    "source_bytes": 29061,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 300,
+    "moves": 21,
+    "host_s": 7.835,
+    "charged_sim_s": 156.7
+   },
+   "pawnbox 1.0 (proof baseline)": {
+    "colour": "black",
+    "binary_bytes": 67608,
+    "source_bytes": 9851,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 144,
+    "moves": 20,
+    "host_s": 0.327,
+    "charged_sim_s": 6.5
+   }
+  }
+ },
+ "ctrl-sliver": {
+  "result": "0-1",
+  "termination": "checkmate by pawnbox 1.0 (proof baseline)",
+  "final_clocks": {
+   "white": 594.2,
+   "black": 591.0
+  },
+  "engines": {
+   "sliver (B - Minimalist)": {
+    "colour": "white",
+    "binary_bytes": 71328,
+    "source_bytes": 7844,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 128,
+    "moves": 51,
+    "host_s": 0.292,
+    "charged_sim_s": 5.8
+   },
+   "pawnbox 1.0 (proof baseline)": {
+    "colour": "black",
+    "binary_bytes": 67608,
+    "source_bytes": 9851,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 136,
+    "moves": 51,
+    "host_s": 0.451,
+    "charged_sim_s": 9.0
+   }
+  }
+ },
+ "ctrl-tickbox": {
+  "result": "1-0",
+  "termination": "checkmate by tickbox (C - Accountant)",
+  "final_clocks": {
+   "white": 464.2,
+   "black": 595.5
+  },
+  "engines": {
+   "tickbox (C - Accountant)": {
+    "colour": "white",
+    "binary_bytes": 72512,
+    "source_bytes": 21161,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 280,
+    "moves": 15,
+    "host_s": 6.792,
+    "charged_sim_s": 135.8
+   },
+   "pawnbox 1.0 (proof baseline)": {
+    "colour": "black",
+    "binary_bytes": 67608,
+    "source_bytes": 9851,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 136,
+    "moves": 14,
+    "host_s": 0.226,
+    "charged_sim_s": 4.5
+   }
+  }
+ },
+ "rr-ab1": {
+  "result": "1-0",
+  "termination": "checkmate by hoardbox (A - Materialist)",
+  "final_clocks": {
+   "white": 431.1,
+   "black": 596.2
+  },
+  "engines": {
+   "hoardbox (A - Materialist)": {
+    "colour": "white",
+    "binary_bytes": 72464,
+    "source_bytes": 29061,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 300,
+    "moves": 21,
+    "host_s": 8.444,
+    "charged_sim_s": 168.9
+   },
+   "sliver (B - Minimalist)": {
+    "colour": "black",
+    "binary_bytes": 71328,
+    "source_bytes": 7844,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 132,
+    "moves": 20,
+    "host_s": 0.191,
+    "charged_sim_s": 3.8
+   }
+  }
+ },
+ "rr-ab2": {
+  "result": "0-1",
+  "termination": "checkmate by hoardbox (A - Materialist)",
+  "final_clocks": {
+   "white": 597.5,
+   "black": 498.3
+  },
+  "engines": {
+   "sliver (B - Minimalist)": {
+    "colour": "white",
+    "binary_bytes": 71328,
+    "source_bytes": 7844,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 128,
+    "moves": 14,
+    "host_s": 0.123,
+    "charged_sim_s": 2.5
+   },
+   "hoardbox (A - Materialist)": {
+    "colour": "black",
+    "binary_bytes": 72464,
+    "source_bytes": 29061,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 296,
+    "moves": 14,
+    "host_s": 5.084,
+    "charged_sim_s": 101.7
+   }
+  }
+ },
+ "rr-ac1": {
+  "result": "1-0",
+  "termination": "checkmate by hoardbox (A - Materialist)",
+  "final_clocks": {
+   "white": 412.0,
+   "black": 328.5
+  },
+  "engines": {
+   "hoardbox (A - Materialist)": {
+    "colour": "white",
+    "binary_bytes": 72464,
+    "source_bytes": 29061,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 308,
+    "moves": 25,
+    "host_s": 9.398,
+    "charged_sim_s": 188.0
+   },
+   "tickbox (C - Accountant)": {
+    "colour": "black",
+    "binary_bytes": 72512,
+    "source_bytes": 21161,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 292,
+    "moves": 24,
+    "host_s": 13.576,
+    "charged_sim_s": 271.5
+   }
+  }
+ },
+ "rr-ac2": {
+  "result": "1/2-1/2",
+  "termination": "draw: FIVEFOLD_REPETITION",
+  "final_clocks": {
+   "white": 245.3,
+   "black": 348.9
+  },
+  "engines": {
+   "tickbox (C - Accountant)": {
+    "colour": "white",
+    "binary_bytes": 72512,
+    "source_bytes": 21161,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 288,
+    "moves": 30,
+    "host_s": 17.737,
+    "charged_sim_s": 354.7
+   },
+   "hoardbox (A - Materialist)": {
+    "colour": "black",
+    "binary_bytes": 72464,
+    "source_bytes": 29061,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 300,
+    "moves": 29,
+    "host_s": 12.557,
+    "charged_sim_s": 251.1
+   }
+  }
+ },
+ "rr-bc1": {
+  "result": "0-1",
+  "termination": "checkmate by tickbox (C - Accountant)",
+  "final_clocks": {
+   "white": 596.1,
+   "black": 345.6
+  },
+  "engines": {
+   "sliver (B - Minimalist)": {
+    "colour": "white",
+    "binary_bytes": 71328,
+    "source_bytes": 7844,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 124,
+    "moves": 23,
+    "host_s": 0.195,
+    "charged_sim_s": 3.9
+   },
+   "tickbox (C - Accountant)": {
+    "colour": "black",
+    "binary_bytes": 72512,
+    "source_bytes": 21161,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 288,
+    "moves": 23,
+    "host_s": 12.718,
+    "charged_sim_s": 254.4
+   }
+  }
+ },
+ "rr-bc2": {
+  "result": "1-0",
+  "termination": "checkmate by tickbox (C - Accountant)",
+  "final_clocks": {
+   "white": 289.6,
+   "black": 595.2
+  },
+  "engines": {
+   "tickbox (C - Accountant)": {
+    "colour": "white",
+    "binary_bytes": 72512,
+    "source_bytes": 21161,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 284,
+    "moves": 26,
+    "host_s": 15.522,
+    "charged_sim_s": 310.4
+   },
+   "sliver (B - Minimalist)": {
+    "colour": "black",
+    "binary_bytes": 71328,
+    "source_bytes": 7844,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 124,
+    "moves": 25,
+    "host_s": 0.24,
+    "charged_sim_s": 4.8
+   }
+  }
+ }
+}
