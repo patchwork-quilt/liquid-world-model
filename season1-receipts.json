@@ -1,0 +1,511 @@
+{
+ "ctrl2-hoardbox": {
+  "result": "1-0",
+  "termination": "checkmate by hoardbox2 (A - Materialist, S1)",
+  "final_clocks": {
+   "white": 513.1,
+   "black": 591.7
+  },
+  "engines": {
+   "hoardbox2 (A - Materialist, S1)": {
+    "colour": "white",
+    "binary_bytes": 72568,
+    "source_bytes": 38160,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 424,
+    "moves": 16,
+    "host_s": 4.347,
+    "charged_sim_s": 86.9
+   },
+   "pawnbox 1.0 (proof baseline)": {
+    "colour": "black",
+    "binary_bytes": 67608,
+    "source_bytes": 9851,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 136,
+    "moves": 15,
+    "host_s": 0.413,
+    "charged_sim_s": 8.3
+   }
+  }
+ },
+ "ctrl2-sliver": {
+  "result": "1-0",
+  "termination": "checkmate by sliver2 (B - Minimalist, S1)",
+  "final_clocks": {
+   "white": 446.2,
+   "black": 594.3
+  },
+  "engines": {
+   "sliver2 (B - Minimalist, S1)": {
+    "colour": "white",
+    "binary_bytes": 71984,
+    "source_bytes": 14906,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 228,
+    "moves": 17,
+    "host_s": 7.688,
+    "charged_sim_s": 153.8
+   },
+   "pawnbox 1.0 (proof baseline)": {
+    "colour": "black",
+    "binary_bytes": 67608,
+    "source_bytes": 9851,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 144,
+    "moves": 16,
+    "host_s": 0.283,
+    "charged_sim_s": 5.7
+   }
+  }
+ },
+ "ctrl2-tickbox": {
+  "result": "1-0",
+  "termination": "checkmate by tickbox2 (C - Accountant, S1)",
+  "final_clocks": {
+   "white": 261.0,
+   "black": 591.3
+  },
+  "engines": {
+   "tickbox2 (C - Accountant, S1)": {
+    "colour": "white",
+    "binary_bytes": 72960,
+    "source_bytes": 29551,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 420,
+    "moves": 31,
+    "host_s": 16.952,
+    "charged_sim_s": 339.0
+   },
+   "pawnbox 1.0 (proof baseline)": {
+    "colour": "black",
+    "binary_bytes": 67608,
+    "source_bytes": 9851,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 136,
+    "moves": 30,
+    "host_s": 0.434,
+    "charged_sim_s": 8.7
+   }
+  }
+ },
+ "lin-hoardbox": {
+  "result": "1-0",
+  "termination": "checkmate by hoardbox (A - Materialist, S0)",
+  "final_clocks": {
+   "white": 236.1,
+   "black": 254.3
+  },
+  "engines": {
+   "hoardbox (A - Materialist, S0)": {
+    "colour": "white",
+    "binary_bytes": 72464,
+    "source_bytes": 29061,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 300,
+    "moves": 46,
+    "host_s": 18.194,
+    "charged_sim_s": 363.9
+   },
+   "hoardbox2 (A - Materialist, S1)": {
+    "colour": "black",
+    "binary_bytes": 72568,
+    "source_bytes": 38160,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 420,
+    "moves": 45,
+    "host_s": 17.284,
+    "charged_sim_s": 345.7
+   }
+  }
+ },
+ "lin-sliver": {
+  "result": "0-1",
+  "termination": "checkmate by sliver2 (B - Minimalist, S1)",
+  "final_clocks": {
+   "white": 596.3,
+   "black": 338.5
+  },
+  "engines": {
+   "sliver (B - Minimalist, S0)": {
+    "colour": "white",
+    "binary_bytes": 71328,
+    "source_bytes": 7844,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 124,
+    "moves": 28,
+    "host_s": 0.187,
+    "charged_sim_s": 3.7
+   },
+   "sliver2 (B - Minimalist, S1)": {
+    "colour": "black",
+    "binary_bytes": 71984,
+    "source_bytes": 14906,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 224,
+    "moves": 28,
+    "host_s": 13.077,
+    "charged_sim_s": 261.5
+   }
+  }
+ },
+ "lin-tickbox": {
+  "result": "0-1",
+  "termination": "checkmate by tickbox2 (C - Accountant, S1)",
+  "final_clocks": {
+   "white": 62.1,
+   "black": 62.3
+  },
+  "engines": {
+   "tickbox (C - Accountant, S0)": {
+    "colour": "white",
+    "binary_bytes": 72512,
+    "source_bytes": 21161,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 292,
+    "moves": 69,
+    "host_s": 26.893,
+    "charged_sim_s": 537.9
+   },
+   "tickbox2 (C - Accountant, S1)": {
+    "colour": "black",
+    "binary_bytes": 72960,
+    "source_bytes": 29551,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 428,
+    "moves": 69,
+    "host_s": 26.885,
+    "charged_sim_s": 537.7
+   }
+  }
+ },
+ "rr2-ab1": {
+  "result": "1-0",
+  "termination": "checkmate by hoardbox2 (A - Materialist, S1)",
+  "final_clocks": {
+   "white": 137.7,
+   "black": 166.5
+  },
+  "engines": {
+   "hoardbox2 (A - Materialist, S1)": {
+    "colour": "white",
+    "binary_bytes": 72568,
+    "source_bytes": 38160,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 436,
+    "moves": 74,
+    "host_s": 23.116,
+    "charged_sim_s": 462.3
+   },
+   "sliver2 (B - Minimalist, S1)": {
+    "colour": "black",
+    "binary_bytes": 71984,
+    "source_bytes": 14906,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 232,
+    "moves": 73,
+    "host_s": 21.675,
+    "charged_sim_s": 433.5
+   }
+  }
+ },
+ "rr2-ab2": {
+  "result": "0-1",
+  "termination": "checkmate by hoardbox2 (A - Materialist, S1)",
+  "final_clocks": {
+   "white": 196.3,
+   "black": 192.1
+  },
+  "engines": {
+   "sliver2 (B - Minimalist, S1)": {
+    "colour": "white",
+    "binary_bytes": 71984,
+    "source_bytes": 14906,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 224,
+    "moves": 51,
+    "host_s": 20.185,
+    "charged_sim_s": 403.7
+   },
+   "hoardbox2 (A - Materialist, S1)": {
+    "colour": "black",
+    "binary_bytes": 72568,
+    "source_bytes": 38160,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 428,
+    "moves": 51,
+    "host_s": 20.395,
+    "charged_sim_s": 407.9
+   }
+  }
+ },
+ "rr2-ac1": {
+  "result": "1-0",
+  "termination": "checkmate by hoardbox2 (A - Materialist, S1)",
+  "final_clocks": {
+   "white": 313.1,
+   "black": 150.9
+  },
+  "engines": {
+   "hoardbox2 (A - Materialist, S1)": {
+    "colour": "white",
+    "binary_bytes": 72568,
+    "source_bytes": 38160,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 424,
+    "moves": 40,
+    "host_s": 14.345,
+    "charged_sim_s": 286.9
+   },
+   "tickbox2 (C - Accountant, S1)": {
+    "colour": "black",
+    "binary_bytes": 72960,
+    "source_bytes": 29551,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 436,
+    "moves": 39,
+    "host_s": 22.454,
+    "charged_sim_s": 449.1
+   }
+  }
+ },
+ "rr2-ac2": {
+  "result": "1-0",
+  "termination": "checkmate by tickbox2 (C - Accountant, S1)",
+  "final_clocks": {
+   "white": 70.9,
+   "black": 158.7
+  },
+  "engines": {
+   "tickbox2 (C - Accountant, S1)": {
+    "colour": "white",
+    "binary_bytes": 72960,
+    "source_bytes": 29551,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 420,
+    "moves": 62,
+    "host_s": 26.454,
+    "charged_sim_s": 529.1
+   },
+   "hoardbox2 (A - Materialist, S1)": {
+    "colour": "black",
+    "binary_bytes": 72568,
+    "source_bytes": 38160,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 420,
+    "moves": 61,
+    "host_s": 22.067,
+    "charged_sim_s": 441.3
+   }
+  }
+ },
+ "rr2-bc1": {
+  "result": "0-1",
+  "termination": "checkmate by tickbox2 (C - Accountant, S1)",
+  "final_clocks": {
+   "white": 192.8,
+   "black": 103.8
+  },
+  "engines": {
+   "sliver2 (B - Minimalist, S1)": {
+    "colour": "white",
+    "binary_bytes": 71984,
+    "source_bytes": 14906,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 224,
+    "moves": 51,
+    "host_s": 20.359,
+    "charged_sim_s": 407.2
+   },
+   "tickbox2 (C - Accountant, S1)": {
+    "colour": "black",
+    "binary_bytes": 72960,
+    "source_bytes": 29551,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 420,
+    "moves": 51,
+    "host_s": 24.811,
+    "charged_sim_s": 496.2
+   }
+  }
+ },
+ "rr2-bc2": {
+  "result": "0-1",
+  "termination": "checkmate by sliver2 (B - Minimalist, S1)",
+  "final_clocks": {
+   "white": 289.6,
+   "black": 379.5
+  },
+  "engines": {
+   "tickbox2 (C - Accountant, S1)": {
+    "colour": "white",
+    "binary_bytes": 72960,
+    "source_bytes": 29551,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 428,
+    "moves": 25,
+    "host_s": 15.522,
+    "charged_sim_s": 310.4
+   },
+   "sliver2 (B - Minimalist, S1)": {
+    "colour": "black",
+    "binary_bytes": 71984,
+    "source_bytes": 14906,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 232,
+    "moves": 25,
+    "host_s": 11.024,
+    "charged_sim_s": 220.5
+   }
+  }
+ },
+ "_season": {
+  "format": {
+   "clock_sim_s": 600,
+   "speed_factor": 20,
+   "flash_cap_bytes": 4194304,
+   "ram_cap_bytes": 532480,
+   "venue": "Oracle (enforceable-native sim)"
+  },
+  "games": 12,
+  "plies": 1013,
+  "desyncs": 0,
+  "illegal_moves": 0,
+  "flag_falls": 0,
+  "gate_failures": 0,
+  "draws": 0,
+  "standings_rr": {
+   "hoardbox2": 3.0,
+   "tickbox2": 2.0,
+   "sliver2": 1.0
+  },
+  "lineage_duels_v1_white": {
+   "hoardbox2_vs_hoardbox": "0-1 (parent holds)",
+   "sliver2_vs_sliver": "1-0 to v2",
+   "tickbox2_vs_tickbox": "1-0 to v2"
+  },
+  "fill_census": {
+   "season0": {
+    "mean_binary_bytes": 72101,
+    "mean_binary_pct_of_flash": 1.72,
+    "manifest_books_tables_bytes": {
+     "hoardbox": 0,
+     "tickbox": 0,
+     "sliver": 0
+    },
+    "mean_crew_peak_anon_kb": 244,
+    "mean_crew_peak_pct_of_ram_cap": 46.9
+   },
+   "season1": {
+    "mean_binary_bytes": 72504,
+    "mean_binary_pct_of_flash": 1.73,
+    "manifest_books_tables_bytes": {
+     "hoardbox2": 5504,
+     "tickbox2": 444,
+     "sliver2": 0
+    },
+    "declared_manifest_incl_eval_tables_bytes": {
+     "hoardbox2": 7244,
+     "tickbox2": 444,
+     "sliver2": 0
+    },
+    "crew_peak_anon_kb": {
+     "hoardbox2": 436,
+     "tickbox2": 436,
+     "sliver2": 232
+    },
+    "mean_crew_peak_anon_kb": 368,
+    "mean_crew_peak_pct_of_ram_cap": 70.8
+   }
+  },
+  "prune_register": [
+   {
+    "crew": "hoardbox2",
+    "item": "TT 24576 entries (393216 B)",
+    "fate": "CUT to 16384 (262144 B)",
+    "reason": "builder's own bench measured 560 KiB peak anonymous, over the 520 KiB cap (stack/heap overhead above BSS counts); re-measured 428 KiB"
+   },
+   {
+    "crew": "hoardbox2",
+    "item": "59 corpus book proposals",
+    "fate": "DROPPED at book build",
+    "reason": "authored lines win conflicts; includes the corpus's universal 1.Nc3 (book plays 1.e4)"
+   },
+   {
+    "crew": "tickbox2",
+    "item": "TT 512 KB design",
+    "fate": "REJECTED pre-build",
+    "reason": "breaches 520 KB anonymous cap outright"
+   },
+   {
+    "crew": "tickbox2",
+    "item": "packed TT 384 KB design",
+    "fate": "REJECTED pre-build",
+    "reason": "projects ~576 KB measured peak - breach"
+   },
+   {
+    "crew": "tickbox2",
+    "item": "wider opening book",
+    "fate": "REFUSED",
+    "reason": "9 corpus games honestly support 12 lines; fill is not bulk"
+   },
+   {
+    "crew": "tickbox2",
+    "item": "PSTs / SEE / NMP / tablebases",
+    "fate": "REFUSED",
+    "reason": "duplicate knowledge or wrong axis for the doctrine (STUDY ledger)"
+   },
+   {
+    "crew": "sliver2",
+    "item": "opening book",
+    "fate": "REFUSED on doctrine, re-argued against S0 evidence",
+    "reason": "bytes earn more in depth machinery; manifest stays 0 B"
+   },
+   {
+    "crew": "sliver2",
+    "item": "CPU-clock() time budgeting",
+    "fate": "ADDED THEN PRUNED",
+    "reason": "contended self-play showed wall clock running ~23% ahead of CPU time; the referee charges wall - replaced with CLOCK_MONOTONIC"
+   }
+  ],
+  "incidents": [
+   {
+    "what": "hoardbox2 first scratch validation game (Oracle, pre-season) recorded peak anonymous 2464 KB -> RAM gate FAIL",
+    "investigation": "identical pairing re-run: 432 KB; 20 ms-sampled full replay of the same PGN: peak 432 KB, stack flat 132 KB; two further repetitions: 428/428 KB; all 12 official games: 420-436 KB. 17 subsequent measurements, none above 448 KB.",
+    "ruling": "unreproduced one-off measurement, recorded not buried; crew cleared on the balance of measurements. Scratch games deleted from the venue, not part of the season corpus."
+   },
+   {
+    "what": "both local dress rehearsals reversed on the venue (hoardbox2 mated its parent locally, lost the official duel; tickbox2 lost to its parent locally, won the official duel)",
+    "ruling": "n=1, time-managed search differs across benches and load; local rehearsals are study evidence, never records. Only Oracle runner games count."
+   },
+   {
+    "what": "sliver lane /tmp harness collision (another lane's test file briefly in its logs)",
+    "ruling": "caught by the builder; all cited results re-run from a private harness. No season artefact affected - official games ran under the season runner only."
+   }
+  ]
+ }
+}
