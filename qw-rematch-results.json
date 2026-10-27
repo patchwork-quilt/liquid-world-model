@@ -1,0 +1,851 @@
+{
+ "config": {
+  "wall_cap_s": 1800,
+  "turn_cap": 200000,
+  "crawl": "0.32.1 (source build)",
+  "qw": "8698adc (stock)",
+  "binary": "/home/ubuntu/qw-rematch/crawl-032/crawl-ref/source/crawl",
+  "manager_member": "llm-big",
+  "manager_model": "Qwen2.5-7B-Instruct Q4_K_M (GGUF)",
+  "round1_manager_member": "llm (Qwen3-0.6B Q4_K_M)"
+ },
+ "manager": {
+  "101": {
+   "brief_id": "B1-survival",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "Normal, D:1-11, D:12-15, Lair, Elf, Vaults:1-4, Depths, Slime, Snake, Swamp, Shoals, Crypt, Tomb, Zot:1-4, Win"
+   },
+   "llm_wall_s": 92.59,
+   "call_wall_s": 92.62,
+   "raw_output": "Loading model... |\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b \b\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-63b4b30\nmodel      : /home/ubuntu/model-farm/models/qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf\nftype      : Q4_K - Medium\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read <file>        add a text file\n  /glob <pattern>     add text files using globbing pattern\n\n\n\n> You are the manager of an automated Dungeon Crawl Stone Soup player (the bot qw). You do not play the game. Before the run you set its strategy: its starting combo, its preferred gods, and an ordered goal list. The bot follows your plan exactly.\n\nThe run uses game seed 101. Your strategic brief from the coach:\n\"Prioritise survival over depth. A long-lived run that dies late and safe beats a fast run that gambles. Avoid optional and dangerous branches, take the safest route to three runes, and va ... (truncated)\nCOMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: Normal, D:1-11, D:12-15, Lair, Elf, Vaults:1-4, Depths, Slime, Snake, Swamp, Shoals, Crypt, Tomb, Zot:1-4, Win\n\n[ Prompt: 9.0 t/s | Generation: 3.5 t/s ]\n\n\nExiting..."
+  },
+  "102": {
+   "brief_id": "B1-survival",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "Normal, Escape, Hells"
+   },
+   "llm_wall_s": 90.85,
+   "call_wall_s": 90.88,
+   "raw_output": "Loading model... |\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b \b\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-63b4b30\nmodel      : /home/ubuntu/model-farm/models/qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf\nftype      : Q4_K - Medium\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read <file>        add a text file\n  /glob <pattern>     add text files using globbing pattern\n\n\n\n> You are the manager of an automated Dungeon Crawl Stone Soup player (the bot qw). You do not play the game. Before the run you set its strategy: its starting combo, its preferred gods, and an ordered goal list. The bot follows your plan exactly.\n\nThe run uses game seed 102. Your strategic brief from the coach:\n\"Prioritise survival over depth. A long-lived run that dies late and safe beats a fast run that gambles. Avoid optional and dangerous branches, take the safest route to three runes, and va ... (truncated)\nCOMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: Normal, Escape, Hells\n\n[ Prompt: 7.6 t/s | Generation: 3.5 t/s ]\n\n\nExiting..."
+  },
+  "103": {
+   "brief_id": "B2-rune-rush",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "D:1-11, Lair, Rune:Shoals, Vaults:1-4, Depths, Win"
+   },
+   "llm_wall_s": 83.26,
+   "call_wall_s": 83.29,
+   "raw_output": "Loading model... |\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b \b\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-63b4b30\nmodel      : /home/ubuntu/model-farm/models/qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf\nftype      : Q4_K - Medium\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read <file>        add a text file\n  /glob <pattern>     add text files using globbing pattern\n\n\n\n> You are the manager of an automated Dungeon Crawl Stone Soup player (the bot qw). You do not play the game. Before the run you set its strategy: its starting combo, its preferred gods, and an ordered goal list. The bot follows your plan exactly.\n\nThe run uses game seed 103. Your strategic brief from the coach:\n\"Rush the first rune. Get to the Lair and into a Lair branch as fast as possible and secure a rune early. Momentum and an early rune matter more than fully clearing every level.\"\n\nReply wi ... (truncated)\nCOMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, Rune:Shoals, Vaults:1-4, Depths, Win\n\n[ Prompt: 9.0 t/s | Generation: 3.6 t/s ]\n\n\nExiting..."
+  },
+  "104": {
+   "brief_id": "B2-rune-rush",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "D:1-11, Lair, Rune:Shoals, Vaults:1-4, Depths, Win"
+   },
+   "llm_wall_s": 81.91,
+   "call_wall_s": 81.94,
+   "raw_output": "Loading model... |\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b \b\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-63b4b30\nmodel      : /home/ubuntu/model-farm/models/qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf\nftype      : Q4_K - Medium\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read <file>        add a text file\n  /glob <pattern>     add text files using globbing pattern\n\n\n\n> You are the manager of an automated Dungeon Crawl Stone Soup player (the bot qw). You do not play the game. Before the run you set its strategy: its starting combo, its preferred gods, and an ordered goal list. The bot follows your plan exactly.\n\nThe run uses game seed 104. Your strategic brief from the coach:\n\"Rush the first rune. Get to the Lair and into a Lair branch as fast as possible and secure a rune early. Momentum and an early rune matter more than fully clearing every level.\"\n\nReply wi ... (truncated)\nCOMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, Rune:Shoals, Vaults:1-4, Depths, Win\n\n[ Prompt: 9.0 t/s | Generation: 3.6 t/s ]\n\n\nExiting..."
+  },
+  "105": {
+   "brief_id": "B3-orb-sprint",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "Normal, D:1-11, D:12-15, Elf, Vaults:1-4, Depths, Shoals, Snake, Win"
+   },
+   "llm_wall_s": 85.9,
+   "call_wall_s": 85.94,
+   "raw_output": "Loading model... |\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b \b\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-63b4b30\nmodel      : /home/ubuntu/model-farm/models/qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf\nftype      : Q4_K - Medium\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read <file>        add a text file\n  /glob <pattern>     add text files using globbing pattern\n\n\n\n> You are the manager of an automated Dungeon Crawl Stone Soup player (the bot qw). You do not play the game. Before the run you set its strategy: its starting combo, its preferred gods, and an ordered goal list. The bot follows your plan exactly.\n\nThe run uses game seed 105. Your strategic brief from the coach:\n\"Play for the Orb, fast. Ignore optional branches entirely, take the shortest three-rune route, and go for the win without detours or shopping trips beyond the essentials.\"\n\nReply with EXA ... (truncated)\nCOMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: Normal, D:1-11, D:12-15, Elf, Vaults:1-4, Depths, Shoals, Snake, Win\n\n[ Prompt: 9.0 t/s | Generation: 3.6 t/s ]\n\n\nExiting..."
+  },
+  "106": {
+   "brief_id": "B3-orb-sprint",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "Normal, Orb, Win"
+   },
+   "llm_wall_s": 78.31,
+   "call_wall_s": 78.34,
+   "raw_output": "Loading model... |\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b \b\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-63b4b30\nmodel      : /home/ubuntu/model-farm/models/qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf\nftype      : Q4_K - Medium\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read <file>        add a text file\n  /glob <pattern>     add text files using globbing pattern\n\n\n\n> You are the manager of an automated Dungeon Crawl Stone Soup player (the bot qw). You do not play the game. Before the run you set its strategy: its starting combo, its preferred gods, and an ordered goal list. The bot follows your plan exactly.\n\nThe run uses game seed 106. Your strategic brief from the coach:\n\"Play for the Orb, fast. Ignore optional branches entirely, take the shortest three-rune route, and go for the win without detours or shopping trips beyond the essentials.\"\n\nReply with EXA ... (truncated)\nCOMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: Normal, Orb, Win\n\n[ Prompt: 8.9 t/s | Generation: 3.6 t/s ]\n\n\nExiting..."
+  },
+  "107": {
+   "brief_id": "B4-methodical",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+   },
+   "llm_wall_s": 90.5,
+   "call_wall_s": 90.54,
+   "raw_output": "Loading model... |\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b \b\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-63b4b30\nmodel      : /home/ubuntu/model-farm/models/qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf\nftype      : Q4_K - Medium\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read <file>        add a text file\n  /glob <pattern>     add text files using globbing pattern\n\n\n\n> You are the manager of an automated Dungeon Crawl Stone Soup player (the bot qw). You do not play the game. Before the run you set its strategy: its starting combo, its preferred gods, and an ordered goal list. The bot follows your plan exactly.\n\nThe run uses game seed 107. Your strategic brief from the coach:\n\"Clear everything methodically. Fully explore each branch you enter before moving on. Steady, complete, unhurried progress matters more than speed.\"\n\nReply with EXACTLY these three lines a ... (truncated)\nCOMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win\n\n[ Prompt: 8.9 t/s | Generation: 3.6 t/s ]\n\n\nExiting..."
+  },
+  "108": {
+   "brief_id": "B4-methodical",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+   },
+   "llm_wall_s": 89.87,
+   "call_wall_s": 89.9,
+   "raw_output": "Loading model... |\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b \b\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-63b4b30\nmodel      : /home/ubuntu/model-farm/models/qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf\nftype      : Q4_K - Medium\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read <file>        add a text file\n  /glob <pattern>     add text files using globbing pattern\n\n\n\n> You are the manager of an automated Dungeon Crawl Stone Soup player (the bot qw). You do not play the game. Before the run you set its strategy: its starting combo, its preferred gods, and an ordered goal list. The bot follows your plan exactly.\n\nThe run uses game seed 108. Your strategic brief from the coach:\n\"Clear everything methodically. Fully explore each branch you enter before moving on. Steady, complete, unhurried progress matters more than speed.\"\n\nReply with EXACTLY these three lines a ... (truncated)\nCOMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win\n\n[ Prompt: 9.0 t/s | Generation: 3.6 t/s ]\n\n\nExiting..."
+  },
+  "109": {
+   "brief_id": "B5-zealot",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Beogh",
+     "Cheibriados",
+     "Hepliaklqana"
+    ],
+    "goals": "D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+   },
+   "llm_wall_s": 130.97,
+   "call_wall_s": 131.0,
+   "raw_output": "Loading model... |\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b \b\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-63b4b30\nmodel      : /home/ubuntu/model-farm/models/qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf\nftype      : Q4_K - Medium\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read <file>        add a text file\n  /glob <pattern>     add text files using globbing pattern\n\n\n\n> You are the manager of an automated Dungeon Crawl Stone Soup player (the bot qw). You do not play the game. Before the run you set its strategy: its starting combo, its preferred gods, and an ordered goal list. The bot follows your plan exactly.\n\nThe run uses game seed 109. Your strategic brief from the coach:\n\"Convert early to a powerful god and lean on divine help for the whole run. Choose one of the strongest gods for the combo and structure the route around worship from the very start.\"\n\nRep ... (truncated)\nCOMBO: GrBe.handaxe\nGODS: Beogh, Cheibriados, Hepliaklqana\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win\n\n[ Prompt: 6.5 t/s | Generation: 2.0 t/s ]\n\n\nExiting..."
+  },
+  "110": {
+   "brief_id": "B5-zealot",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Beogh",
+     "Cheibriados",
+     "Hepliaklqana"
+    ],
+    "goals": "D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+   },
+   "llm_wall_s": 108.29,
+   "call_wall_s": 108.32,
+   "raw_output": "Loading model... |\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b/\b-\b\\\b|\b \b\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-63b4b30\nmodel      : /home/ubuntu/model-farm/models/qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf\nftype      : Q4_K - Medium\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read <file>        add a text file\n  /glob <pattern>     add text files using globbing pattern\n\n\n\n> You are the manager of an automated Dungeon Crawl Stone Soup player (the bot qw). You do not play the game. Before the run you set its strategy: its starting combo, its preferred gods, and an ordered goal list. The bot follows your plan exactly.\n\nThe run uses game seed 110. Your strategic brief from the coach:\n\"Convert early to a powerful god and lean on divine help for the whole run. Choose one of the strongest gods for the combo and structure the route around worship from the very start.\"\n\nRep ... (truncated)\nCOMBO: GrBe.handaxe\nGODS: Beogh, Cheibriados, Hepliaklqana\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win\n\n[ Prompt: 7.4 t/s | Generation: 2.9 t/s ]\n\n\nExiting..."
+  }
+ },
+ "runs": [
+  {
+   "arm": "control",
+   "seed": 101,
+   "run_dir": "/home/ubuntu/qw-rematch/runs/control-101",
+   "wall_s": 9.6,
+   "driver_tail": "DONE killed=False status=0 wall=9.5",
+   "morgue_file": "morgue-qw-20261027-052813.txt",
+   "score": 49,
+   "xl": 3,
+   "turns": 1156,
+   "absdepth": 2,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "an iguana",
+   "gold": 18,
+   "kills": 37,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 2,
+    "branch_reached": {
+     "Dungeon": 2
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  {
+   "arm": "managed",
+   "seed": 101,
+   "run_dir": "/home/ubuntu/qw-rematch/runs/managed-101",
+   "wall_s": 10.0,
+   "driver_tail": "DONE killed=False status=0 wall=10.0",
+   "morgue_file": "morgue-qw-20261027-054356.txt",
+   "score": 49,
+   "xl": 3,
+   "turns": 1156,
+   "absdepth": 2,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "an iguana",
+   "gold": 18,
+   "kills": 37,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 2,
+    "branch_reached": {
+     "Dungeon": 2
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "managed",
+   "seed": 102,
+   "run_dir": "/home/ubuntu/qw-rematch/runs/managed-102",
+   "wall_s": 5.5,
+   "driver_tail": "DONE killed=False status=0 wall=5.5",
+   "morgue_file": "morgue-qw-20261027-054401.txt",
+   "score": 2,
+   "xl": 1,
+   "turns": 88,
+   "absdepth": 1,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "freezing",
+   "killer": "an endoplasm",
+   "gold": 0,
+   "kills": 2,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 1,
+    "branch_reached": {
+     "Dungeon": 1
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "managed",
+   "seed": 103,
+   "run_dir": "/home/ubuntu/qw-rematch/runs/managed-103",
+   "wall_s": 5.6,
+   "driver_tail": "DONE killed=False status=0 wall=5.6",
+   "morgue_file": "morgue-qw-20261027-054407.txt",
+   "score": 2,
+   "xl": 1,
+   "turns": 117,
+   "absdepth": 1,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "a ball python",
+   "gold": 18,
+   "kills": 3,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 1,
+    "branch_reached": {
+     "Dungeon": 1
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "managed",
+   "seed": 104,
+   "run_dir": "/home/ubuntu/qw-rematch/runs/managed-104",
+   "wall_s": 17.4,
+   "driver_tail": "DONE killed=False status=0 wall=17.4",
+   "morgue_file": "morgue-qw-20261027-054424.txt",
+   "score": 348,
+   "xl": 6,
+   "turns": 2801,
+   "absdepth": 4,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "Pikel",
+   "gold": 167,
+   "kills": 73,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 4,
+    "branch_reached": {
+     "Dungeon": 4
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "managed",
+   "seed": 105,
+   "run_dir": "/home/ubuntu/qw-rematch/runs/managed-105",
+   "wall_s": 9.8,
+   "driver_tail": "DONE killed=False status=0 wall=9.8",
+   "morgue_file": "morgue-qw-20261027-054434.txt",
+   "score": 64,
+   "xl": 4,
+   "turns": 1905,
+   "absdepth": 3,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "a kobold",
+   "gold": 83,
+   "kills": 41,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 3,
+    "branch_reached": {
+     "Dungeon": 3
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "managed",
+   "seed": 106,
+   "run_dir": "/home/ubuntu/qw-rematch/runs/managed-106",
+   "wall_s": 576.4,
+   "driver_tail": "DONE killed=False status=0 wall=576.4",
+   "morgue_file": "morgue-qw-20261027-055411.txt",
+   "score": 49,
+   "xl": 3,
+   "turns": 16969,
+   "absdepth": 2,
+   "place": "D",
+   "god": null,
+   "char": "GrBe",
+   "ktyp": "quitting",
+   "killer": null,
+   "gold": 44,
+   "kills": 39,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 2,
+    "branch_reached": {
+     "Dungeon": 2
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "managed",
+   "seed": 107,
+   "run_dir": "/home/ubuntu/qw-rematch/runs/managed-107",
+   "wall_s": 12.3,
+   "driver_tail": "DONE killed=False status=0 wall=12.3",
+   "morgue_file": "morgue-qw-20261027-055423.txt",
+   "score": 158,
+   "xl": 5,
+   "turns": 1661,
+   "absdepth": 3,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "a gnoll",
+   "gold": 117,
+   "kills": 56,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 3,
+    "branch_reached": {
+     "Dungeon": 3
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "managed",
+   "seed": 108,
+   "run_dir": "/home/ubuntu/qw-rematch/runs/managed-108",
+   "wall_s": 21.4,
+   "driver_tail": "DONE killed=False status=0 wall=21.4",
+   "morgue_file": "morgue-qw-20261027-055444.txt",
+   "score": 1405,
+   "xl": 8,
+   "turns": 4661,
+   "absdepth": 5,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "Duvessa",
+   "gold": 394,
+   "kills": 122,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 5,
+    "branch_reached": {
+     "Dungeon": 5
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "managed",
+   "seed": 109,
+   "run_dir": "/home/ubuntu/qw-rematch/runs/managed-109",
+   "wall_s": 13.3,
+   "driver_tail": "DONE killed=False status=0 wall=13.3",
+   "morgue_file": "morgue-qw-20261027-055458.txt",
+   "score": 98,
+   "xl": 4,
+   "turns": 2802,
+   "absdepth": 4,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "an iguana",
+   "gold": 129,
+   "kills": 56,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 4,
+    "branch_reached": {
+     "Dungeon": 4
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "managed",
+   "seed": 110,
+   "run_dir": "/home/ubuntu/qw-rematch/runs/managed-110",
+   "wall_s": 12.7,
+   "driver_tail": "DONE killed=False status=0 wall=12.7",
+   "morgue_file": "morgue-qw-20261027-055510.txt",
+   "score": 216,
+   "xl": 5,
+   "turns": 2212,
+   "absdepth": 4,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "Duvessa",
+   "gold": 103,
+   "kills": 45,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 4,
+    "branch_reached": {
+     "Dungeon": 3
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  }
+ ],
+ "control_round1": {
+  "101": {
+   "arm": "control",
+   "seed": 101,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-101",
+   "wall_s": 10.0,
+   "driver_tail": "DONE killed=False status=0 wall=10.0",
+   "morgue_file": "morgue-qw-20261027-004342.txt",
+   "score": 49,
+   "xl": 3,
+   "turns": 1156,
+   "absdepth": 2,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "an iguana",
+   "gold": 18,
+   "kills": 37,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 2,
+    "branch_reached": {
+     "Dungeon": 2
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "102": {
+   "arm": "control",
+   "seed": 102,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-102",
+   "wall_s": 28.7,
+   "driver_tail": "DONE killed=False status=0 wall=28.6",
+   "morgue_file": "morgue-qw-20261027-004437.txt",
+   "score": 462,
+   "xl": 7,
+   "turns": 3968,
+   "absdepth": 5,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "Prince Ribbit",
+   "gold": 174,
+   "kills": 94,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 5,
+    "branch_reached": {
+     "Dungeon": 5
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "103": {
+   "arm": "control",
+   "seed": 103,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-103",
+   "wall_s": 5.6,
+   "driver_tail": "DONE killed=False status=0 wall=5.6",
+   "morgue_file": "morgue-qw-20261027-004503.txt",
+   "score": 2,
+   "xl": 1,
+   "turns": 117,
+   "absdepth": 1,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "a ball python",
+   "gold": 18,
+   "kills": 3,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 1,
+    "branch_reached": {
+     "Dungeon": 1
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "104": {
+   "arm": "control",
+   "seed": 104,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-104",
+   "wall_s": 17.7,
+   "driver_tail": "DONE killed=False status=0 wall=17.6",
+   "morgue_file": "morgue-qw-20261027-004527.txt",
+   "score": 348,
+   "xl": 6,
+   "turns": 2801,
+   "absdepth": 4,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "Pikel",
+   "gold": 167,
+   "kills": 73,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 4,
+    "branch_reached": {
+     "Dungeon": 4
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "105": {
+   "arm": "control",
+   "seed": 105,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-105",
+   "wall_s": 10.0,
+   "driver_tail": "DONE killed=False status=0 wall=9.9",
+   "morgue_file": "morgue-qw-20261027-004554.txt",
+   "score": 64,
+   "xl": 4,
+   "turns": 1905,
+   "absdepth": 3,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "a kobold",
+   "gold": 83,
+   "kills": 41,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 3,
+    "branch_reached": {
+     "Dungeon": 3
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "106": {
+   "arm": "control",
+   "seed": 106,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-106",
+   "wall_s": 662.7,
+   "driver_tail": "DONE killed=False status=0 wall=662.7",
+   "morgue_file": "morgue-qw-20261027-005707.txt",
+   "score": 49,
+   "xl": 3,
+   "turns": 16969,
+   "absdepth": 2,
+   "place": "D",
+   "god": null,
+   "char": "GrBe",
+   "ktyp": "quitting",
+   "killer": null,
+   "gold": 44,
+   "kills": 39,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 2,
+    "branch_reached": {
+     "Dungeon": 2
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "107": {
+   "arm": "control",
+   "seed": 107,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-107",
+   "wall_s": 12.5,
+   "driver_tail": "DONE killed=False status=0 wall=12.5",
+   "morgue_file": "morgue-qw-20261027-010658.txt",
+   "score": 158,
+   "xl": 5,
+   "turns": 1661,
+   "absdepth": 3,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "a gnoll",
+   "gold": 117,
+   "kills": 56,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 3,
+    "branch_reached": {
+     "Dungeon": 3
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "108": {
+   "arm": "control",
+   "seed": 108,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-108",
+   "wall_s": 22.5,
+   "driver_tail": "DONE killed=False status=0 wall=22.5",
+   "morgue_file": "morgue-qw-20261027-010733.txt",
+   "score": 1405,
+   "xl": 8,
+   "turns": 4661,
+   "absdepth": 5,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "Duvessa",
+   "gold": 394,
+   "kills": 122,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 5,
+    "branch_reached": {
+     "Dungeon": 5
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "109": {
+   "arm": "control",
+   "seed": 109,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-109",
+   "wall_s": 13.5,
+   "driver_tail": "DONE killed=False status=0 wall=13.4",
+   "morgue_file": "morgue-qw-20261027-010808.txt",
+   "score": 98,
+   "xl": 4,
+   "turns": 2802,
+   "absdepth": 4,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "an iguana",
+   "gold": 129,
+   "kills": 56,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 4,
+    "branch_reached": {
+     "Dungeon": 4
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "110": {
+   "arm": "control",
+   "seed": 110,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-110",
+   "wall_s": 12.6,
+   "driver_tail": "DONE killed=False status=0 wall=12.6",
+   "morgue_file": "morgue-qw-20261027-010834.txt",
+   "score": 216,
+   "xl": 5,
+   "turns": 2212,
+   "absdepth": 4,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "Duvessa",
+   "gold": 103,
+   "kills": 45,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 4,
+    "branch_reached": {
+     "Dungeon": 3
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  }
+ },
+ "determinism_spotcheck": {
+  "seed": 101,
+  "fields": [
+   "score",
+   "xl",
+   "turns",
+   "killer"
+  ],
+  "rematch": {
+   "score": 49,
+   "xl": 3,
+   "turns": 1156,
+   "killer": "an iguana"
+  },
+  "round1": {
+   "score": 49,
+   "xl": 3,
+   "turns": 1156,
+   "killer": "an iguana"
+  },
+  "match": true,
+  "consequence": "round 1 control receipts reused"
+ }
+}
