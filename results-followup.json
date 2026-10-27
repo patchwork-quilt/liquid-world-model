@@ -1,0 +1,676 @@
+{
+  "experiment": "lwm-thor follow-up: forced observatory visit",
+  "config": {
+    "seed": 7,
+    "days": 3,
+    "max_steps": 150,
+    "goal": "vault",
+    "detour_cap": 12
+  },
+  "assertions": {
+    "night1_matches_baseline": true,
+    "night2_matches_baseline": true,
+    "day1_matches_baseline": true,
+    "day2_matches_baseline": true,
+    "day3_phaseA_matches_baseline": true
+  },
+  "days": [
+    {
+      "observations": 10,
+      "recognition_accuracy": 0.8,
+      "merges": 1,
+      "splits": 0,
+      "places_perceived": 5,
+      "low_trust_observations": 0,
+      "confusion_detail": {
+        "place-2": {
+          "library": 3,
+          "observatory": 2
+        }
+      },
+      "day": 1,
+      "steps": 9,
+      "surprises": 6,
+      "goal_reached_perceived": true,
+      "goal_reached_true": true,
+      "final_true_room": "vault",
+      "chart_places_total": 5,
+      "chart_places_observed": 5,
+      "true_rooms_visited": 6,
+      "tau_in_force": 0.97,
+      "wall_s": 1.34
+    },
+    {
+      "observations": 4,
+      "recognition_accuracy": 1.0,
+      "merges": 0,
+      "splits": 0,
+      "places_perceived": 4,
+      "low_trust_observations": 1,
+      "confusion_detail": {},
+      "day": 2,
+      "steps": 3,
+      "surprises": 0,
+      "goal_reached_perceived": true,
+      "goal_reached_true": true,
+      "final_true_room": "vault",
+      "chart_places_total": 5,
+      "chart_places_observed": 5,
+      "true_rooms_visited": 4,
+      "tau_in_force": 0.95,
+      "wall_s": 0.51
+    },
+    {
+      "observations": 4,
+      "recognition_accuracy": 1.0,
+      "merges": 0,
+      "splits": 0,
+      "places_perceived": 4,
+      "low_trust_observations": 1,
+      "confusion_detail": {},
+      "day": 3,
+      "steps": 3,
+      "surprises": 0,
+      "goal_reached_perceived": true,
+      "goal_reached_true": true,
+      "final_true_room": "vault",
+      "chart_places_total": 5,
+      "chart_places_observed": 5,
+      "true_rooms_visited": 4,
+      "tau_in_force": 0.95,
+      "wall_s": 0.55
+    }
+  ],
+  "nights": [
+    {
+      "corpus_size": 10,
+      "tau_before": 0.97,
+      "tau_after": 0.95,
+      "corpus_accuracy_before": 0.8,
+      "corpus_accuracy_after": 1.0,
+      "purified": {
+        "place-1": {
+          "room": "atrium",
+          "purity": 1.0,
+          "sightings": 2,
+          "clean": 2
+        },
+        "place-2": {
+          "room": "library",
+          "purity": 0.6,
+          "sightings": 5,
+          "clean": 3
+        },
+        "place-3": {
+          "room": "gallery",
+          "purity": 1.0,
+          "sightings": 1,
+          "clean": 1
+        },
+        "place-4": {
+          "room": "conservatory",
+          "purity": 1.0,
+          "sightings": 1,
+          "clean": 1
+        },
+        "place-5": {
+          "room": "vault",
+          "purity": 1.0,
+          "sightings": 1,
+          "clean": 1
+        }
+      },
+      "added_prototypes": {
+        "place-6": "observatory"
+      },
+      "contamination": {
+        "place-2": {
+          "observatory": 2
+        }
+      },
+      "after_day": 1
+    },
+    {
+      "corpus_size": 14,
+      "tau_before": 0.95,
+      "tau_after": 0.95,
+      "corpus_accuracy_before": 1.0,
+      "corpus_accuracy_after": 1.0,
+      "purified": {
+        "place-1": {
+          "room": "atrium",
+          "purity": 1.0,
+          "sightings": 3,
+          "clean": 3
+        },
+        "place-2": {
+          "room": "library",
+          "purity": 0.667,
+          "sightings": 6,
+          "clean": 4
+        },
+        "place-3": {
+          "room": "gallery",
+          "purity": 1.0,
+          "sightings": 1,
+          "clean": 1
+        },
+        "place-4": {
+          "room": "conservatory",
+          "purity": 1.0,
+          "sightings": 2,
+          "clean": 2
+        },
+        "place-5": {
+          "room": "vault",
+          "purity": 1.0,
+          "sightings": 2,
+          "clean": 2
+        }
+      },
+      "added_prototypes": {
+        "place-7": "observatory"
+      },
+      "contamination": {
+        "place-2": {
+          "observatory": 2
+        }
+      },
+      "after_day": 2
+    }
+  ],
+  "detour": {
+    "trigger": "run_day returned goal_reached=True; one arming observation of the goal place is taken (detour step 0) and the policy arms on its treasure contents, exactly as its decide() specifies",
+    "steps_receipts": [
+      {
+        "n": 0,
+        "kind": "arming glance (no move)",
+        "perceived": "place-5",
+        "trust": 1.0,
+        "true_room": "vault",
+        "contents": [
+          "treasure"
+        ],
+        "entries": [],
+        "top": [
+          [
+            "place-5",
+            0.99949
+          ],
+          [
+            "place-1",
+            0.94974
+          ],
+          [
+            "place-2",
+            0.93587
+          ]
+        ],
+        "margin": 0.04975
+      },
+      {
+        "n": 1,
+        "kind": "excursion move",
+        "action": "west",
+        "from_perceived": "place-5",
+        "predicted_to": null,
+        "to_perceived": "place-4",
+        "trust": 1.0,
+        "true_room": "conservatory",
+        "entries": [],
+        "top": [
+          [
+            "place-4",
+            0.99984
+          ],
+          [
+            "place-3",
+            0.96337
+          ],
+          [
+            "place-2",
+            0.94467
+          ]
+        ],
+        "margin": 0.03647
+      },
+      {
+        "n": 2,
+        "kind": "excursion move",
+        "action": "south",
+        "from_perceived": "place-4",
+        "predicted_to": null,
+        "to_perceived": "place-2",
+        "trust": 0.3,
+        "true_room": "library",
+        "entries": [
+          {
+            "type": "distrusted",
+            "aspect": null,
+            "key": null,
+            "surprise": false,
+            "place": "place-2"
+          }
+        ],
+        "top": [
+          [
+            "place-2",
+            0.99945
+          ],
+          [
+            "place-7",
+            0.99169
+          ],
+          [
+            "place-6",
+            0.99169
+          ]
+        ],
+        "margin": 0.00776
+      },
+      {
+        "n": 3,
+        "kind": "excursion move",
+        "action": "east",
+        "from_perceived": "place-2",
+        "predicted_to": null,
+        "to_perceived": "place-7",
+        "trust": 0.3,
+        "true_room": "observatory",
+        "entries": [
+          {
+            "type": "distrusted",
+            "aspect": null,
+            "key": null,
+            "surprise": false,
+            "place": "place-7"
+          }
+        ],
+        "top": [
+          [
+            "place-7",
+            0.99897
+          ],
+          [
+            "place-6",
+            0.99897
+          ],
+          [
+            "place-2",
+            0.99032
+          ]
+        ],
+        "margin": 0.0
+      },
+      {
+        "n": 4,
+        "kind": "excursion move",
+        "action": "west",
+        "from_perceived": "place-7",
+        "predicted_to": null,
+        "to_perceived": "place-2",
+        "trust": 0.3,
+        "true_room": "library",
+        "entries": [
+          {
+            "type": "distrusted",
+            "aspect": null,
+            "key": null,
+            "surprise": false,
+            "place": "place-2"
+          }
+        ],
+        "top": [
+          [
+            "place-2",
+            0.99934
+          ],
+          [
+            "place-7",
+            0.99116
+          ],
+          [
+            "place-6",
+            0.99116
+          ]
+        ],
+        "margin": 0.00817
+      }
+    ],
+    "detour_steps": 4,
+    "detour_surprises": 0,
+    "chart_before": {
+      "places_total": 5,
+      "places_observed": 5,
+      "uncharted": [
+        {
+          "place": "place-2",
+          "direction": "east",
+          "believed_to": null,
+          "status": "never-tried"
+        },
+        {
+          "place": "place-3",
+          "direction": "south",
+          "believed_to": null,
+          "status": "never-tried"
+        },
+        {
+          "place": "place-3",
+          "direction": "west",
+          "believed_to": null,
+          "status": "never-tried"
+        },
+        {
+          "place": "place-4",
+          "direction": "south",
+          "believed_to": null,
+          "status": "never-tried"
+        },
+        {
+          "place": "place-5",
+          "direction": "west",
+          "believed_to": null,
+          "status": "never-tried"
+        }
+      ],
+      "transit_graph": {
+        "place-1": {
+          "north": "place-2",
+          "east": "place-3"
+        },
+        "place-2": {
+          "south": "place-1",
+          "north": "place-4"
+        },
+        "place-3": {
+          "north": "place-2"
+        },
+        "place-4": {
+          "east": "place-5"
+        }
+      },
+      "place-2_belief_exits": {
+        "south": {
+          "to": "place-1",
+          "locked": null,
+          "passable": true,
+          "opens_with": null
+        },
+        "east": {
+          "to": null,
+          "locked": null,
+          "passable": true,
+          "opens_with": null
+        },
+        "north": {
+          "to": "place-4",
+          "locked": null,
+          "passable": true,
+          "opens_with": null
+        }
+      }
+    },
+    "observatory_sighting": {
+      "perceived": "place-7",
+      "trust": 0.3,
+      "emb": "<1280-dim I-JEPA vector, elided for the record>",
+      "top": [
+        [
+          "place-7",
+          0.99897
+        ],
+        [
+          "place-6",
+          0.99897
+        ],
+        [
+          "place-2",
+          0.99032
+        ]
+      ],
+      "margin": 0.0
+    },
+    "excursion_done": true,
+    "abort_reason": null,
+    "chart_after": {
+      "places_total": 6,
+      "places_observed": 6,
+      "uncharted": [
+        {
+          "place": "place-3",
+          "direction": "south",
+          "believed_to": null,
+          "status": "never-tried"
+        },
+        {
+          "place": "place-3",
+          "direction": "west",
+          "believed_to": null,
+          "status": "never-tried"
+        },
+        {
+          "place": "place-7",
+          "direction": "south",
+          "believed_to": null,
+          "status": "never-tried"
+        }
+      ],
+      "transit_graph": {
+        "place-1": {
+          "north": "place-2",
+          "east": "place-3"
+        },
+        "place-2": {
+          "east": "place-7",
+          "south": "place-1",
+          "north": "place-4"
+        },
+        "place-3": {
+          "north": "place-2"
+        },
+        "place-4": {
+          "east": "place-5",
+          "south": "place-2"
+        },
+        "place-5": {
+          "west": "place-4"
+        },
+        "place-7": {
+          "west": "place-2"
+        }
+      },
+      "place-2_belief_exits": {
+        "south": {
+          "to": "place-1",
+          "locked": null,
+          "passable": true,
+          "opens_with": null
+        },
+        "east": {
+          "to": "place-7",
+          "locked": null,
+          "passable": true,
+          "opens_with": null
+        },
+        "north": {
+          "to": "place-4",
+          "locked": null,
+          "passable": true,
+          "opens_with": null
+        }
+      },
+      "visited_place": {
+        "id": "place-7",
+        "observed": true,
+        "observations": 1,
+        "last_seen_day": 3,
+        "confidence": 0.6,
+        "belief_exits": {
+          "south": {
+            "to": null,
+            "locked": null,
+            "passable": true,
+            "opens_with": null
+          },
+          "west": {
+            "to": "place-2",
+            "locked": null,
+            "passable": true,
+            "opens_with": null
+          }
+        },
+        "belief_contents": []
+      },
+      "visited_place_history": [
+        {
+          "type": "formed",
+          "day": 3,
+          "step": 6,
+          "place": "place-7",
+          "aspect": "contents",
+          "key": "",
+          "believed": null,
+          "observed": [],
+          "reason": "first sight",
+          "surprise": false
+        },
+        {
+          "type": "formed",
+          "day": 3,
+          "step": 6,
+          "place": "place-7",
+          "aspect": "exit",
+          "key": "south",
+          "believed": null,
+          "observed": {
+            "to": null,
+            "passable": true
+          },
+          "reason": "exit first seen",
+          "surprise": false
+        },
+        {
+          "type": "formed",
+          "day": 3,
+          "step": 6,
+          "place": "place-7",
+          "aspect": "exit",
+          "key": "west",
+          "believed": null,
+          "observed": {
+            "to": null,
+            "passable": true
+          },
+          "reason": "exit first seen",
+          "surprise": false
+        }
+      ]
+    }
+  },
+  "day3_full": {
+    "observations": 9,
+    "recognition_accuracy": 1.0,
+    "merges": 0,
+    "splits": 0,
+    "places_perceived": 5,
+    "low_trust_observations": 4,
+    "confusion_detail": {},
+    "day": 3,
+    "steps": 7,
+    "surprises": 0,
+    "goal_reached_perceived": true,
+    "goal_reached_true_at_route_end": true,
+    "final_true_room": "library",
+    "chart_places_total": 6,
+    "chart_places_observed": 6,
+    "true_rooms_visited": 5,
+    "tau_in_force": 0.95
+  },
+  "night3": {
+    "change": {
+      "corpus_size": 23,
+      "tau_before": 0.95,
+      "tau_after": 0.95,
+      "corpus_accuracy_before": 1.0,
+      "corpus_accuracy_after": 1.0,
+      "purified": {
+        "place-1": {
+          "room": "atrium",
+          "purity": 1.0,
+          "sightings": 4,
+          "clean": 4
+        },
+        "place-2": {
+          "room": "library",
+          "purity": 0.778,
+          "sightings": 9,
+          "clean": 7
+        },
+        "place-3": {
+          "room": "gallery",
+          "purity": 1.0,
+          "sightings": 1,
+          "clean": 1
+        },
+        "place-4": {
+          "room": "conservatory",
+          "purity": 1.0,
+          "sightings": 4,
+          "clean": 4
+        },
+        "place-5": {
+          "room": "vault",
+          "purity": 1.0,
+          "sightings": 4,
+          "clean": 4
+        },
+        "place-7": {
+          "room": "observatory",
+          "purity": 1.0,
+          "sightings": 1,
+          "clean": 1
+        }
+      },
+      "added_prototypes": {},
+      "contamination": {
+        "place-2": {
+          "observatory": 2
+        }
+      },
+      "after_day": 3
+    },
+    "prototype_ids_after": [
+      "place-1",
+      "place-2",
+      "place-3",
+      "place-4",
+      "place-5",
+      "place-6",
+      "place-7"
+    ],
+    "labels_after": {
+      "place-1": "atrium",
+      "place-2": "library",
+      "place-3": "gallery",
+      "place-4": "conservatory",
+      "place-5": "vault",
+      "place-6": "observatory",
+      "place-7": "observatory"
+    },
+    "applied": false,
+    "live_observatory_sighting_under_night3": {
+      "assigned": "place-7",
+      "label": "observatory",
+      "similarity": 1.0,
+      "clears_tau3": true
+    }
+  },
+  "footprint": {
+    "total_wall_s": 3.11,
+    "embed_calls": 23,
+    "embed_cache_hits": 0,
+    "embed_latency_ms_mean": 101.6,
+    "harness_peak_rss_mb": 54.4
+  }
+}
