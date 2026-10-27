@@ -1,0 +1,1053 @@
+{
+ "baseline_flat_scripted": {
+  "source": "liquid-world-model/NETHACK-CHART.md",
+  "median_turns": 1061,
+  "median_rooms": 5,
+  "median_score": 4563.5,
+  "total_merges": 0,
+  "total_splits": 0,
+  "n": 10
+ },
+ "arms": {
+  "full": {
+   "n": 5,
+   "median_turns": 791,
+   "median_rooms": 5,
+   "median_score": 4113,
+   "total_merges": 0,
+   "total_splits": 0,
+   "decision_calls": 1043,
+   "decision_invalid": 208,
+   "decision_errors": 208,
+   "commitment_steps": 865,
+   "substrate_steps": 3299,
+   "reflex_triggers": 1083,
+   "reflex_all_veto": 3,
+   "reflex_errors": 7
+  },
+  "reflex": {
+   "n": 3,
+   "median_turns": 1489,
+   "median_rooms": 1,
+   "median_score": 1523,
+   "total_merges": 0,
+   "total_splits": 0,
+   "decision_calls": 0,
+   "decision_invalid": 0,
+   "decision_errors": 0,
+   "commitment_steps": 0,
+   "substrate_steps": 3015,
+   "reflex_triggers": 20,
+   "reflex_all_veto": 0,
+   "reflex_errors": 0
+  },
+  "reflexdec": {
+   "n": 3,
+   "median_turns": 762,
+   "median_rooms": 3,
+   "median_score": 2307,
+   "total_merges": 0,
+   "total_splits": 0,
+   "decision_calls": 126,
+   "decision_invalid": 0,
+   "decision_errors": 0,
+   "commitment_steps": 1399,
+   "substrate_steps": 958,
+   "reflex_triggers": 61,
+   "reflex_all_veto": 12,
+   "reflex_errors": 122
+  }
+ },
+ "per_run": [
+  {
+   "slot": 21,
+   "mode": "full",
+   "turns": 457,
+   "rooms": 9,
+   "score": 4113,
+   "depth": 2,
+   "cause": "wall-clock cap (terminated)",
+   "wall_s": 3009.3,
+   "merges": 0,
+   "splits": 0,
+   "surprises": 9,
+   "counters": {
+    "reflex_triggers": 14,
+    "reflex_evals": 20,
+    "reflex_go": 14,
+    "reflex_all_veto": 0,
+    "reflex_errors": 0,
+    "decision_calls": 440,
+    "decision_invalid": 103,
+    "decision_errors": 103,
+    "substrate_steps": 440,
+    "commitment_steps": 98,
+    "prays": 0
+   },
+   "decision_ms_median": 2919.0,
+   "reflection_ms_median": 14188,
+   "reflex_ms_median": 4753,
+   "reflex_chosen": {
+    "FIGHT": 7,
+    "FLEE": 7
+   },
+   "reflections": [
+    {
+     "turn": 150,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.30\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Continue mapping the level and check the two uncharted exits, but avoid unnecessary fights and retreat if HP falls toward the flee threshold.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Continue mapping the level and check the two uncharted exits, but avoid unnecessary fights and retreat if HP falls toward the flee threshold."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "default gates (no reflection has run yet)"
+     },
+     "error": null
+    },
+    {
+     "turn": 262,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.30\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Continue charting the four open exits, but avoid unnecessary combat and retreat promptly if HP approaches the flee threshold.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Continue charting the four open exits, but avoid unnecessary combat and retreat promptly if HP approaches the flee threshold."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Continue mapping the level and check the two uncharted exits, but avoid unnecessary fights and retreat if HP falls toward the flee threshold."
+     },
+     "error": null
+    },
+    {
+     "turn": 412,
+     "raw": null,
+     "parsed": null,
+     "prev": null,
+     "error": "pi rc=1: 429: {\"message\":\"You've reached your 5-hour usage limit. Your quota will reset when the current 5-hour window ends. To continue now, purchase extra usage or upgrade your plan: https://www.kimi.com/mem"
+    }
+   ],
+   "directive_final": {
+    "posture": "balanced",
+    "flee_below": 0.3,
+    "eat_at": "Hungry",
+    "focus": "explore",
+    "note": "Continue charting the four open exits, but avoid unnecessary combat and retreat promptly if HP approaches the flee threshold."
+   }
+  },
+  {
+   "slot": 22,
+   "mode": "full",
+   "turns": 974,
+   "rooms": 5,
+   "score": 4870,
+   "depth": 2,
+   "cause": "wall-clock cap (terminated)",
+   "wall_s": 3016.7,
+   "merges": 0,
+   "splits": 0,
+   "surprises": 21,
+   "counters": {
+    "reflex_triggers": 6,
+    "reflex_evals": 6,
+    "reflex_go": 6,
+    "reflex_all_veto": 0,
+    "reflex_errors": 0,
+    "decision_calls": 405,
+    "decision_invalid": 105,
+    "decision_errors": 105,
+    "substrate_steps": 400,
+    "commitment_steps": 574,
+    "prays": 0
+   },
+   "decision_ms_median": 3049,
+   "reflection_ms_median": 15249,
+   "reflex_ms_median": 4128.0,
+   "reflex_chosen": {
+    "FIGHT": 5,
+    "EAT": 1
+   },
+   "reflections": [
+    {
+     "turn": 150,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.30\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Use the four uncharted exits to map level 1 thoroughly, taking favorable fights but retreating before HP reaches the flee threshold.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Use the four uncharted exits to map level 1 thoroughly, taking favorable fights but retreating before HP reaches the flee threshold."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "default gates (no reflection has run yet)"
+     },
+     "error": null
+    },
+    {
+     "turn": 300,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.30\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Prioritize the four uncharted exits to map level 1, fighting only manageable threats while HP and hunger remain healthy.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Prioritize the four uncharted exits to map level 1, fighting only manageable threats while HP and hunger remain healthy."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Use the four uncharted exits to map level 1 thoroughly, taking favorable fights but retreating before HP reaches the flee threshold."
+     },
+     "error": null
+    },
+    {
+     "turn": 450,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.30\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Use the three uncharted exits to finish mapping level 1, but retreat from fights that cause rapid HP loss or involve multiple foes.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Use the three uncharted exits to finish mapping level 1, but retreat from fights that cause rapid HP loss or involve multiple foes."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Prioritize the four uncharted exits to map level 1, fighting only manageable threats while HP and hunger remain healthy."
+     },
+     "error": null
+    },
+    {
+     "turn": 600,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.30\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Chart the remaining exits while healthy, but reassess repeated combat and disengage before wounds compound.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Chart the remaining exits while healthy, but reassess repeated combat and disengage before wounds compound."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Use the three uncharted exits to finish mapping level 1, but retreat from fights that cause rapid HP loss or involve multiple foes."
+     },
+     "error": null
+    },
+    {
+     "turn": 750,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.35\nEAT_AT: Hungry\nFOCUS: descend\nNOTE: Finish safe nearby exploration, then seek the downstairs; eat promptly and avoid prolonged fights while Hungry.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.35,
+      "eat_at": "Hungry",
+      "focus": "descend",
+      "note": "Finish safe nearby exploration, then seek the downstairs; eat promptly and avoid prolonged fights while Hungry."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Chart the remaining exits while healthy, but reassess repeated combat and disengage before wounds compound."
+     },
+     "error": null
+    },
+    {
+     "turn": 755,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.35\nEAT_AT: Hungry\nFOCUS: descend\nNOTE: Use the uncharted exits to seek the downstairs, eat safe food promptly, and disengage from fights once HP approaches the flee threshold.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.35,
+      "eat_at": "Hungry",
+      "focus": "descend",
+      "note": "Use the uncharted exits to seek the downstairs, eat safe food promptly, and disengage from fights once HP approaches the flee threshold."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.35,
+      "eat_at": "Hungry",
+      "focus": "descend",
+      "note": "Finish safe nearby exploration, then seek the downstairs; eat promptly and avoid prolonged fights while Hungry."
+     },
+     "error": null
+    },
+    {
+     "turn": 906,
+     "raw": null,
+     "parsed": null,
+     "prev": null,
+     "error": "pi rc=1: 429: {\"message\":\"You've reached your 5-hour usage limit. Your quota will reset when the current 5-hour window ends. To continue now, purchase extra usage or upgrade your plan: https://www.kimi.com/mem"
+    }
+   ],
+   "directive_final": {
+    "posture": "balanced",
+    "flee_below": 0.35,
+    "eat_at": "Hungry",
+    "focus": "descend",
+    "note": "Use the uncharted exits to seek the downstairs, eat safe food promptly, and disengage from fights once HP approaches the flee threshold."
+   }
+  },
+  {
+   "slot": 23,
+   "mode": "full",
+   "turns": 1331,
+   "rooms": 5,
+   "score": 6655,
+   "depth": 1,
+   "cause": "killed by a jackal",
+   "wall_s": 750.5,
+   "merges": 0,
+   "splits": 0,
+   "surprises": 13,
+   "counters": {
+    "reflex_triggers": 13,
+    "reflex_evals": 15,
+    "reflex_go": 12,
+    "reflex_all_veto": 1,
+    "reflex_errors": 3,
+    "decision_calls": 80,
+    "decision_invalid": 0,
+    "decision_errors": 0,
+    "substrate_steps": 977,
+    "commitment_steps": 144,
+    "prays": 0,
+    "commitment_fizzles": 57
+   },
+   "decision_ms_median": 3169.0,
+   "reflection_ms_median": 15700,
+   "reflex_ms_median": 7254.0,
+   "reflex_chosen": {
+    "null": 1,
+    "FLEE": 4,
+    "FIGHT": 7,
+    "EAT": 1
+   },
+   "reflections": [
+    {
+     "turn": 150,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.35\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Chart the two remaining exits before descending, and disengage promptly from unfavorable fights rather than trading hits.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.35,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Chart the two remaining exits before descending, and disengage promptly from unfavorable fights rather than trading hits."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "default gates (no reflection has run yet)"
+     },
+     "error": null
+    },
+    {
+     "turn": 300,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.40\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Finish charting the remaining exit on Dlvl 1, but disengage early rather than trading blows at low HP.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.4,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Finish charting the remaining exit on Dlvl 1, but disengage early rather than trading blows at low HP."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.35,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Chart the two remaining exits before descending, and disengage promptly from unfavorable fights rather than trading hits."
+     },
+     "error": null
+    },
+    {
+     "turn": 450,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.40\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Continue charting the seven open exits while healthy, favoring avoidable retreats over risky early fights.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.4,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Continue charting the seven open exits while healthy, favoring avoidable retreats over risky early fights."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.4,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Finish charting the remaining exit on Dlvl 1, but disengage early rather than trading blows at low HP."
+     },
+     "error": null
+    },
+    {
+     "turn": 600,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.40\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Keep mapping the seven uncharted exits while healthy, but disengage early from fights trending toward the flee threshold.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.4,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Keep mapping the seven uncharted exits while healthy, but disengage early from fights trending toward the flee threshold."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.4,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Continue charting the seven open exits while healthy, favoring avoidable retreats over risky early fights."
+     },
+     "error": null
+    },
+    {
+     "turn": 750,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.40\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Eat now if safe food is available, then explore the seven uncharted exits without seeking unnecessary fights.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.4,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Eat now if safe food is available, then explore the seven uncharted exits without seeking unnecessary fights."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.4,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Keep mapping the seven uncharted exits while healthy, but disengage early from fights trending toward the flee threshold."
+     },
+     "error": null
+    },
+    {
+     "turn": 900,
+     "raw": "POSTURE: cautious\nFLEE_BELOW: 0.50\nEAT_AT: Hungry\nFOCUS: survive\nNOTE: Secure food immediately and avoid unnecessary fights until hunger is under control, then resume exploring the uncharted exits.",
+     "parsed": {
+      "posture": "cautious",
+      "flee_below": 0.5,
+      "eat_at": "Hungry",
+      "focus": "survive",
+      "note": "Secure food immediately and avoid unnecessary fights until hunger is under control, then resume exploring the uncharted exits."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.4,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Eat now if safe food is available, then explore the seven uncharted exits without seeking unnecessary fights."
+     },
+     "error": null
+    },
+    {
+     "turn": 1053,
+     "raw": "POSTURE: cautious\nFLEE_BELOW: 0.50\nEAT_AT: Hungry\nFOCUS: survive\nNOTE: Eat immediately if any safe food is available, avoid unnecessary combat while Fainting, and only then resume cautious exploration.",
+     "parsed": {
+      "posture": "cautious",
+      "flee_below": 0.5,
+      "eat_at": "Hungry",
+      "focus": "survive",
+      "note": "Eat immediately if any safe food is available, avoid unnecessary combat while Fainting, and only then resume cautious exploration."
+     },
+     "prev": {
+      "posture": "cautious",
+      "flee_below": 0.5,
+      "eat_at": "Hungry",
+      "focus": "survive",
+      "note": "Secure food immediately and avoid unnecessary fights until hunger is under control, then resume exploring the uncharted exits."
+     },
+     "error": null
+    },
+    {
+     "turn": 1203,
+     "raw": "POSTURE: cautious\nFLEE_BELOW: 0.50\nEAT_AT: Hungry\nFOCUS: survive\nNOTE: Secure safe food immediately and avoid combat while fainting, then explore uncharted exits on level 1 rather than descending.",
+     "parsed": {
+      "posture": "cautious",
+      "flee_below": 0.5,
+      "eat_at": "Hungry",
+      "focus": "survive",
+      "note": "Secure safe food immediately and avoid combat while fainting, then explore uncharted exits on level 1 rather than descending."
+     },
+     "prev": {
+      "posture": "cautious",
+      "flee_below": 0.5,
+      "eat_at": "Hungry",
+      "focus": "survive",
+      "note": "Eat immediately if any safe food is available, avoid unnecessary combat while Fainting, and only then resume cautious exploration."
+     },
+     "error": null
+    },
+    {
+     "turn": 1331,
+     "raw": "POSTURE: cautious\nFLEE_BELOW: 0.60\nEAT_AT: Hungry\nFOCUS: survive\nNOTE: At 1 HP and Fainting, avoid all combat, eat any safe food immediately, and retreat toward the upstairs while resting only in secure spots.",
+     "parsed": {
+      "posture": "cautious",
+      "flee_below": 0.6,
+      "eat_at": "Hungry",
+      "focus": "survive",
+      "note": "At 1 HP and Fainting, avoid all combat, eat any safe food immediately, and retreat toward the upstairs while resting only in secure spots."
+     },
+     "prev": {
+      "posture": "cautious",
+      "flee_below": 0.5,
+      "eat_at": "Hungry",
+      "focus": "survive",
+      "note": "Secure safe food immediately and avoid combat while fainting, then explore uncharted exits on level 1 rather than descending."
+     },
+     "error": null
+    }
+   ],
+   "directive_final": {
+    "posture": "cautious",
+    "flee_below": 0.6,
+    "eat_at": "Hungry",
+    "focus": "survive",
+    "note": "At 1 HP and Fainting, avoid all combat, eat any safe food immediately, and retreat toward the upstairs while resting only in secure spots."
+   }
+  },
+  {
+   "slot": 24,
+   "mode": "full",
+   "turns": 791,
+   "rooms": 2,
+   "score": 1582,
+   "depth": 1,
+   "cause": "stuck (quit)",
+   "wall_s": 623.4,
+   "merges": 0,
+   "splits": 0,
+   "surprises": 3,
+   "counters": {
+    "reflex_triggers": 541,
+    "reflex_evals": 1070,
+    "reflex_go": 539,
+    "reflex_all_veto": 2,
+    "reflex_errors": 4,
+    "decision_calls": 58,
+    "decision_invalid": 0,
+    "decision_errors": 0,
+    "substrate_steps": 733,
+    "commitment_steps": 40,
+    "prays": 0,
+    "commitment_fizzles": 57
+   },
+   "decision_ms_median": 3113.0,
+   "reflection_ms_median": 14352,
+   "reflex_ms_median": 5003,
+   "reflex_chosen": {
+    "null": 2,
+    "FIGHT": 11,
+    "EAT": 1,
+    "FLEE": 527
+   },
+   "reflections": [
+    {
+     "turn": 150,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.30\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Take the remaining uncharted exit and keep mapping level 1, avoiding unnecessary fights while HP and hunger are stable.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Take the remaining uncharted exit and keep mapping level 1, avoiding unnecessary fights while HP and hunger are stable."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "default gates (no reflection has run yet)"
+     },
+     "error": null
+    },
+    {
+     "turn": 300,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.35\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Finish charting the remaining exit while healthy, but disengage from unfavorable combat rather than repeatedly contesting reflex vetoes.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.35,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Finish charting the remaining exit while healthy, but disengage from unfavorable combat rather than repeatedly contesting reflex vetoes."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Take the remaining uncharted exit and keep mapping level 1, avoiding unnecessary fights while HP and hunger are stable."
+     },
+     "error": null
+    },
+    {
+     "turn": 450,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.35\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Chart the remaining exit and nearby rooms before descending, taking fights while healthy but preserving clear retreat routes.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.35,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Chart the remaining exit and nearby rooms before descending, taking fights while healthy but preserving clear retreat routes."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.35,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Finish charting the remaining exit while healthy, but disengage from unfavorable combat rather than repeatedly contesting reflex vetoes."
+     },
+     "error": null
+    },
+    {
+     "turn": 600,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.35\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Finish charting the remaining exit, avoid unnecessary fights, and descend once level 1 is explored.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.35,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Finish charting the remaining exit, avoid unnecessary fights, and descend once level 1 is explored."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.35,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Chart the remaining exit and nearby rooms before descending, taking fights while healthy but preserving clear retreat routes."
+     },
+     "error": null
+    },
+    {
+     "turn": 750,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.35\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Secure food soon and chart the remaining exit, but avoid unnecessary fights while hungry and retreat if HP drops sharply.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.35,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Secure food soon and chart the remaining exit, but avoid unnecessary fights while hungry and retreat if HP drops sharply."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.35,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Finish charting the remaining exit, avoid unnecessary fights, and descend once level 1 is explored."
+     },
+     "error": null
+    }
+   ],
+   "directive_final": {
+    "posture": "balanced",
+    "flee_below": 0.35,
+    "eat_at": "Hungry",
+    "focus": "explore",
+    "note": "Secure food soon and chart the remaining exit, but avoid unnecessary fights while hungry and retreat if HP drops sharply."
+   }
+  },
+  {
+   "slot": 25,
+   "mode": "full",
+   "turns": 756,
+   "rooms": 2,
+   "score": 1512,
+   "depth": 1,
+   "cause": "stuck (quit)",
+   "wall_s": 350.6,
+   "merges": 0,
+   "splits": 0,
+   "surprises": 1,
+   "counters": {
+    "reflex_triggers": 509,
+    "reflex_evals": 509,
+    "reflex_go": 509,
+    "reflex_all_veto": 0,
+    "reflex_errors": 0,
+    "decision_calls": 60,
+    "decision_invalid": 0,
+    "decision_errors": 0,
+    "substrate_steps": 749,
+    "commitment_steps": 9,
+    "prays": 0,
+    "commitment_fizzles": 58
+   },
+   "decision_ms_median": 2719.0,
+   "reflection_ms_median": 12118,
+   "reflex_ms_median": 3752,
+   "reflex_chosen": {
+    "FIGHT": 4,
+    "EAT": 1,
+    "FLEE": 504
+   },
+   "reflections": [
+    {
+     "turn": 150,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.30\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Chart the remaining uncharted exit, prefer known safe routes, and descend once level 1 is fully mapped.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Chart the remaining uncharted exit, prefer known safe routes, and descend once level 1 is fully mapped."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "default gates (no reflection has run yet)"
+     },
+     "error": null
+    },
+    {
+     "turn": 300,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.30\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Chart the remaining exit and finish mapping the level, avoiding unnecessary fights before descending.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Chart the remaining exit and finish mapping the level, avoiding unnecessary fights before descending."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Chart the remaining uncharted exit, prefer known safe routes, and descend once level 1 is fully mapped."
+     },
+     "error": null
+    },
+    {
+     "turn": 450,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.30\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Chart the remaining exit and locate the downstairs, avoiding unnecessary fights and descending once the level is mapped.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Chart the remaining exit and locate the downstairs, avoiding unnecessary fights and descending once the level is mapped."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Chart the remaining exit and finish mapping the level, avoiding unnecessary fights before descending."
+     },
+     "error": null
+    },
+    {
+     "turn": 600,
+     "raw": "POSTURE: balanced\nFLEE_BELOW: 0.30\nEAT_AT: Hungry\nFOCUS: explore\nNOTE: Chart the remaining exit while healthy, but avoid unnecessary fights and reassess before descending if HP or supplies deteriorate.",
+     "parsed": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Chart the remaining exit while healthy, but avoid unnecessary fights and reassess before descending if HP or supplies deteriorate."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Chart the remaining exit and locate the downstairs, avoiding unnecessary fights and descending once the level is mapped."
+     },
+     "error": null
+    },
+    {
+     "turn": 750,
+     "raw": "POSTURE: cautious\nFLEE_BELOW: 0.40\nEAT_AT: Hungry\nFOCUS: survive\nNOTE: Secure food and recover HP, avoid unnecessary combat, and resume exploring the remaining exit once stable.",
+     "parsed": {
+      "posture": "cautious",
+      "flee_below": 0.4,
+      "eat_at": "Hungry",
+      "focus": "survive",
+      "note": "Secure food and recover HP, avoid unnecessary combat, and resume exploring the remaining exit once stable."
+     },
+     "prev": {
+      "posture": "balanced",
+      "flee_below": 0.3,
+      "eat_at": "Hungry",
+      "focus": "explore",
+      "note": "Chart the remaining exit while healthy, but avoid unnecessary fights and reassess before descending if HP or supplies deteriorate."
+     },
+     "error": null
+    }
+   ],
+   "directive_final": {
+    "posture": "cautious",
+    "flee_below": 0.4,
+    "eat_at": "Hungry",
+    "focus": "survive",
+    "note": "Secure food and recover HP, avoid unnecessary combat, and resume exploring the remaining exit once stable."
+   }
+  },
+  {
+   "slot": 31,
+   "mode": "reflex",
+   "turns": 1489,
+   "rooms": 1,
+   "score": 1489,
+   "depth": 1,
+   "cause": "killed by a jackal",
+   "wall_s": 86.0,
+   "merges": 0,
+   "splits": 0,
+   "surprises": 1,
+   "counters": {
+    "reflex_triggers": 4,
+    "reflex_evals": 4,
+    "reflex_go": 4,
+    "reflex_all_veto": 0,
+    "reflex_errors": 0,
+    "decision_calls": 0,
+    "decision_invalid": 0,
+    "decision_errors": 0,
+    "substrate_steps": 1005,
+    "commitment_steps": 0,
+    "prays": 0
+   },
+   "decision_ms_median": null,
+   "reflection_ms_median": null,
+   "reflex_ms_median": 4627.5,
+   "reflex_chosen": {
+    "FIGHT": 3,
+    "EAT": 1
+   },
+   "reflections": [],
+   "directive_final": {
+    "posture": "balanced",
+    "flee_below": 0.3,
+    "eat_at": "Hungry",
+    "focus": "explore",
+    "note": "default gates (no reflection has run yet)"
+   }
+  },
+  {
+   "slot": 32,
+   "mode": "reflex",
+   "turns": 1523,
+   "rooms": 1,
+   "score": 1523,
+   "depth": 1,
+   "cause": "turn cap 1500 (alive; quit)",
+   "wall_s": 72.5,
+   "merges": 0,
+   "splits": 0,
+   "surprises": 1,
+   "counters": {
+    "reflex_triggers": 1,
+    "reflex_evals": 1,
+    "reflex_go": 1,
+    "reflex_all_veto": 0,
+    "reflex_errors": 0,
+    "decision_calls": 0,
+    "decision_invalid": 0,
+    "decision_errors": 0,
+    "substrate_steps": 989,
+    "commitment_steps": 0,
+    "prays": 0
+   },
+   "decision_ms_median": null,
+   "reflection_ms_median": null,
+   "reflex_ms_median": 4753,
+   "reflex_chosen": {
+    "EAT": 1
+   },
+   "reflections": [],
+   "directive_final": {
+    "posture": "balanced",
+    "flee_below": 0.3,
+    "eat_at": "Hungry",
+    "focus": "explore",
+    "note": "default gates (no reflection has run yet)"
+   }
+  },
+  {
+   "slot": 33,
+   "mode": "reflex",
+   "turns": 1327,
+   "rooms": 6,
+   "score": 7962,
+   "depth": 1,
+   "cause": "killed by a jackal",
+   "wall_s": 98.0,
+   "merges": 0,
+   "splits": 0,
+   "surprises": 5,
+   "counters": {
+    "reflex_triggers": 15,
+    "reflex_evals": 15,
+    "reflex_go": 15,
+    "reflex_all_veto": 0,
+    "reflex_errors": 0,
+    "decision_calls": 0,
+    "decision_invalid": 0,
+    "decision_errors": 0,
+    "substrate_steps": 1021,
+    "commitment_steps": 0,
+    "prays": 0
+   },
+   "decision_ms_median": null,
+   "reflection_ms_median": null,
+   "reflex_ms_median": 3502.0,
+   "reflex_chosen": {
+    "FIGHT": 14,
+    "EAT": 1
+   },
+   "reflections": [],
+   "directive_final": {
+    "posture": "balanced",
+    "flee_below": 0.3,
+    "eat_at": "Hungry",
+    "focus": "explore",
+    "note": "default gates (no reflection has run yet)"
+   }
+  },
+  {
+   "slot": 41,
+   "mode": "reflexdec",
+   "turns": 112,
+   "rooms": 2,
+   "score": 224,
+   "depth": 1,
+   "cause": "stuck (quit)",
+   "wall_s": 107.9,
+   "merges": 0,
+   "splits": 0,
+   "surprises": 3,
+   "counters": {
+    "reflex_triggers": 0,
+    "reflex_evals": 0,
+    "reflex_go": 0,
+    "reflex_all_veto": 0,
+    "reflex_errors": 0,
+    "decision_calls": 26,
+    "decision_invalid": 0,
+    "decision_errors": 0,
+    "substrate_steps": 133,
+    "commitment_steps": 520,
+    "prays": 0,
+    "commitment_fizzles": 10
+   },
+   "decision_ms_median": 3037.0,
+   "reflection_ms_median": null,
+   "reflex_ms_median": null,
+   "reflex_chosen": {},
+   "reflections": [],
+   "directive_final": {
+    "posture": "balanced",
+    "flee_below": 0.3,
+    "eat_at": "Hungry",
+    "focus": "explore",
+    "note": "default gates (no reflection has run yet)"
+   }
+  },
+  {
+   "slot": 42,
+   "mode": "reflexdec",
+   "turns": 762,
+   "rooms": 11,
+   "score": 8382,
+   "depth": 2,
+   "cause": "wall-clock cap (terminated)",
+   "wall_s": 3104.0,
+   "merges": 0,
+   "splits": 0,
+   "surprises": 27,
+   "counters": {
+    "reflex_triggers": 30,
+    "reflex_evals": 60,
+    "reflex_go": 0,
+    "reflex_all_veto": 6,
+    "reflex_errors": 60,
+    "decision_calls": 69,
+    "decision_invalid": 0,
+    "decision_errors": 0,
+    "substrate_steps": 666,
+    "commitment_steps": 215,
+    "prays": 0,
+    "commitment_fizzles": 50
+   },
+   "decision_ms_median": 3718,
+   "reflection_ms_median": null,
+   "reflex_ms_median": 45021.0,
+   "reflex_chosen": {
+    "null": 6,
+    "DEFER": 24
+   },
+   "reflections": [],
+   "directive_final": {
+    "posture": "balanced",
+    "flee_below": 0.3,
+    "eat_at": "Hungry",
+    "focus": "explore",
+    "note": "default gates (no reflection has run yet)"
+   }
+  },
+  {
+   "slot": 43,
+   "mode": "reflexdec",
+   "turns": 769,
+   "rooms": 3,
+   "score": 2307,
+   "depth": 1,
+   "cause": "wall-clock cap (terminated)",
+   "wall_s": 3005.5,
+   "merges": 0,
+   "splits": 0,
+   "surprises": 9,
+   "counters": {
+    "reflex_triggers": 31,
+    "reflex_evals": 62,
+    "reflex_go": 0,
+    "reflex_all_veto": 6,
+    "reflex_errors": 62,
+    "decision_calls": 31,
+    "decision_invalid": 0,
+    "decision_errors": 0,
+    "substrate_steps": 159,
+    "commitment_steps": 664,
+    "prays": 0,
+    "commitment_fizzles": 12
+   },
+   "decision_ms_median": 4020,
+   "reflection_ms_median": null,
+   "reflex_ms_median": 45022.0,
+   "reflex_chosen": {
+    "null": 6,
+    "DEFER": 25
+   },
+   "reflections": [],
+   "directive_final": {
+    "posture": "balanced",
+    "flee_below": 0.3,
+    "eat_at": "Hungry",
+    "focus": "explore",
+    "note": "default gates (no reflection has run yet)"
+   }
+  }
+ ]
+}
