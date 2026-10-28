@@ -1,0 +1,493 @@
+diff --git a/lwm/policy.py b/lwm/policy.py
+index 5152e60..0cd5105 100644
+--- a/lwm/policy.py
++++ b/lwm/policy.py
+@@ -28,6 +28,7 @@ from collections import deque
+ from typing import Any, Dict, List, Optional
+ 
+ from .engine import Observation
++from .tiers import exit_gating_item
+ 
+ 
+ class ExplorerPolicy:
+@@ -176,3 +177,223 @@ class ProbePolicy:
+             self.probe_steps += 1
+             return step
+         return self.base.decide(chart, obs, rng)
++
++
++class IntentionPolicy:
++    """Round 2, Fix 2 — the morning's questions as intentions.
++
++    A wrapper around the shipped ExplorerPolicy (itself reached
++    through round 1's ProbePolicy for the uncharted questions that
++    stay foot-probes). The morning allocator (``tiers.allocate_probes``,
++    mode ``"walk3"``) hands the day a list of *intentions* — named,
++    expiring policy modifiers derived from the bought questions —
++    and this policy lets them bias its own choices, in this order:
++
++    1. **ensure-item** fires only when it matters: the agent does
++       not hold the item, and either it stands at an exit the chart
++       says is gated by that item, or the believed goal route from
++       here crosses such an exit. Then the policy routes to the
++       item's charted home and fetches it *before* the route
++       proceeds — a route-level change, issued by no special case:
++       the gating and the home both come from the chart's records.
++    2. **verify** — the policy treats the named place as a subgoal
++       woven into its own day: it routes there over believed ways
++       when no readiness intention is acting. Arrival fulfils it —
++       the chart records the place seen today, contents and all.
++    3. **probes** — round 1's ProbePolicy, for the bought uncharted
++       questions only (traversing an exit is an act, not a bias).
++    4. the wrapped shipped policy, unmodified.
++
++    Intentions expire: fulfilled when their condition is met,
++    dropped when unreachable on believed ways, and replaced wholesale
++    each morning (``set_day``). Directed movement (intention steps +
++    probe steps) shares one daily budget — MAX_DIRECTED_STEPS, the
++    same 200 round 1 capped probes at — so a morning's agenda can
++    never eat the whole day. Routing never passes through an exit
++    the chart says is gated by an item the agent does not hold: a
++    door you cannot open is not a way. Every firing, fulfilment,
++    and drop is written to ``intention_log`` — the receipt.
++    """
++
++    MAX_DIRECTED_STEPS = 200
++
++    def __init__(self, base: Any = None) -> None:
++        self.base = base if base is not None else ExplorerPolicy()
++        self.probes = ProbePolicy(self.base)
++        self.intentions: List[Dict[str, Any]] = []
++        self.intention_steps = 0
++        self.intention_log: List[Dict[str, Any]] = []
++
++    # -- morning -----------------------------------------------------
++    def set_day(self, targets: List[Dict[str, Any]],
++                intentions: List[Dict[str, Any]]) -> None:
++        self.probes.set_targets(targets)
++        self.intentions = intentions
++        self.intention_steps = 0
++
++    @property
++    def probe_steps(self) -> int:
++        return self.probes.probe_steps
++
++    def _directed(self) -> int:
++        return self.intention_steps + self.probes.probe_steps
++
++    def _log(self, event: str, intention: Dict[str, Any],
++             place: str) -> None:
++        self.intention_log.append({
++            "event": event, "name": intention["name"],
++            "kind": intention["kind"], "issued_day": intention["day"],
++            "at_place": place,
++            "directed_steps": intention.get("directed_steps", 0),
++        })
++
++    # -- routing -------------------------------------------------------
++    def _route_graph(self, chart: Any,
++                     holding: List[str]) -> Dict[str, Dict[str, str]]:
++        """Believed ways, as ProbePolicy routes them — minus any
++        exit the chart says is gated by an item not held."""
++        graph = {pid: dict(dirs) for pid, dirs in
++                 chart.transit_graph(holding).items()}
++        for pid in chart.places:
++            for direction, belief in chart.known_exits(pid).items():
++                dest = belief.get("to")
++                if dest is None:
++                    continue
++                if direction in graph.get(pid, {}):
++                    continue
++                status = chart.edge_status(pid, direction)
++                last = status["last"]
++                if (last and last["outcome"] == "blocked-locked"
++                        and not set(holding) - set(last.get("holding", []))):
++                    continue
++                graph.setdefault(pid, {})[direction] = dest
++        for pid in list(graph):
++            for direction in list(graph[pid]):
++                item = exit_gating_item(chart, pid, direction)
++                if item and item not in holding:
++                    del graph[pid][direction]
++        return graph
++
++    def _first_step(self, chart: Any, start: str, goal: str,
++                    holding: List[str]) -> Optional[str]:
++        if start == goal:
++            return None
++        graph = self._route_graph(chart, holding)
++        seen = {start}
++        queue = deque([(start, None)])
++        while queue:
++            node, first = queue.popleft()
++            for direction in sorted(graph.get(node, {})):
++                nxt = graph[node][direction]
++                if nxt in seen:
++                    continue
++                if nxt == goal:
++                    return direction if first is None else first
++                seen.add(nxt)
++                queue.append((nxt, direction if first is None else first))
++        return None
++
++    def _goal_path_edges(self, chart: Any, start: str,
++                         holding: List[str]) -> Optional[List[Any]]:
++        goal = chart.goal_place()
++        if goal is None or goal == start:
++            return None
++        graph = chart.transit_graph(holding)
++        seen = {start}
++        queue = deque([(start, [])])
++        while queue:
++            node, edges = queue.popleft()
++            if node == goal:
++                return edges
++            for direction in sorted(graph.get(node, {})):
++                nxt = graph[node][direction]
++                if nxt not in seen:
++                    seen.add(nxt)
++                    queue.append((nxt, edges + [(node, direction)]))
++        return None
++
++    def _ensure_triggered(self, chart: Any, obs: Observation,
++                          intention: Dict[str, Any]) -> bool:
++        """Fires when it matters: standing at a gated exit for the
++        item, or the believed goal route from here crosses one."""
++        gated = {tuple(e) for e in intention["gated_edges"]}
++        place = obs["place"]
++        if any(p == place for (p, _d) in gated):
++            return True
++        edges = self._goal_path_edges(chart, place,
++                                      list(obs.get("holding", [])))
++        if edges is None:
++            return False
++        return any(tuple(e) in gated for e in edges)
++
++    # -- the day -------------------------------------------------------
++    def decide(self, chart: Any, obs: Observation,
++               rng: random.Random) -> Optional[str]:
++        place = obs["place"]
++        holding = list(obs.get("holding", []))
++
++        # Fulfilment is checked against the chart's own record:
++        # a verify is done when the place stands seen today; an
++        # ensure-item is done when the item is in hand.
++        for it in self.intentions:
++            if it["status"] != "active":
++                continue
++            if it["kind"] == "verify":
++                p = chart.places.get(it["place"])
++                if p is not None and p.last_seen_day >= it["day"]:
++                    it["status"] = "fulfilled"
++                    self._log("fulfilled", it, place)
++            elif it["kind"] == "ensure-item" and it["item"] in holding:
++                it["status"] = "fulfilled"
++                self._log("fulfilled", it, place)
++
++        # 1. readiness: fetch a gating item before the route needs it
++        for it in self.intentions:
++            if it["kind"] != "ensure-item" or it["status"] != "active":
++                continue
++            if it["item"] in holding or it["home"] is None:
++                continue
++            if self._directed() >= self.MAX_DIRECTED_STEPS:
++                break
++            if not self._ensure_triggered(chart, obs, it):
++                continue
++            if place == it["home"]:
++                it["status"] = "dropped"
++                self._log("dropped-at-home-empty-handed", it, place)
++                continue
++            step = self._first_step(chart, place, it["home"], holding)
++            if step is None:
++                it["status"] = "dropped"
++                self._log("dropped-unreachable", it, place)
++                continue
++            self.intention_steps += 1
++            it["directed_steps"] += 1
++            self._log("fetch-step", it, place)
++            return step
++
++        # 2. verify: the first unfulfilled place, in issue order
++        for it in self.intentions:
++            if it["kind"] != "verify" or it["status"] != "active":
++                continue
++            if self._directed() >= self.MAX_DIRECTED_STEPS:
++                break
++            if place == it["place"]:
++                continue
++            step = self._first_step(chart, place, it["place"], holding)
++            if step is None:
++                it["status"] = "dropped"
++                self._log("dropped-unreachable", it, place)
++                continue
++            self.intention_steps += 1
++            it["directed_steps"] += 1
++            self._log("verify-step", it, place)
++            return step
++
++        # 3. probes for the bought uncharted questions (round 1's
++        # machinery), inside the same directed budget
++        if self.probes.targets and \
++                self._directed() < self.MAX_DIRECTED_STEPS:
++            return self.probes.decide(chart, obs, rng)
++
++        # 4. the shipped policy, unmodified
++        return self.base.decide(chart, obs, rng)
+diff --git a/lwm/tiers.py b/lwm/tiers.py
+index ebb7364..85fb707 100644
+--- a/lwm/tiers.py
++++ b/lwm/tiers.py
+@@ -35,7 +35,8 @@ Query shapes (plain dicts):
+ 
+ from __future__ import annotations
+ 
+-from typing import Any, Dict, List, Tuple
++from collections import deque
++from typing import Any, Dict, List, Optional, Tuple
+ 
+ # The purse is denominated in attention units. Ordering is the point:
+ COST_REFLEX = 1
+@@ -315,15 +316,110 @@ def hyde_seed(chart: Any, description: str) -> Optional[str]:
+     return best
+ 
+ 
++def _staleness_floor(chart: Any, pid: str, day: int) -> float:
++    """Round 2, Fix 1 — the fog summand of a place's own ignorance,
++    lifted out of the activation product. Effective confidence is
++    charted confidence rotted by fog; the difference is confidence
++    the model held and has since lost to time. It is computed from
++    the framework's own numbers only (the charted confidence and
++    FOG_DECAY inside effective_confidence) — no new constant — and
++    it is zero for a fresh or never-charted place."""
++    place = chart.places.get(pid)
++    if place is None or not place.observed:
++        return 0.0
++    return round(max(0.0, place.confidence
++                     - chart.effective_confidence(pid, day)), 4)
++
++
++def exit_gating_item(chart: Any, place_id: str,
++                     direction: str) -> Optional[str]:
++    """The item this exit is gated by, per the chart's OWN records
++    only (never the engine): the belief's charted ``opens_with`` if
++    there is one; else the item a recorded traversal's event
++    testifies unlocked the way while the agent held it — the
++    attempt log is testimony the model itself recorded, event text
++    and holdings included. None if the chart knows no gate here."""
++    place = chart.places.get(place_id)
++    if place is None:
++        return None
++    belief = place.belief_exits.get(direction)
++    if belief is None:
++        return None
++    if belief.get("opens_with"):
++        return belief["opens_with"]
++    edge = chart.edges.get((place_id, direction))
++    if not edge:
++        return None
++    for attempt in edge["attempts"]:
++        if attempt["outcome"] != "traversed":
++            continue
++        event = (attempt.get("event") or "").lower()
++        if "unlock" not in event:
++            continue
++        for item in attempt.get("holding", []):
++            if item.lower() in event:
++                return item
++    return None
++
++
++def gated_items(chart: Any, place_id: str) -> List[Dict[str, Any]]:
++    """Every item-gated exit of a place, per the chart's records."""
++    place = chart.places.get(place_id)
++    if place is None:
++        return []
++    out: List[Dict[str, Any]] = []
++    for direction in sorted(place.belief_exits):
++        item = exit_gating_item(chart, place_id, direction)
++        if item:
++            out.append({"direction": direction, "item": item})
++    return out
++
++
++def all_gated_edges(chart: Any, item: str) -> List[List[str]]:
++    """Every [place, direction] on the chart gated by ``item``."""
++    out: List[List[str]] = []
++    for pid in sorted(chart.places):
++        for g in gated_items(chart, pid):
++            if g["item"] == item:
++                out.append([pid, g["direction"]])
++    return out
++
++
++def item_home(chart: Any, item: str) -> Optional[str]:
++    """Where the model's own log says it acquired ``item``: the
++    destination of the recorded traversal whose event reports the
++    taking. None if the log never says — the item's home is then
++    not on the chart, whatever the world holds."""
++    for (pid, direction), edge in sorted(chart.edges.items()):
++        for attempt in edge["attempts"]:
++            if attempt["outcome"] != "traversed":
++                continue
++            event = (attempt.get("event") or "").lower()
++            if "take" in event and item.lower() in event \
++                    and attempt.get("to"):
++                return attempt["to"]
++    return None
++
++
+ def question_walk(chart: Any, day: int, start: str,
+                   goal: Optional[str] = None,
+                   goal_description: str = "a place holding treasure, "
+-                  "the vault") -> List[Dict[str, Any]]:
++                  "the vault",
++                  scoring: str = "v1") -> List[Dict[str, Any]]:
+     """Walk the chart and return its questions, ranked.
+ 
+     Seeds: the place the agent stands in, and the goal place if one
+     is believed — else a HyDE seed matched from a hypothetical goal
+-    description. Each question carries its score's full anatomy."""
++    description. Each question carries its score's full anatomy.
++
++    ``scoring="v1"`` is round 1 exactly: activation x disagreement.
++    ``scoring="v2"`` (round 2, Fix 1) adds the staleness floor —
++    confidence lost to fog since the place was last seen — to the
++    product, unconditionally: a cold route's rot can no longer be
++    zeroed by its activation. Both scores ride on every question;
++    ``score`` is the active one and drives the ranking."""
++    if scoring not in ("v1", "v2"):
++        raise ValueError(f"unknown scoring: {scoring!r}")
+     graph = walk_graph(chart, day)
+     if not graph:
+         return []
+@@ -351,9 +447,14 @@ def question_walk(chart: Any, day: int, start: str,
+                      if u["place"] == pid and u["direction"] is not None]
+             if exits:
+                 target = {"place": pid, "direction": exits[0]["direction"]}
++        score_v1 = round(activation.get(pid, 0.0) * dis, 4)
++        floor = _staleness_floor(chart, pid, day)
++        score_v2 = round(activation.get(pid, 0.0) * dis + floor, 4)
+         questions.append({
+             "place": pid, "kind": kind,
+-            "score": round(activation.get(pid, 0.0) * dis, 4),
++            "score": score_v1 if scoring == "v1" else score_v2,
++            "score_v1": score_v1,
++            "staleness_floor": floor,
+             "activation": round(activation.get(pid, 0.0), 4),
+             "disagreement": round(dis, 3),
+             "parts": {k: round(v, 3) for k, v in parts.items()},
+@@ -419,9 +520,14 @@ def allocate_probes(model: Any, mode: str, start: str,
+     spend = {"reflex": 0, "essence": 0, "truth": 0}
+     bought: List[Dict[str, Any]] = []
+     targets: List[Dict[str, Any]] = []
++    intentions: List[Dict[str, Any]] = []
+     if mode == "walk":
+         questions = question_walk(chart, day, start,
+                                   goal=chart.goal_place())
++    elif mode == "walk3":
++        questions = question_walk(chart, day, start,
++                                  goal=chart.goal_place(),
++                                  scoring="v2")
+     elif mode == "nearest":
+         graph = walk_graph(chart, day)
+         dist = _bfs_distances_on(graph, start)
+@@ -447,7 +553,7 @@ def allocate_probes(model: Any, mode: str, start: str,
+ 
+     remaining = budget
+     for q in questions:
+-        if mode == "walk" and q["score"] <= 0:
++        if mode in ("walk", "walk3") and q["score"] <= 0:
+             continue  # the walk has no question here; nothing to buy
+         cost = COST_TRUTH if q["kind"] == "conflict" else COST_ESSENCE
+         if cost > remaining:
+@@ -466,5 +572,88 @@ def allocate_probes(model: Any, mode: str, start: str,
+         remaining -= paid
+         bought.append(q)
+         targets.append(q["target"])
++    if mode == "walk3":
++        # Round 2, Fix 2: bought questions also become intentions,
++        # and only uncharted questions keep a foot-probe target —
++        # traversing an exit is an act; everything else is a bias.
++        targets = [q["target"] for q in bought if q["kind"] == "uncharted"]
++        intentions = _derive_intentions(chart, day, bought, start)
+     return {"mode": mode, "questions": questions, "bought": bought,
+-            "targets": targets, "spend": spend, "budget": budget}
++            "targets": targets, "spend": spend, "budget": budget,
++            "intentions": intentions}
++
++
++def _derive_intentions(chart: Any, day: int, bought: List[Dict[str, Any]],
++                       start: str) -> List[Dict[str, Any]]:
++    """The morning's bought questions, translated into intentions
++    (round 2, Fix 2 — see policy.IntentionPolicy for how they act).
++
++    Two readiness sources, both from the chart's own records:
++    (a) a bought question whose place has an item-gated exit, and
++    (b) if the goal place's question was bought, every item-gated
++    edge on the believed start->goal route — buying the goal buys
++    its route's readiness. Every other bought conflict/fog/tie
++    question becomes a verify intention for its place. Intentions
++    are issued in question rank order, readiness before verify for
++    the same question; duplicates collapse to the first issue."""
++    intentions: List[Dict[str, Any]] = []
++    seen_items: set = set()
++    seen_verify: set = set()
++
++    def ensure(item: str, gated_place: str, gated_direction: str,
++               source: Dict[str, Any]) -> None:
++        if item in seen_items:
++            return
++        seen_items.add(item)
++        intentions.append({
++            "name": f"ensure-item:{item}", "kind": "ensure-item",
++            "item": item, "home": item_home(chart, item),
++            "gated_edges": all_gated_edges(chart, item),
++            "gated_place": gated_place, "gated_direction": gated_direction,
++            "day": day, "status": "active", "directed_steps": 0,
++            "source_question": {"place": source["place"],
++                                "kind": source["kind"],
++                                "rank": source["rank"]},
++        })
++
++    def verify(q: Dict[str, Any]) -> None:
++        pid = q["place"]
++        if pid in seen_verify:
++            return
++        seen_verify.add(pid)
++        intentions.append({
++            "name": f"verify:{pid}", "kind": "verify", "place": pid,
++            "day": day, "status": "active", "directed_steps": 0,
++            "source_question": {"place": pid, "kind": q["kind"],
++                                "rank": q["rank"]},
++        })
++
++    goal = chart.goal_place()
++    for q in bought:
++        for g in gated_items(chart, q["place"]):
++            ensure(g["item"], q["place"], g["direction"], q)
++        if q["kind"] in ("conflict", "fog", "tie"):
++            verify(q)
++    if goal is not None and any(q["place"] == goal for q in bought):
++        # (b) the believed route to a bought goal, edge by edge
++        graph = chart.transit_graph([])
++        seen = {start}
++        queue = deque([(start, [])])
++        path: Optional[List[Any]] = None
++        while queue:
++            node, edges = queue.popleft()
++            if node == goal:
++                path = edges
++                break
++            for direction in sorted(graph.get(node, {})):
++                nxt = graph[node][direction]
++                if nxt not in seen:
++                    seen.add(nxt)
++                    queue.append((nxt, edges + [(node, direction)]))
++        if path:
++            goal_q = next(q for q in bought if q["place"] == goal)
++            for (pid, direction) in path:
++                item = exit_gating_item(chart, pid, direction)
++                if item:
++                    ensure(item, pid, direction, goal_q)
++    return intentions
