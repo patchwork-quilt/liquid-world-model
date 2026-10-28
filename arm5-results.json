@@ -1,0 +1,1137 @@
+{
+ "experiment": "qw manager bench, arm 5 \u2014 Nemotron think-off (build round lane 3)",
+ "arm_definition": {
+  "single_variable_vs_arm4": "Ollama API-level thinking disabled (\"think\": false in the /api/chat payload); everything else identical to arm 4: same endpoint (Thor :11434), model, temperature 0, num_predict 512, seeds, briefs, prompt, validator, game rig",
+  "note_on_prompt": "the frozen prompt already ends with the literal \" /no_think\" in ALL arms \u2014 arm 4 ignored the prompt-level hint; arm 5 tests the API-level switch"
+ },
+ "rig": {
+  "wall_cap_s": 1800,
+  "turn_cap": 200000,
+  "crawl": "0.32.1 (source build)",
+  "qw": "8698adc (stock)",
+  "binary": "/home/ubuntu/qw-rematch/crawl-032/crawl-ref/source/crawl",
+  "rig": "/home/ubuntu/qw-rematch"
+ },
+ "arm": {
+  "arm": "arm5-nemotron-thinkoff",
+  "base_url": "http://localhost:11434",
+  "model": "nemotron-3.5-lightning:latest",
+  "dialect": "ollama",
+  "temperature": 0,
+  "max_tokens": 512,
+  "think": false,
+  "gen_host": "thor",
+  "gen_utc": "2026-10-28T04:20:31Z"
+ },
+ "determinism_spotcheck": {
+  "seed": 101,
+  "fields": [
+   "score",
+   "xl",
+   "turns",
+   "killer"
+  ],
+  "bench": {
+   "score": 49,
+   "xl": 3,
+   "turns": 1156,
+   "killer": "an iguana"
+  },
+  "round1": {
+   "score": 49,
+   "xl": 3,
+   "turns": 1156,
+   "killer": "an iguana"
+  },
+  "match": true,
+  "control_run": {
+   "arm": "control",
+   "seed": 101,
+   "run_dir": "/home/ubuntu/qw-arm5/runs/control-101",
+   "wall_s": 9.7,
+   "driver_tail": "DONE killed=False status=0 wall=9.7",
+   "morgue_file": "morgue-qw-20261028-042555.txt",
+   "score": 49,
+   "xl": 3,
+   "turns": 1156,
+   "absdepth": 2,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "an iguana",
+   "gold": 18,
+   "kills": 37,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 2,
+    "branch_reached": {
+     "Dungeon": 2
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "consequence": "round 1 control receipts reused"
+ },
+ "control_source": "/home/ubuntu/qw-manager/results.json",
+ "control_round1": {
+  "101": {
+   "arm": "control",
+   "seed": 101,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-101",
+   "wall_s": 10.0,
+   "driver_tail": "DONE killed=False status=0 wall=10.0",
+   "morgue_file": "morgue-qw-20261027-004342.txt",
+   "score": 49,
+   "xl": 3,
+   "turns": 1156,
+   "absdepth": 2,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "an iguana",
+   "gold": 18,
+   "kills": 37,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 2,
+    "branch_reached": {
+     "Dungeon": 2
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "102": {
+   "arm": "control",
+   "seed": 102,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-102",
+   "wall_s": 28.7,
+   "driver_tail": "DONE killed=False status=0 wall=28.6",
+   "morgue_file": "morgue-qw-20261027-004437.txt",
+   "score": 462,
+   "xl": 7,
+   "turns": 3968,
+   "absdepth": 5,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "Prince Ribbit",
+   "gold": 174,
+   "kills": 94,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 5,
+    "branch_reached": {
+     "Dungeon": 5
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "103": {
+   "arm": "control",
+   "seed": 103,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-103",
+   "wall_s": 5.6,
+   "driver_tail": "DONE killed=False status=0 wall=5.6",
+   "morgue_file": "morgue-qw-20261027-004503.txt",
+   "score": 2,
+   "xl": 1,
+   "turns": 117,
+   "absdepth": 1,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "a ball python",
+   "gold": 18,
+   "kills": 3,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 1,
+    "branch_reached": {
+     "Dungeon": 1
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "104": {
+   "arm": "control",
+   "seed": 104,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-104",
+   "wall_s": 17.7,
+   "driver_tail": "DONE killed=False status=0 wall=17.6",
+   "morgue_file": "morgue-qw-20261027-004527.txt",
+   "score": 348,
+   "xl": 6,
+   "turns": 2801,
+   "absdepth": 4,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "Pikel",
+   "gold": 167,
+   "kills": 73,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 4,
+    "branch_reached": {
+     "Dungeon": 4
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "105": {
+   "arm": "control",
+   "seed": 105,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-105",
+   "wall_s": 10.0,
+   "driver_tail": "DONE killed=False status=0 wall=9.9",
+   "morgue_file": "morgue-qw-20261027-004554.txt",
+   "score": 64,
+   "xl": 4,
+   "turns": 1905,
+   "absdepth": 3,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "a kobold",
+   "gold": 83,
+   "kills": 41,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 3,
+    "branch_reached": {
+     "Dungeon": 3
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "106": {
+   "arm": "control",
+   "seed": 106,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-106",
+   "wall_s": 662.7,
+   "driver_tail": "DONE killed=False status=0 wall=662.7",
+   "morgue_file": "morgue-qw-20261027-005707.txt",
+   "score": 49,
+   "xl": 3,
+   "turns": 16969,
+   "absdepth": 2,
+   "place": "D",
+   "god": null,
+   "char": "GrBe",
+   "ktyp": "quitting",
+   "killer": null,
+   "gold": 44,
+   "kills": 39,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 2,
+    "branch_reached": {
+     "Dungeon": 2
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "107": {
+   "arm": "control",
+   "seed": 107,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-107",
+   "wall_s": 12.5,
+   "driver_tail": "DONE killed=False status=0 wall=12.5",
+   "morgue_file": "morgue-qw-20261027-010658.txt",
+   "score": 158,
+   "xl": 5,
+   "turns": 1661,
+   "absdepth": 3,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "a gnoll",
+   "gold": 117,
+   "kills": 56,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 3,
+    "branch_reached": {
+     "Dungeon": 3
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "108": {
+   "arm": "control",
+   "seed": 108,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-108",
+   "wall_s": 22.5,
+   "driver_tail": "DONE killed=False status=0 wall=22.5",
+   "morgue_file": "morgue-qw-20261027-010733.txt",
+   "score": 1405,
+   "xl": 8,
+   "turns": 4661,
+   "absdepth": 5,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "Duvessa",
+   "gold": 394,
+   "kills": 122,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 5,
+    "branch_reached": {
+     "Dungeon": 5
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "109": {
+   "arm": "control",
+   "seed": 109,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-109",
+   "wall_s": 13.5,
+   "driver_tail": "DONE killed=False status=0 wall=13.4",
+   "morgue_file": "morgue-qw-20261027-010808.txt",
+   "score": 98,
+   "xl": 4,
+   "turns": 2802,
+   "absdepth": 4,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "an iguana",
+   "gold": 129,
+   "kills": 56,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 4,
+    "branch_reached": {
+     "Dungeon": 4
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  },
+  "110": {
+   "arm": "control",
+   "seed": 110,
+   "run_dir": "/home/ubuntu/qw-manager/runs/control-110",
+   "wall_s": 12.6,
+   "driver_tail": "DONE killed=False status=0 wall=12.6",
+   "morgue_file": "morgue-qw-20261027-010834.txt",
+   "score": 216,
+   "xl": 5,
+   "turns": 2212,
+   "absdepth": 4,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "Duvessa",
+   "gold": 103,
+   "kills": 45,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 4,
+    "branch_reached": {
+     "Dungeon": 3
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false
+  }
+ },
+ "manager": {
+  "101": {
+   "brief_id": "B1-survival",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+   },
+   "llm_wall_s": 13.43,
+   "call_wall_s": 13.43,
+   "raw_output": "COMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+  },
+  "102": {
+   "brief_id": "B1-survival",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "D:1-11, Lair, D:12-15, Orc, Shopping, Zot:1-4, Win"
+   },
+   "llm_wall_s": 45.75,
+   "call_wall_s": 45.75,
+   "raw_output": "COMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Shopping, Zot:1-4, Win"
+  },
+  "103": {
+   "brief_id": "B2-rune-rush",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+   },
+   "llm_wall_s": 59.64,
+   "call_wall_s": 59.64,
+   "raw_output": "COMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+  },
+  "104": {
+   "brief_id": "B2-rune-rush",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+   },
+   "llm_wall_s": 29.28,
+   "call_wall_s": 29.28,
+   "raw_output": "COMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+  },
+  "105": {
+   "brief_id": "B3-orb-sprint",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+   },
+   "llm_wall_s": 87.18,
+   "call_wall_s": 87.18,
+   "raw_output": "COMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+  },
+  "106": {
+   "brief_id": "B3-orb-sprint",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+   },
+   "llm_wall_s": 3.35,
+   "call_wall_s": 3.35,
+   "raw_output": "COMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+  },
+  "107": {
+   "brief_id": "B4-methodical",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+   },
+   "llm_wall_s": 37.41,
+   "call_wall_s": 37.41,
+   "raw_output": "COMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+  },
+  "108": {
+   "brief_id": "B4-methodical",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrBe.handaxe",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+   },
+   "llm_wall_s": 1.77,
+   "call_wall_s": 1.77,
+   "raw_output": "COMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+  },
+  "109": {
+   "brief_id": "B5-zealot",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrHu",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+   },
+   "llm_wall_s": 1.74,
+   "call_wall_s": 1.74,
+   "raw_output": "COMBO: GrHu\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+  },
+  "110": {
+   "brief_id": "B5-zealot",
+   "valid": true,
+   "errors": [],
+   "managed": {
+    "combo": "GrHu",
+    "gods": [
+     "Trog",
+     "Okawaru",
+     "Makhleb"
+    ],
+    "goals": "D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+   },
+   "llm_wall_s": 1.78,
+   "call_wall_s": 1.78,
+   "raw_output": "COMBO: GrHu\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win"
+  }
+ },
+ "generation_receipts": {
+  "101": {
+   "raw_output": "COMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win",
+   "valid": true,
+   "call_wall_s": 13.43,
+   "eval_count": 88,
+   "eval_duration_s": 1.09,
+   "prompt_eval_count": 548,
+   "finish_reason": "stop",
+   "think": false
+  },
+  "102": {
+   "raw_output": "COMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Shopping, Zot:1-4, Win",
+   "valid": true,
+   "call_wall_s": 45.75,
+   "eval_count": 60,
+   "eval_duration_s": 0.79,
+   "prompt_eval_count": 548,
+   "finish_reason": "stop",
+   "think": false
+  },
+  "103": {
+   "raw_output": "COMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win",
+   "valid": true,
+   "call_wall_s": 59.64,
+   "eval_count": 88,
+   "eval_duration_s": 1.09,
+   "prompt_eval_count": 544,
+   "finish_reason": "stop",
+   "think": false
+  },
+  "104": {
+   "raw_output": "COMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win",
+   "valid": true,
+   "call_wall_s": 29.28,
+   "eval_count": 88,
+   "eval_duration_s": 1.11,
+   "prompt_eval_count": 544,
+   "finish_reason": "stop",
+   "think": false
+  },
+  "105": {
+   "raw_output": "COMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win",
+   "valid": true,
+   "call_wall_s": 87.18,
+   "eval_count": 88,
+   "eval_duration_s": 1.03,
+   "prompt_eval_count": 537,
+   "finish_reason": "stop",
+   "think": false
+  },
+  "106": {
+   "raw_output": "COMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win",
+   "valid": true,
+   "call_wall_s": 3.35,
+   "eval_count": 88,
+   "eval_duration_s": 1.03,
+   "prompt_eval_count": 537,
+   "finish_reason": "stop",
+   "think": false
+  },
+  "107": {
+   "raw_output": "COMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win",
+   "valid": true,
+   "call_wall_s": 37.41,
+   "eval_count": 88,
+   "eval_duration_s": 1.11,
+   "prompt_eval_count": 530,
+   "finish_reason": "stop",
+   "think": false
+  },
+  "108": {
+   "raw_output": "COMBO: GrBe.handaxe\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win",
+   "valid": true,
+   "call_wall_s": 1.77,
+   "eval_count": 88,
+   "eval_duration_s": 1.03,
+   "prompt_eval_count": 530,
+   "finish_reason": "stop",
+   "think": false
+  },
+  "109": {
+   "raw_output": "COMBO: GrHu\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win",
+   "valid": true,
+   "call_wall_s": 1.74,
+   "eval_count": 86,
+   "eval_duration_s": 1.03,
+   "prompt_eval_count": 536,
+   "finish_reason": "stop",
+   "think": false
+  },
+  "110": {
+   "raw_output": "COMBO: GrHu\nGODS: Trog, Okawaru, Makhleb\nGOALS: D:1-11, Lair, D:12-15, Orc, Rune:Shoals, Rune:Snake, Vaults:1-4, Depths, Vaults:5, Shopping, Zot:1-4, Win",
+   "valid": true,
+   "call_wall_s": 1.78,
+   "eval_count": 86,
+   "eval_duration_s": 1.05,
+   "prompt_eval_count": 536,
+   "finish_reason": "stop",
+   "think": false
+  }
+ },
+ "runs": [
+  {
+   "arm": "arm5-nemotron-thinkoff",
+   "seed": 101,
+   "run_dir": "/home/ubuntu/qw-arm5/runs/arm5-nemotron-thinkoff-101",
+   "wall_s": 10.5,
+   "driver_tail": "DONE killed=False status=0 wall=10.4",
+   "morgue_file": "morgue-qw-20261028-042605.txt",
+   "score": 49,
+   "xl": 3,
+   "turns": 1156,
+   "absdepth": 2,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "an iguana",
+   "gold": 18,
+   "kills": 37,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 2,
+    "branch_reached": {
+     "Dungeon": 2
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "arm5-nemotron-thinkoff",
+   "seed": 102,
+   "run_dir": "/home/ubuntu/qw-arm5/runs/arm5-nemotron-thinkoff-102",
+   "wall_s": 28.7,
+   "driver_tail": "DONE killed=False status=0 wall=28.7",
+   "morgue_file": "morgue-qw-20261028-042623.txt",
+   "score": 462,
+   "xl": 7,
+   "turns": 3968,
+   "absdepth": 5,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "Prince Ribbit",
+   "gold": 174,
+   "kills": 94,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 5,
+    "branch_reached": {
+     "Dungeon": 5
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "arm5-nemotron-thinkoff",
+   "seed": 103,
+   "run_dir": "/home/ubuntu/qw-arm5/runs/arm5-nemotron-thinkoff-103",
+   "wall_s": 5.5,
+   "driver_tail": "DONE killed=False status=0 wall=5.5",
+   "morgue_file": "morgue-qw-20261028-042611.txt",
+   "score": 2,
+   "xl": 1,
+   "turns": 117,
+   "absdepth": 1,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "a ball python",
+   "gold": 18,
+   "kills": 3,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 1,
+    "branch_reached": {
+     "Dungeon": 1
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "arm5-nemotron-thinkoff",
+   "seed": 104,
+   "run_dir": "/home/ubuntu/qw-arm5/runs/arm5-nemotron-thinkoff-104",
+   "wall_s": 17.5,
+   "driver_tail": "DONE killed=False status=0 wall=17.5",
+   "morgue_file": "morgue-qw-20261028-042628.txt",
+   "score": 348,
+   "xl": 6,
+   "turns": 2801,
+   "absdepth": 4,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "Pikel",
+   "gold": 167,
+   "kills": 73,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 4,
+    "branch_reached": {
+     "Dungeon": 4
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "arm5-nemotron-thinkoff",
+   "seed": 105,
+   "run_dir": "/home/ubuntu/qw-arm5/runs/arm5-nemotron-thinkoff-105",
+   "wall_s": 10.0,
+   "driver_tail": "DONE killed=False status=0 wall=10.0",
+   "morgue_file": "morgue-qw-20261028-042633.txt",
+   "score": 64,
+   "xl": 4,
+   "turns": 1905,
+   "absdepth": 3,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "a kobold",
+   "gold": 83,
+   "kills": 41,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 3,
+    "branch_reached": {
+     "Dungeon": 3
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "arm5-nemotron-thinkoff",
+   "seed": 106,
+   "run_dir": "/home/ubuntu/qw-arm5/runs/arm5-nemotron-thinkoff-106",
+   "wall_s": 576.4,
+   "driver_tail": "DONE killed=False status=0 wall=576.4",
+   "morgue_file": "morgue-qw-20261028-043604.txt",
+   "score": 49,
+   "xl": 3,
+   "turns": 16969,
+   "absdepth": 2,
+   "place": "D",
+   "god": null,
+   "char": "GrBe",
+   "ktyp": "quitting",
+   "killer": null,
+   "gold": 44,
+   "kills": 39,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 2,
+    "branch_reached": {
+     "Dungeon": 2
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "arm5-nemotron-thinkoff",
+   "seed": 107,
+   "run_dir": "/home/ubuntu/qw-arm5/runs/arm5-nemotron-thinkoff-107",
+   "wall_s": 12.5,
+   "driver_tail": "DONE killed=False status=0 wall=12.5",
+   "morgue_file": "morgue-qw-20261028-042646.txt",
+   "score": 158,
+   "xl": 5,
+   "turns": 1661,
+   "absdepth": 3,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "a gnoll",
+   "gold": 117,
+   "kills": 56,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 3,
+    "branch_reached": {
+     "Dungeon": 3
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "arm5-nemotron-thinkoff",
+   "seed": 108,
+   "run_dir": "/home/ubuntu/qw-arm5/runs/arm5-nemotron-thinkoff-108",
+   "wall_s": 22.1,
+   "driver_tail": "DONE killed=False status=0 wall=22.0",
+   "morgue_file": "morgue-qw-20261028-042708.txt",
+   "score": 1405,
+   "xl": 8,
+   "turns": 4661,
+   "absdepth": 5,
+   "place": "D",
+   "god": "Trog",
+   "char": "GrBe",
+   "ktyp": "mon",
+   "killer": "Duvessa",
+   "gold": 394,
+   "kills": 122,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 5,
+    "branch_reached": {
+     "Dungeon": 5
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "arm5-nemotron-thinkoff",
+   "seed": 109,
+   "run_dir": "/home/ubuntu/qw-arm5/runs/arm5-nemotron-thinkoff-109",
+   "wall_s": 10.3,
+   "driver_tail": "DONE killed=False status=0 wall=10.3",
+   "morgue_file": "morgue-qw-20261028-042718.txt",
+   "score": 91,
+   "xl": 4,
+   "turns": 2450,
+   "absdepth": 4,
+   "place": "D",
+   "god": null,
+   "char": "GrHu",
+   "ktyp": "mon",
+   "killer": "an iguana",
+   "gold": 129,
+   "kills": 53,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 4,
+    "branch_reached": {
+     "Dungeon": 4
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  },
+  {
+   "arm": "arm5-nemotron-thinkoff",
+   "seed": 110,
+   "run_dir": "/home/ubuntu/qw-arm5/runs/arm5-nemotron-thinkoff-110",
+   "wall_s": 7.7,
+   "driver_tail": "DONE killed=False status=0 wall=7.7",
+   "morgue_file": "morgue-qw-20261028-042726.txt",
+   "score": 37,
+   "xl": 3,
+   "turns": 796,
+   "absdepth": 2,
+   "place": "D",
+   "god": null,
+   "char": "GrHu",
+   "ktyp": "mon",
+   "killer": "a gnoll",
+   "gold": 32,
+   "kills": 21,
+   "outcome": "DIED",
+   "morgue_parse": {
+    "branches_visited": 1,
+    "levels_seen": 2,
+    "branch_reached": {
+     "Dungeon": 2
+    },
+    "runes_found": 0,
+    "won": false
+   },
+   "turn_cap_exceeded": false,
+   "manager_valid": true
+  }
+ ],
+ "census": {
+  "valid": 10,
+  "valid_seeds": [
+   101,
+   102,
+   103,
+   104,
+   105,
+   106,
+   107,
+   108,
+   109,
+   110
+  ],
+  "distinct_answers": 3,
+  "stock_lines": 0,
+  "example_verbatim": 9,
+  "combo_deviations_valid": 2,
+  "combo_deviations_of": 10,
+  "manager_wall_total_s": 281.3,
+  "manager_per_brief_s": 28.13,
+  "median_score": 77.5,
+  "mean_score": 266.5,
+  "pairwise_WLT": [
+   0,
+   2,
+   8
+  ],
+  "games_identical_to_control": 8,
+  "per_seed": {
+   "101": {
+    "valid": true,
+    "score": 49,
+    "control": 49,
+    "identical": true
+   },
+   "102": {
+    "valid": true,
+    "score": 462,
+    "control": 462,
+    "identical": true
+   },
+   "103": {
+    "valid": true,
+    "score": 2,
+    "control": 2,
+    "identical": true
+   },
+   "104": {
+    "valid": true,
+    "score": 348,
+    "control": 348,
+    "identical": true
+   },
+   "105": {
+    "valid": true,
+    "score": 64,
+    "control": 64,
+    "identical": true
+   },
+   "106": {
+    "valid": true,
+    "score": 49,
+    "control": 49,
+    "identical": true
+   },
+   "107": {
+    "valid": true,
+    "score": 158,
+    "control": 158,
+    "identical": true
+   },
+   "108": {
+    "valid": true,
+    "score": 1405,
+    "control": 1405,
+    "identical": true
+   },
+   "109": {
+    "valid": true,
+    "score": 91,
+    "control": 98,
+    "identical": false
+   },
+   "110": {
+    "valid": true,
+    "score": 37,
+    "control": 216,
+    "identical": false
+   }
+  }
+ },
+ "generation_time_summary": {
+  "eval_duration_total_s": 10.4,
+  "eval_count_range": [
+   60,
+   88
+  ],
+  "wall_total_s": 281.3,
+  "wall_note": "per-call walls ranged 1.74-87.18 s for near-identical outputs: the Thor was shared with concurrent build-round lanes that night. eval_duration (generation proper) was 1.03-1.11 s on every call. Both numbers are receipted; neither is hidden."
+ },
+ "bench_extension": {
+  "filed_bench_md5": "c27305e2db545ba28cfe3119cce88743",
+  "extended_bench_md5": "5907d4b975a262b8485a1745b0bbd109",
+  "change": "transport/CLI only: call_ollama gains think=None (sent as top-level \"think\" field of /api/chat only when not None; endpoint_meta records it); call_openai accepts and ignores it; ask_manager_http passes it through; gen gains --think true|false, recorded in arm.json. No --think = payload byte-identical to arms 3-4.",
+  "vendored_segment": "5,616 bytes, byte-identical between filed and extended bench (sha256 of the marker block equal); segment banner sha256 578473217881fffbbfa79a0bcf6d068a6b94c167059579adfda4ba1d6caf8db1",
+  "verification_after_change": "Oracle verify_arm5.py (the rounds 3-4 differential script pointed at the extended bench): PROMPT byte-identical (1,469 chars); validate() 27/27 identical verdicts (20 historical + 7 synthetic); selftest 10/10. VERIFY OK. Selftest also 10/10 on the Thor copy."
+ },
+ "disclosed_probes": [
+  {
+   "kind": "transport smoke (not an arm sample)",
+   "prompt": "Reply with exactly: OK",
+   "think": false,
+   "content": "OK",
+   "thinking_chars": 0,
+   "done_reason": "stop",
+   "eval_count": 2,
+   "wall_s": 74.4,
+   "note": "wall paid the cold load of the 25 GB model after Ollama keep-alive expiry; compare arm 4-era smoke with thinking on: content OK but eval_count 99"
+  }
+ ],
+ "rounds_1_4_summaries": {
+  "arm1_farm_qwen3_0.6b": {
+   "valid": 3,
+   "distinct": 10,
+   "distinct_note": "derived in RESIDENTS",
+   "stock_lines": 2,
+   "example_verbatim": 1,
+   "combo_deviations": "3/3",
+   "median": 128,
+   "mean": 434.8,
+   "manager_total_s": 93.0,
+   "per_brief_s": 9.3
+  },
+  "arm2_farm_qwen2.5_7b": {
+   "valid": 10,
+   "distinct": 7,
+   "stock_lines": 0,
+   "example_verbatim": 4,
+   "combo_deviations": "0/10",
+   "median": 81,
+   "mean": 239.1,
+   "manager_total_s": 932.5,
+   "per_brief_s": 93.2
+  },
+  "arm3_coder30b": {
+   "valid": 8,
+   "distinct": 7,
+   "stock_lines": 0,
+   "example_verbatim": 4,
+   "combo_deviations": "0/8",
+   "median": 128,
+   "mean": 285.1,
+   "manager_total_s": 15.7,
+   "per_brief_s": 1.57
+  },
+  "arm4_nemotron_think_on": {
+   "valid": 0,
+   "distinct": 0,
+   "example_verbatim": null,
+   "combo_deviations": null,
+   "median": 128,
+   "median_note": "control's, by construction (all fallback)",
+   "mean": 285.1,
+   "manager_total_s": 85.6,
+   "per_brief_s": 8.56,
+   "failure": "deliberative-nonemission: content empty x10, eval_count exactly 512 x10, finish length x10"
+  }
+ }
+}
