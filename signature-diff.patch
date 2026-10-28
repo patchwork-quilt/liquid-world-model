@@ -1,0 +1,89 @@
+--- a/arena_mod/init.lua (round 1, as filed)
++++ b/arena_mod/init.lua (v2, sharpened signature)
+@@ -204,9 +204,33 @@
+ end
+ 
+ -- ---------------------------------------------------------------- perception
+--- The signature uses ONLY standpoint-local sensed features: node kinds
+--- in a radius-6 window (ground + two wall layers), reduced to the
+--- kinds present in quantity, sorted. No region name, no coordinates.
++-- The signature uses ONLY standpoint-local sensed features. No region
++-- name, no coordinates.
++--
++-- Round 1 (v1) was a single presence set: node kinds in a radius-6
++-- window (ground + two wall layers), kinds kept at count >= 3, capped
++-- at the four most-present. Receipt (ENGINE-ON-ORIN): warehouse, quay
++-- and boathouse all read brick·stone·timber — a presence set with a
++-- frequency cap keeps exactly what the three places SHARE (their
++-- structural materials) and discards exactly what they don't (their
++-- furnishings, present in single digits, or — the warehouse's
++-- shelves — outside the window from both its doors).
++--
++-- Round 2 (v2, ARENA-REPLAY) keeps the v1 computation verbatim as the
++-- base term and adds two standpoint-local sensed terms:
++--   ground   — the kind of the floor cell directly under the
++--              standpoint (y=0). Maximally local; cannot alias across
++--              a wall. It is what separates the quay's stonebrick
++--              from the timber floors behind the doors either side.
++--   landmark — the dominant FLOOR-STANDING furnishing kind (y=1
++--              only: shelves, logs, chests sit on floors; windows,
++--              bells and awnings are architecture and already ride
++--              in the base term) within a wider radius-10 horizon,
++--              requiring count >= 2, ties alphabetical. The horizon
++--              is wider because a landmark is precisely the
++--              furnishing you can pick out across the room: the
++--              warehouse's shelves stand 7–9 cells from its doors.
++-- Format: "<ground>|<base>[+<landmark>]".
+ 
+ local KIND = {
+   ["default:stone"] = "stone", ["default:stonebrick"] = "brick",
+@@ -218,7 +242,12 @@
+   ["wool:red"] = "wool",
+ }
+ 
+-local function signature_at(cx, cz)
++local LANDMARK_KIND = {
++  shelves = true, logs = true, chest = true, glass = true,
++  gold = true, torch = true, wool = true,
++}
++
++local function base_signature_at(cx, cz)
+   local counts = {}
+   for dx = -6, 6 do
+     for dz = -6, 6 do
+@@ -249,6 +278,35 @@
+   return table.concat(kinds, "·")
+ end
+ 
++local function signature_at(cx, cz)
++  -- ground: the floor cell under the standpoint itself
++  local gnode = minetest.get_node({x = cx, y = 0, z = cz})
++  local ground = (gnode and KIND[gnode.name]) or "open ground"
++  -- landmark: dominant floor-standing furnishing kind (y=1) in a
++  -- radius-10 horizon; count >= 2 required, ties alphabetical. The
++  -- best_n floor of 1 plus the strict > makes the winner independent
++  -- of pairs() iteration order.
++  local counts = {}
++  for dx = -10, 10 do
++    for dz = -10, 10 do
++      local node = minetest.get_node({x = cx + dx, y = 1, z = cz + dz})
++      local kind = node and KIND[node.name] or nil
++      if kind and LANDMARK_KIND[kind] then
++        counts[kind] = (counts[kind] or 0) + 1
++      end
++    end
++  end
++  local best, best_n = nil, 1
++  for kind, n in pairs(counts) do
++    if n > best_n or (n == best_n and best and kind < best) then
++      best, best_n = kind, n
++    end
++  end
++  local sig = ground .. "|" .. base_signature_at(cx, cz)
++  if best then sig = sig .. "+" .. best end
++  return sig
++end
++
+ -- ---------------------------------------------------------------- state
+ local BOOT_ID = tostring(minetest.get_us_time())
+ local storage = minetest.get_mod_storage()
