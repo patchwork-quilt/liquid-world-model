@@ -1,0 +1,348 @@
+diff --git a/lwm/policy.py b/lwm/policy.py
+index 0cd5105..c560231 100644
+--- a/lwm/policy.py
++++ b/lwm/policy.py
+@@ -397,3 +397,275 @@ class IntentionPolicy:
+ 
+         # 4. the shipped policy, unmodified
+         return self.base.decide(chart, obs, rng)
++
++
++class CarriedIntentionPolicy(IntentionPolicy):
++    """Round 3 — the third form: verify intentions that survive sleep.
++
++    A wrapper in round 2's line (``IntentionPolicy`` over
++    ``ProbePolicy`` over the shipped ``ExplorerPolicy``, both
++    unmodified). Round 2's intentions expired at sundown and were
++    served in issue order inside a day the goal could end early;
++    its receipts showed the failure precisely: ``verify:vault``
++    (the goal run wearing an intention's clothes) sat ahead of
++    the cold verifies, and a cold verify first attempted from the
++    treasury — a believed cul-de-sac — was dropped for being
++    unreachable *from there*. This class changes the agenda's
++    persistence and its serving order, and nothing else:
++
++    * **Persistence.** ``begin_day(chart)`` runs at wake, before
++      the morning allocation. It sweeps the previous day's
++      intentions: a verify whose place has been seen at or after
++      its issue day is closed fulfilled (the visit answered it,
++      whenever it happened — including incidentally, after a
++      deferral); a verify still unfulfilled becomes carried
++      state on this policy, which ``sleep()`` never flushes —
++      the chart and the essence persist across the night in
++      exactly the same way, and this agenda now does too. Each
++      carried record keeps its issue day and source question and
++      counts its nights. ``ensure-item`` intentions never carry:
++      readiness is re-derived each morning, as round 2 proved it.
++    * **Serving order.** (1) ensure-item, round 2's service
++      unchanged; (2) carried verifies, cold before goal-route;
++      (3) fresh verifies, cold before goal-route; (4) probes;
++      (5) the shipped policy. A verify is *goal-route* when its
++      place lies on the believed start->goal path. A verify for
++      the goal place itself is never served as an intention —
++      serving it is the goal run, and the goal run belongs to
++      the shipped policy, last by construction.
++    * **Deferral, not drop.** A verify unreachable on believed
++      ways from the current place is deferred — pending, retried
++      from each new place, carried again at sundown if still
++      unserved. Unreachable is a property of where the agent
++      stands, not of the question.
++
++    Every carry, merge, deferral, and fulfilment is written to
++    ``intention_log`` / ``carry_log`` — the receipts.
++    """
++
++    def __init__(self, base: Any = None) -> None:
++        super().__init__(base)
++        self.carried_verify: List[Dict[str, Any]] = []
++        self.carry_log: List[Dict[str, Any]] = []
++        self._goal_deferred_logged: set = set()
++
++    # -- the night boundary -------------------------------------------
++    def begin_day(self, chart: Any) -> List[Dict[str, Any]]:
++        """Sweep yesterday's intentions at wake; return the list
++        carried into today (also held on ``self.carried_verify``)."""
++        day = None
++        carried: List[Dict[str, Any]] = []
++        seen_places: set = set()
++        for it in self.intentions:
++            if it["kind"] != "verify":
++                continue  # readiness expires with its day (round 2)
++            place_rec = chart.places.get(it["place"])
++            if place_rec is not None and \
++                    place_rec.last_seen_day >= it["day"]:
++                if it["status"] not in ("fulfilled", "dropped"):
++                    it["status"] = "fulfilled"
++                    self._log("fulfilled-overnight", it, it["place"])
++                continue
++            if it["status"] in ("fulfilled", "dropped"):
++                continue
++            if it["place"] in seen_places:
++                continue  # one agenda item per place
++            seen_places.add(it["place"])
++            it["origin"] = "carried"
++            it["nights_carried"] = it.get("nights_carried", 0) + 1
++            it["status"] = "active"
++            it["directed_steps_today"] = 0
++            carried.append(it)
++            self.carry_log.append({
++                "event": "carried", "name": it["name"],
++                "place": it["place"], "issued_day": it["day"],
++                "nights_carried": it["nights_carried"]})
++        self.carried_verify = carried
++        self._goal_deferred_logged = set()
++        return carried
++
++    def carried_places(self) -> List[str]:
++        return [it["place"] for it in self.carried_verify]
++
++    # -- morning -------------------------------------------------------
++    def _believed_route_places(self, chart: Any, start: str) -> set:
++        """Places on the believed start->goal path, computed over
++        believed geography (exits whose destination the chart
++        knows), ignoring item gating — the morning's map of where
++        the goal run goes, before anyone holds anything."""
++        goal = chart.goal_place()
++        if goal is None:
++            return set()
++        if goal == start:
++            return {goal}
++        seen = {start}
++        queue = deque([(start, [start])])
++        while queue:
++            node, path = queue.popleft()
++            for direction in sorted(chart.known_exits(node)):
++                nxt = chart.known_exits(node)[direction].get("to")
++                if nxt is None or nxt in seen:
++                    continue
++                if nxt == goal:
++                    return set(path + [nxt])
++                seen.add(nxt)
++                queue.append((nxt, path + [nxt]))
++        return {goal}
++
++    def set_day_carried(self, targets: List[Dict[str, Any]],
++                        fresh_intentions: List[Dict[str, Any]],
++                        chart: Any = None, start: str = "entrance") -> None:
++        """Merge today's agenda: carried verifies first (they are
++        the older questions), then the fresh intentions — a fresh
++        verify for a place already carried is the same agenda
++        item bought again by the allocator's other hand; it is
++        merged away and logged, never served twice.
++
++        The goal-route classification is fixed HERE, once, from
++        the morning's start place and chart. (Smoke-test finding,
++        seed 7 day 5: classifying from the agent's *current* place
++        at each decision is unstable — from the hall the believed
++        goal path runs through the gallery, from the chapel it
++        runs through the crypt, so gallery and study each became
++        "cold" exactly where the other was being served from, and
++        the agent oscillated hall<->chapel for 200 steps. The
++        morning's geography is a property of the morning.)"""
++        if chart is not None:
++            self._day_route_places = self._believed_route_places(
++                chart, start)
++        self.probes.set_targets(targets)
++        carried_places = set(self.carried_places())
++        merged: List[Dict[str, Any]] = list(self.carried_verify)
++        for it in fresh_intentions:
++            it.setdefault("origin", "fresh")
++            it.setdefault("nights_carried", 0)
++            it["directed_steps_today"] = 0
++            if it["kind"] == "verify" and it["place"] in carried_places:
++                self.carry_log.append({
++                    "event": "merged-into-carried", "name": it["name"],
++                    "place": it["place"], "issued_day": it["day"]})
++                continue
++            merged.append(it)
++        self.intentions = merged
++        self.intention_steps = 0
++
++    # -- serving order ---------------------------------------------------
++    def _goal_route_places(self, chart: Any, start: str,
++                           holding: List[str]) -> set:
++        """Places on the believed start->goal path, goal included.
++        Empty when no goal is believed or no believed way leads
++        there — then nothing is goal-route and only the goal
++        place itself is deferred to the shipped policy."""
++        goal = chart.goal_place()
++        if goal is None:
++            return set()
++        if goal == start:
++            return {goal}
++        graph = self._route_graph(chart, holding)
++        seen = {start}
++        queue = deque([(start, [start])])
++        while queue:
++            node, path = queue.popleft()
++            for direction in sorted(graph.get(node, {})):
++                nxt = graph[node][direction]
++                if nxt in seen:
++                    continue
++                if nxt == goal:
++                    return set(path + [nxt])
++                seen.add(nxt)
++                queue.append((nxt, path + [nxt]))
++        return {goal}
++
++    def decide(self, chart: Any, obs: Observation,
++               rng: random.Random) -> Optional[str]:
++        place = obs["place"]
++        holding = list(obs.get("holding", []))
++        goal = chart.goal_place()
++
++        # Fulfilment, against the chart's own record — a verify is
++        # done when its place has been seen at or after the day it
++        # was issued (round 2's within-day rule, widened by the
++        # carry: the visit may have happened on a later day than
++        # the serving attempt).
++        for it in self.intentions:
++            if it["status"] not in ("active", "deferred"):
++                continue
++            if it["kind"] == "verify":
++                p = chart.places.get(it["place"])
++                if p is not None and p.last_seen_day >= it["day"]:
++                    it["status"] = "fulfilled"
++                    self._log("fulfilled", it, place)
++            elif it["kind"] == "ensure-item" and it["item"] in holding:
++                it["status"] = "fulfilled"
++                self._log("fulfilled", it, place)
++
++        # 1. readiness — round 2's service, unmodified.
++        for it in self.intentions:
++            if it["kind"] != "ensure-item" or it["status"] != "active":
++                continue
++            if it["item"] in holding or it["home"] is None:
++                continue
++            if self._directed() >= self.MAX_DIRECTED_STEPS:
++                break
++            if not self._ensure_triggered(chart, obs, it):
++                continue
++            if place == it["home"]:
++                it["status"] = "dropped"
++                self._log("dropped-at-home-empty-handed", it, place)
++                continue
++            step = self._first_step(chart, place, it["home"], holding)
++            if step is None:
++                it["status"] = "dropped"
++                self._log("dropped-unreachable", it, place)
++                continue
++            self.intention_steps += 1
++            it["directed_steps"] += 1
++            it["directed_steps_today"] += 1
++            self._log("fetch-step", it, place)
++            return step
++
++        # 2+3. verifies — carried before fresh, cold before
++        # goal-route, the goal place's own verify never served:
++        # it is the goal run, and the goal run is the shipped
++        # policy's, at the bottom of this ladder by construction.
++        route_places = getattr(self, "_day_route_places", None)
++        if route_places is None:
++            route_places = self._goal_route_places(chart, place, holding)
++        pending = [(idx, it) for idx, it in enumerate(self.intentions)
++                   if it["kind"] == "verify"
++                   and it["status"] in ("active", "deferred")]
++        pending.sort(key=lambda pair: (
++            0 if pair[1].get("origin") == "carried" else 1,
++            1 if pair[1]["place"] in route_places else 0,
++            pair[0]))
++        for _idx, it in pending:
++            if self._directed() >= self.MAX_DIRECTED_STEPS:
++                break
++            if it["place"] == goal:
++                if it["name"] not in self._goal_deferred_logged:
++                    self._goal_deferred_logged.add(it["name"])
++                    self._log("deferred-to-goal-run", it, place)
++                continue
++            if place == it["place"]:
++                continue
++            step = self._first_step(chart, place, it["place"], holding)
++            if step is None:
++                if it["status"] != "deferred":
++                    it["status"] = "deferred"
++                    self._log("deferred-unreachable", it, place)
++                continue
++            it["status"] = "active"
++            self.intention_steps += 1
++            it["directed_steps"] += 1
++            it["directed_steps_today"] += 1
++            self._log("verify-step", it, place)
++            return step
++
++        # 4. probes for the bought uncharted questions (round 1's
++        # machinery), inside the same directed budget
++        if self.probes.targets and \
++                self._directed() < self.MAX_DIRECTED_STEPS:
++            return self.probes.decide(chart, obs, rng)
++
++        # 5. the shipped policy, unmodified — the goal run lives here
++        return self.base.decide(chart, obs, rng)
+diff --git a/lwm/tiers.py b/lwm/tiers.py
+index 85fb707..9629c72 100644
+--- a/lwm/tiers.py
++++ b/lwm/tiers.py
+@@ -504,7 +504,8 @@ def _bfs_distances_on(graph: Dict[str, Dict[str, float]],
+ 
+ 
+ def allocate_probes(model: Any, mode: str, start: str,
+-                    budget: int = DEFAULT_PURSE) -> Dict[str, Any]:
++                    budget: int = DEFAULT_PURSE,
++                    carried_places: Any = None) -> Dict[str, Any]:
+     """The morning allocation: spend today's purse on questions.
+ 
+     ``mode="walk"`` (the Faltering Walk): questions ranked by
+@@ -521,10 +522,12 @@ def allocate_probes(model: Any, mode: str, start: str,
+     bought: List[Dict[str, Any]] = []
+     targets: List[Dict[str, Any]] = []
+     intentions: List[Dict[str, Any]] = []
++    carried_skipped: List[Dict[str, Any]] = []
++    carried = set(carried_places or ())
+     if mode == "walk":
+         questions = question_walk(chart, day, start,
+                                   goal=chart.goal_place())
+-    elif mode == "walk3":
++    elif mode in ("walk3", "walk4"):
+         questions = question_walk(chart, day, start,
+                                   goal=chart.goal_place(),
+                                   scoring="v2")
+@@ -553,8 +556,20 @@ def allocate_probes(model: Any, mode: str, start: str,
+ 
+     remaining = budget
+     for q in questions:
+-        if mode in ("walk", "walk3") and q["score"] <= 0:
++        if mode in ("walk", "walk3", "walk4") and q["score"] <= 0:
+             continue  # the walk has no question here; nothing to buy
++        if mode == "walk4" and q["kind"] != "uncharted" \
++                and q["place"] in carried:
++            # Round 3: the purse does not buy twice. A carried
++            # verify for this place is already on today's list —
++            # its recall was paid when the question was issued.
++            # The skip is logged and the purse descends; a skip is
++            # not an unaffordable buy, so it does not break the
++            # strict-order rule.
++            carried_skipped.append({
++                "place": q["place"], "kind": q["kind"],
++                "rank": q["rank"], "score": q["score"]})
++            continue
+         cost = COST_TRUTH if q["kind"] == "conflict" else COST_ESSENCE
+         if cost > remaining:
+             break  # strict order: the purse stops at the first wall
+@@ -572,7 +587,7 @@ def allocate_probes(model: Any, mode: str, start: str,
+         remaining -= paid
+         bought.append(q)
+         targets.append(q["target"])
+-    if mode == "walk3":
++    if mode in ("walk3", "walk4"):
+         # Round 2, Fix 2: bought questions also become intentions,
+         # and only uncharted questions keep a foot-probe target —
+         # traversing an exit is an act; everything else is a bias.
+@@ -580,7 +595,7 @@ def allocate_probes(model: Any, mode: str, start: str,
+         intentions = _derive_intentions(chart, day, bought, start)
+     return {"mode": mode, "questions": questions, "bought": bought,
+             "targets": targets, "spend": spend, "budget": budget,
+-            "intentions": intentions}
++            "intentions": intentions, "carried_skipped": carried_skipped}
+ 
+ 
+ def _derive_intentions(chart: Any, day: int, bought: List[Dict[str, Any]],
