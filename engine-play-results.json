@@ -1,0 +1,2393 @@
+{
+  "days": [
+    {
+      "day": 1,
+      "steps": 15,
+      "goal_reached": true,
+      "rooms_charted": 5,
+      "rooms_new": 5,
+      "uncharted_exits": 5,
+      "surprises": 23,
+      "recall_spent": 0
+    },
+    {
+      "day": 2,
+      "steps": 120,
+      "goal_reached": false,
+      "rooms_charted": 5,
+      "rooms_new": 0,
+      "uncharted_exits": 2,
+      "surprises": 330,
+      "recall_spent": 0
+    },
+    {
+      "day": 3,
+      "steps": 120,
+      "goal_reached": false,
+      "rooms_charted": 5,
+      "rooms_new": 0,
+      "uncharted_exits": 3,
+      "surprises": 322,
+      "recall_spent": 0
+    }
+  ],
+  "wall_s": 93.8,
+  "total_steps": 255,
+  "goal_days": 1,
+  "places_charted": 5,
+  "true_regions": [
+    "boathouse",
+    "chapel",
+    "lighthouse",
+    "market",
+    "quay",
+    "warehouse"
+  ],
+  "true_region_count": 6,
+  "signatures_seen": 5,
+  "merges": {
+    "brick·stone·timber": [
+      "boathouse",
+      "quay",
+      "warehouse"
+    ]
+  },
+  "splits": {
+    "quay": [
+      "brick·stone·timber",
+      "brick·timber·water"
+    ]
+  },
+  "total_surprises": 675,
+  "step_log": [
+    {
+      "signature": "brick·timber·water",
+      "region": "quay",
+      "pos": {
+        "x": 24.0,
+        "z": 24.0
+      },
+      "event": "reset"
+    },
+    {
+      "signature": "brick·stone·timber·wool",
+      "region": "market",
+      "pos": {
+        "x": 45.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber·wool",
+      "region": "market",
+      "pos": {
+        "x": 45.0,
+        "z": 13.0
+      },
+      "event": "The gate is locked."
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 45.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": "You take the brass key."
+    },
+    {
+      "signature": "brick·glass·stone·timber",
+      "region": "chapel",
+      "pos": {
+        "x": 22.0,
+        "z": 8.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 19.0,
+        "z": 8.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber·wool",
+      "region": "market",
+      "pos": {
+        "x": 45.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "stone·timber·wool",
+      "region": "lighthouse",
+      "pos": {
+        "x": 54.0,
+        "z": 8.0
+      },
+      "event": "The brass key turns; the gate swings open."
+    },
+    {
+      "signature": "brick·timber·water",
+      "region": "quay",
+      "pos": {
+        "x": 24.0,
+        "z": 24.0
+      },
+      "event": "reset"
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": "You take the brass key."
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": "There is no way northeast from here."
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·timber·water",
+      "region": "quay",
+      "pos": {
+        "x": 24.0,
+        "z": 24.0
+      },
+      "event": "reset"
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": "You take the brass key."
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "warehouse",
+      "pos": {
+        "x": 17.0,
+        "z": 13.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 17.0,
+        "z": 16.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "boathouse",
+      "pos": {
+        "x": 14.0,
+        "z": 21.0
+      },
+      "event": null
+    },
+    {
+      "signature": "brick·stone·timber",
+      "region": "quay",
+      "pos": {
+        "x": 16.0,
+        "z": 21.0
+      },
+      "event": null
+    }
+  ],
+  "chart_places": [
+    "brick·glass·stone·timber",
+    "brick·stone·timber",
+    "brick·stone·timber·wool",
+    "brick·timber·water",
+    "stone·timber·wool"
+  ]
+}
