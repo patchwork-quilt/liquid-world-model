@@ -385,6 +385,8 @@ receipts: raw results files sit beside each report in the repo.</p>
 <td>The near-twin rooms' separation is live-proven out-of-sample (live view matched the observatory prototypes at 0.99897 vs the library's 0.99032) — with both qualifications kept: the win was an exact tie with night 2's duplicate prototype (margin 0.0), and the sighting was recognised but distrusted.</td></tr>
 <tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/VJEPA-PROBE.md">VJEPA-PROBE</a></td>
 <td>Transitions are in the representations: a frozen V-JEPA view-pair + the action + a linear readout recovers what happened at 0.976 vs 0.711 for the strongest after-view-only readout — and the margin is exactly where a single view is blind in principle, telling “I stayed” from “I arrived.”</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/TRANSITIONS.md">TRANSITIONS</a></td>
+<td>The night phase now fits a transition table — per (place, action), the expected outcome, learned from outcomes rather than beliefs. Held out, it predicted 48/48 episodes at accuracy 1.000 and out-predicted the chart <strong>9–0 on the chart's own ground</strong>: all nine disagreements are the twin places, where sightings arrive distrusted and a distrusted fold never rewrites beliefs, so the chart's phantom exits are never popped. Pre-registered surprises: 0 — and total surprise unmoved, because the table is scored, not consulted; nothing reads it yet. The V-JEPA escalation tier never fired (the cheap readout was never in doubt: 0 escalations, 0 V-JEPA seconds). And the follow-up's wart is <strong>retired</strong>: the night phase gained a retirement move, merged its duplicate observatory the night it seeded it, and the forced visit now resolves instead of tying exactly.</td></tr>
 </table>
 <h3>Memory — structure that asks the next question</h3>
 <table>
@@ -393,25 +395,34 @@ receipts: raw results files sit beside each report in the repo.</p>
 <td>A 30-source study of memory structures, graded on one axis — does the walk generate the next question? FLARE's forward-looking trigger is the strongest mechanism found; Luhmann's Zettelkasten and Voyager grade 3; several popular systems score honestly low.</td></tr>
 <tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/FALTERING-WALK.md">FALTERING-WALK</a></td>
 <td>Split verdict: the question-ranked walk beat the “probe nearest uncharted exit” strawman on the pre-registered metric's letter (0.0204 vs 0.0449 surprises per recall unit), but the mechanism audit shows its edge was a shrine it never re-entered — its chart was the worst of the three. The ranked question list itself is proven (the live issue ranked #1 in 6 of 6 seeds); as a truth-finder in a world this small, the walk is decoration.</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/FALTERING-WALK-2.md">FALTERING-WALK-2</a></td>
+<td>The second form, built exactly as round 1 named it — a staleness floor in the disagreement term, and the morning's questions routed to the policy as <em>intentions</em>, not just to the feet as probes. <strong>Leg 1 passes overwhelmingly:</strong> as intentions, the questions abolish the locked door entirely — zero blocked attempts and zero door surprises in 24 arm-days, against 48–70 blocked attempts for every other arm; the brass key fetched on 24/24 mornings; 0.0017 surprises per recall unit against 0.0138 and 0.0354 — in a third of the steps. <strong>Leg 2 fails, and the pre-registered falsifier fires:</strong> final chart truth is again the worst of the arms (contents 0.972 vs 0.987). The floor verifiably promotes the shrine into the bought list — and the intention queue then starves it, because the intentions' own success shortened the day to a 7-step commute that ends at the goal before cold questions are served, while dumber arms correct the shrine by loitering. A quieter world, not a truer one. Round 1 avoided the truth by not looking; round 2 avoids it by finishing too fast to look.</td></tr>
 </table>
 <h3>The farms — small models, called per-purpose</h3>
 <table>
 <tr><th>Report</th><th>Verdict</th></tr>
 <tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/ORIN-FARM.md">ORIN-FARM</a></td>
 <td>The Orin micro-model farm as seeded: nine callable members, each under 1B parameters and each a different kind, every one earning its place with a real call on the box. (Two further tiny members were stocked later — see the harness experiment.)</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/ORIN-GPU.md">ORIN-GPU</a></td>
+<td>The farm's brain was built without a GPU: its llama.cpp carried <code>GGML_CUDA=OFF</code>, so the offload flag it ignored did not exist to flip. A CUDA build in the farm's own tree, at full offload, takes <code>llm</code> from 37 to ~71 tok/s generation (prompt eval ~180 → ~1,118 tok/s) and the farm call to 3.59 s end-to-end — with two honesty riders kept in the headline: the registry's original CPU figure (4.7 tok/s, 29.7 s) <strong>did not reproduce</strong> on re-measurement (36.6 tok/s today; marked superseded, not explained), and partial offload is a trap on unified memory — half the layers generated at 12.5 tok/s, three times <em>slower</em> than pure CPU. The rule now stands in the registry: full offload or none.</td></tr>
 <tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/ORACLE-FARM.md">ORACLE-FARM</a></td>
-<td>The same registry shape rebuilt on the Oracle relay's CPUs: four members, outputs bit-identical to the Orin's where both exist — and for micro gauges the CPU relay is not the slow tier (its cold LLM call: 5.83 s against the Orin's 29.7 s).</td></tr>
+<td>The same registry shape rebuilt on the Oracle relay's CPUs: four members as filed — five served today (<code>llm-big</code> joined at the scale-up, and the shim carries it since FARM-MATURITY) — outputs bit-identical to the Orin's where both exist. For micro gauges the CPU relay was not the slow tier at filing (its cold LLM call: 5.83 s against the Orin's then-29.7 s; the Orin's GPU has since cut its own call to 3.59 s — see ORIN-GPU).</td></tr>
 <tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/ORACLE-SCALEUP.md">ORACLE-SCALEUP</a></td>
 <td><code>llm-big</code> (Qwen2.5-7B, hash-verified) registered on the Oracle farm: ~10× slower per generated token than the 0.6B, and the first farm digestion that returns a finished answer instead of a truncated think-trace. Also the record of the Season 0 replay below.</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/FARM-MATURITY.md">FARM-MATURITY</a></td>
+<td>The Oracle farm, finished properly. <code>llm-big</code> now serves through the remote shim — restarted the way it was started, all five members re-verified through the HTTP door, <code>llm-big</code> answering with a finished digestion in 35.6 s. And the shim's judge is settled for good: it serves the <strong>correct assembly</strong> (the jev-semantic training form on the manifest-pinned weights; the contract pair reproduces to four decimals) — and it <strong>still fails the game-safety bench</strong>, waving through 5 of 6 reckless critical-state proposals, the three-speed rejection replicated through the production door. Correct assembly, wrong domain: a general triage gauge, not a safety veto, and nothing about it is mis-wired.</td></tr>
 </table>
 <p><strong>The Orin farm (Jetson Orin Nano Super, 8 GB)</strong> — seeded
-roster: <code>llm</code> (Qwen3-0.6B, slow reasoning/digestion) ·
+roster: <code>llm</code> (Qwen3-0.6B — now a CUDA build at full GPU
+offload, ~71 tok/s generation; see ORIN-GPU) ·
 <code>embed</code> (all-MiniLM-L6-v2) · <code>judge</code> (jev-semantic) ·
 <code>whisper</code> (tiny.en) · <code>depth-small</code> /
 <code>depth-large</code> (Depth Anything V2) · <code>pose</code> (MoveNet) ·
 <code>face</code> (YuNet) · <code>matte</code> (U2Net). Added by the harness
 experiment: <code>llm-tiny-135</code> and <code>llm-tiny-360</code>
-(SmolLM2-135M / 360M).</p>
+(SmolLM2-135M / 360M). The farm also keeps a resident of a new kind —
+<code>arena</code>, a standing world (kind: <code>world</code>; see
+Worlds below).</p>
 <p><strong>The Oracle farm (OCI Ampere A1, CPU only)</strong> — served
 remotely through an SSH-tunnelled shim: <code>llm</code> (Qwen3-0.6B) ·
 <code>embed</code> · <code>judge</code> · <code>whisper</code> ·
@@ -423,6 +434,12 @@ jev-semantic judge are the warm slice the Thor experiments ran against;
 V-JEPA 2 answers when called (it lazy-loads — its health flag reads
 “not loaded” until the first call, a posture the probe documented rather
 than a gap).</p>
+<h3>Worlds — a field that stays standing</h3>
+<table>
+<tr><th>Report</th><th>Verdict</th></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/ENGINE-ON-ORIN.md">ENGINE-ON-ORIN</a></td>
+<td>A real game engine now stands on the Orin as a farm member of a new kind — <code>arena</code>, kind <code>world</code>, resident where every other member is spawn-per-call. Luanti (Minetest) 5.6.1's dedicated server, chosen by measurement over Godot headless (boots to listening in ~1 s, ~30 MB idle, total Lua control of content), hosts a six-place harbour — quay, warehouse, chapel, market, boathouse, lighthouse; a brass key; one locked gate — bridged at 127.0.0.1:8797 in the framework's own World shape, truth scorer-side only, for ~61 MB of engine and bridge at the desk. The framework played in it unmodified: <strong>day 1 — all six regions visited, the treasure reached in 15 steps</strong>; days 2–3 trapped, because warehouse, quay and boathouse share one perceptual signature (<code>brick·stone·timber</code>), so the chart holds them as one place with unioned exits and the explorer ping-ponged among them at ~330 surprises a day. THOR-TEST's twins problem at three-way strength, inside a real engine. The field is still standing — the next experiment (a sharper signature, same field, replay) is already named in the report.</td></tr>
+</table>
 <h3>Games — sealed fields, scores as receipts</h3>
 <table>
 <tr><th>Report</th><th>Verdict</th></tr>
@@ -438,6 +455,8 @@ than a gap).</p>
 <td>A 0.6B farm brain managing the proven DCSS bot qw: median tied with stock, 128–128 — because only 3 of its 10 configs were valid; the failure was vocabulary precision (<code>Runes:</code> for the grammar's <code>Rune:</code>), not strategy. On the 3 seeds it actually managed, it won 2 and lost 1. Plumbing proven, management unproven.</td></tr>
 <tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/QW-REMATCH.md">QW-REMATCH</a></td>
 <td>The rematch with the 7B as manager: 10/10 configs valid — precision did arrive with size — and it bought almost nothing. The bigger manager manages by deference (stock defaults spelled longhand; 9 of 10 games event-for-event identical to stock), and its one real act of management was the worst managed game of either round. Round 1's flawed-but-bold 0.6B out-managed it.</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/RESIDENTS.md">RESIDENTS</a></td>
+<td>Arms 3 and 4: the Thor's own residents take the manager's chair, on the identical bench — and the posture curve's four points do not bend the way size suggests. <strong>Qwen3-Coder-30B manages exactly like the 7B</strong> — deferential, example-anchored, every game a stock replay (8/10 valid, zero combo deviations in valid configs, 10/10 games identical to control: the first arm that never lost a game, because it never changed one) — except sixty times faster (1.6 s vs 93.2 s per brief), and with one new coder-flavoured error: <code>Rune:Lair</code>, <code>Rune:Orc</code>, runes composed for branches that hold none. <strong>nemotron-3.5-lightning differs in kind:</strong> it never produced a configuration at all — given a three-line form, it spent its entire budget on hidden deliberation (answer channel empty on all 10 briefs at 512 tokens, and still empty at 4,096: 64 s, 13,757 characters of unterminated thinking, still on step 1). Residency changed the economics, not the posture: the only manager that has ever changed a game for the better remains round 1's illiterate 0.6B. The bench is now one re-runnable script, its rig spliced byte-identically from the original.</td></tr>
 <tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/THREE-SPEED.md">THREE-SPEED</a></td>
 <td>A three-speed agent in one pi harness on NetHack — TypeSafe Jev as reflex gauge, pi for decisions, pi again for slow reflection that re-sets the gates: it <strong>matches the flat scripted explorer (4,113 vs 4,563.5) and does not beat it</strong>. The layers are individually legible: reflexes alone survive 1,489 turns and chart 1 room; decisions triple the rooms; reflection provably steers (DESCEND chosen 0 times in ~300 replies before a directive, 76 times after). The chart never lied under any configuration — 0 merges / 0 splits in 11/11 runs.</td></tr>
 </table>
@@ -470,6 +489,6 @@ tickbox2 and sliver2 beat their Season 0 parents; hoardbox (Season 0)
 beat hoardbox2.</p>
 <footer>liquid-world-model · SuperInstance · the framework above, and the
 programme it grew: JEPA perception has run against this chart machinery
-on the Thor (THOR-TEST, VJEPA-PROBE); learned nightly adapters remain a
+on the Thor (THOR-TEST, VJEPA-PROBE, TRANSITIONS); learned nightly adapters remain a
 named slot, not built. Record state: 2026-10-27.</footer>
 </main></body></html>

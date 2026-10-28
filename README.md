@@ -133,19 +133,24 @@ verdicts; the documents carry the receipts.
 
 - **Perception (Thor):** [THOR-TEST.md](THOR-TEST.md) ·
   [FOLLOWUP-OBSERVATORY.md](FOLLOWUP-OBSERVATORY.md) ·
-  [VJEPA-PROBE.md](VJEPA-PROBE.md)
+  [VJEPA-PROBE.md](VJEPA-PROBE.md) · [TRANSITIONS.md](TRANSITIONS.md)
 - **Memory:** [MEMORY-PATHS.md](MEMORY-PATHS.md) ·
   [FALTERING-WALK.md](FALTERING-WALK.md) (prototype shipped as
-  `faltering-walk.patch`, not merged into the framework)
+  `faltering-walk.patch`, not merged into the framework) ·
+  [FALTERING-WALK-2.md](FALTERING-WALK-2.md) (second form;
+  `faltering-walk-2.patch`)
 - **The farms:** [ORIN-FARM.md](ORIN-FARM.md) ·
-  [ORACLE-FARM.md](ORACLE-FARM.md) ·
-  [ORACLE-SCALEUP.md](ORACLE-SCALEUP.md)
+  [ORIN-GPU.md](ORIN-GPU.md) · [ORACLE-FARM.md](ORACLE-FARM.md) ·
+  [ORACLE-SCALEUP.md](ORACLE-SCALEUP.md) ·
+  [FARM-MATURITY.md](FARM-MATURITY.md)
 - **Games as sealed fields:** [GAME-SUBSTRATES.md](GAME-SUBSTRATES.md) ·
   [GAME-PLAYERS.md](GAME-PLAYERS.md) ·
   [HARNESS-EXPERIMENT.md](HARNESS-EXPERIMENT.md) ·
   [NETHACK-CHART.md](NETHACK-CHART.md) ·
   [QW-MANAGER.md](QW-MANAGER.md) · [QW-REMATCH.md](QW-REMATCH.md) ·
-  [THREE-SPEED.md](THREE-SPEED.md)
+  [RESIDENTS.md](RESIDENTS.md) · [THREE-SPEED.md](THREE-SPEED.md)
+- **Worlds:** [ENGINE-ON-ORIN.md](ENGINE-ON-ORIN.md) (a standing
+  Luanti field on the Orin, registered in its farm as `arena`)
 - **The ESP32 chess box:** [ESP32-BOX-FORMAT.md](ESP32-BOX-FORMAT.md) ·
   [SEASON0.md](SEASON0.md) · [SEASON1.md](SEASON1.md)
 
