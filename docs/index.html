@@ -23,6 +23,17 @@ found, learning it room by room. It doubts its senses and its own beliefs,
 testifies each night before it forgets, and remembers through priced tiers.
 The world model is not the game engine: the engine never doubts; the internal
 model is built to.</p>
+<p>That framework is the seed of a wider programme, and this repo is now its
+record: the chart machinery run against real JEPA perception on the Thor,
+two micro-model farms whose members are called per-purpose, old games used
+as sealed learning fields with scores as receipts, and a spec-box league
+for scripted game players. Every result is filed as a full report with its
+process in the body — and the negatives are filed as negatives, in the
+index below, in the same type size as the wins.</p>
+<p><em>State of the record: 2026-10-27. The demo below is the framework's
+own shipped output; everything after it is the filed programme, each claim
+verified against the document it names. Full reports:
+<a href="https://github.com/patchwork-quilt/liquid-world-model">github.com/patchwork-quilt/liquid-world-model</a>.</em></p>
 <h2>Three days in the uncharted dungeon (seed 7)</h2>
 <p>Same deliberately dumb explorer every day; only the chart persists between
 days. The maps are drawn from the model's own chart — its beliefs, its fog,
@@ -361,6 +372,104 @@ python3 tests/run_tests.py   # TEST SUMMARY: 10/10 PASS</pre>
 <code>observe()</code>, <code>actions()</code>, <code>step()</code> — and any
 engine can host a liquid model; ground truth (<code>truth()</code>) exists for
 scoring only and is structurally unreachable from the agent.</p>
-<footer>liquid-world-model · SuperInstance · chart + day-cycle machinery —
-JEPA perception and learned adapters are named provider slots, not built.</footer>
+<h2>The filed record — verdicts as filed</h2>
+<p>Each verdict below is its document's own headline, compressed to one
+line and not improved in the compressing. The documents carry the full
+receipts: raw results files sit beside each report in the repo.</p>
+<h3>Perception — the world model meets real senses (Thor)</h3>
+<table>
+<tr><th>Report</th><th>Verdict</th></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/THOR-TEST.md">THOR-TEST</a></td>
+<td>I-JEPA perception keyed the chart's places by embedding similarity; System 2's night upgrades repaired recognition — accuracy 0.80 → 1.00, merges 1 → 0, surprises 6 → 0, steps-to-goal 9 → 3 — with the player script byte-identical throughout: the gain is the model's, not the script's.</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/FOLLOWUP-OBSERVATORY.md">FOLLOWUP-OBSERVATORY</a></td>
+<td>The near-twin rooms' separation is live-proven out-of-sample (live view matched the observatory prototypes at 0.99897 vs the library's 0.99032) — with both qualifications kept: the win was an exact tie with night 2's duplicate prototype (margin 0.0), and the sighting was recognised but distrusted.</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/VJEPA-PROBE.md">VJEPA-PROBE</a></td>
+<td>Transitions are in the representations: a frozen V-JEPA view-pair + the action + a linear readout recovers what happened at 0.976 vs 0.711 for the strongest after-view-only readout — and the margin is exactly where a single view is blind in principle, telling “I stayed” from “I arrived.”</td></tr>
+</table>
+<h3>Memory — structure that asks the next question</h3>
+<table>
+<tr><th>Report</th><th>Verdict</th></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/MEMORY-PATHS.md">MEMORY-PATHS</a></td>
+<td>A 30-source study of memory structures, graded on one axis — does the walk generate the next question? FLARE's forward-looking trigger is the strongest mechanism found; Luhmann's Zettelkasten and Voyager grade 3; several popular systems score honestly low.</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/FALTERING-WALK.md">FALTERING-WALK</a></td>
+<td>Split verdict: the question-ranked walk beat the “probe nearest uncharted exit” strawman on the pre-registered metric's letter (0.0204 vs 0.0449 surprises per recall unit), but the mechanism audit shows its edge was a shrine it never re-entered — its chart was the worst of the three. The ranked question list itself is proven (the live issue ranked #1 in 6 of 6 seeds); as a truth-finder in a world this small, the walk is decoration.</td></tr>
+</table>
+<h3>The farms — small models, called per-purpose</h3>
+<table>
+<tr><th>Report</th><th>Verdict</th></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/ORIN-FARM.md">ORIN-FARM</a></td>
+<td>The Orin micro-model farm as seeded: nine callable members, each under 1B parameters and each a different kind, every one earning its place with a real call on the box. (Two further tiny members were stocked later — see the harness experiment.)</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/ORACLE-FARM.md">ORACLE-FARM</a></td>
+<td>The same registry shape rebuilt on the Oracle relay's CPUs: four members, outputs bit-identical to the Orin's where both exist — and for micro gauges the CPU relay is not the slow tier (its cold LLM call: 5.83 s against the Orin's 29.7 s).</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/ORACLE-SCALEUP.md">ORACLE-SCALEUP</a></td>
+<td><code>llm-big</code> (Qwen2.5-7B, hash-verified) registered on the Oracle farm: ~10× slower per generated token than the 0.6B, and the first farm digestion that returns a finished answer instead of a truncated think-trace. Also the record of the Season 0 replay below.</td></tr>
+</table>
+<p><strong>The Orin farm (Jetson Orin Nano Super, 8 GB)</strong> — seeded
+roster: <code>llm</code> (Qwen3-0.6B, slow reasoning/digestion) ·
+<code>embed</code> (all-MiniLM-L6-v2) · <code>judge</code> (jev-semantic) ·
+<code>whisper</code> (tiny.en) · <code>depth-small</code> /
+<code>depth-large</code> (Depth Anything V2) · <code>pose</code> (MoveNet) ·
+<code>face</code> (YuNet) · <code>matte</code> (U2Net). Added by the harness
+experiment: <code>llm-tiny-135</code> and <code>llm-tiny-360</code>
+(SmolLM2-135M / 360M).</p>
+<p><strong>The Oracle farm (OCI Ampere A1, CPU only)</strong> — served
+remotely through an SSH-tunnelled shim: <code>llm</code> (Qwen3-0.6B) ·
+<code>embed</code> · <code>judge</code> · <code>whisper</code>.
+<code>llm-big</code> (Qwen2.5-7B) is registered and answers via the farm's
+CLI / <code>call()</code> only — the remote shim does not carry it yet
+(checked live 2026-10-27; the shim still lists the original four).</p>
+<p><strong>The Thor's JEV rack</strong> — I-JEPA (ViT-H) and the
+jev-semantic judge are the warm slice the Thor experiments ran against;
+V-JEPA 2 answers when called (it lazy-loads — its health flag reads
+“not loaded” until the first call, a posture the probe documented rather
+than a gap).</p>
+<h3>Games — sealed fields, scores as receipts</h3>
+<table>
+<tr><th>Report</th><th>Verdict</th></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/GAME-SUBSTRATES.md">GAME-SUBSTRATES</a></td>
+<td>Scout of game environments as learning substrate: NetHack ranked first (a fresh procedural dungeon per game, strictly turn-based so slow models can digest off-turn, death itemised as a born receipt), interactive fiction via dfrotz second (the purest language world), the house game Sail and Sink third (real-time, but its dial layer is learnable and the page self-scores).</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/GAME-PLAYERS.md">GAME-PLAYERS</a></td>
+<td>Scout of existing algorithmic players as wrappable agents: qw ranked first — it exposes a declarative goals language, so an agent steers it by writing its config — then AutoAscend, then walkthrough→Jericho. The Angband Borg is sealed (in-process only): benchmark duty, wrap last.</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/HARNESS-EXPERIMENT.md">HARNESS-EXPERIMENT</a></td>
+<td><strong>Clean negative.</strong> Can barely-functioning models work inside a sophisticated harness? No: the bare 360M scored 22/40 and beat every other arm — harnessed 135M 14, the bare 0.6B control 17, harnessed 360M 6. Tiny models parrot the scaffold's intermediate format instead of executing it. The lesson the receipts argue: less scaffold, more code.</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/NETHACK-CHART.md">NETHACK-CHART</a></td>
+<td>The chart-only league: no language model anywhere — a scripted explorer feeding the framework's Chart, unmodified, inside NetHack. Median 5 true rooms × 1,061 turns across 10 runs, and the map was true: 0 merges, 0 splits, scorer-judged (one kept, unexplained one-room discrepancy in run 5).</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/QW-MANAGER.md">QW-MANAGER</a></td>
+<td>A 0.6B farm brain managing the proven DCSS bot qw: median tied with stock, 128–128 — because only 3 of its 10 configs were valid; the failure was vocabulary precision (<code>Runes:</code> for the grammar's <code>Rune:</code>), not strategy. On the 3 seeds it actually managed, it won 2 and lost 1. Plumbing proven, management unproven.</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/QW-REMATCH.md">QW-REMATCH</a></td>
+<td>The rematch with the 7B as manager: 10/10 configs valid — precision did arrive with size — and it bought almost nothing. The bigger manager manages by deference (stock defaults spelled longhand; 9 of 10 games event-for-event identical to stock), and its one real act of management was the worst managed game of either round. Round 1's flawed-but-bold 0.6B out-managed it.</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/THREE-SPEED.md">THREE-SPEED</a></td>
+<td>A three-speed agent in one pi harness on NetHack — TypeSafe Jev as reflex gauge, pi for decisions, pi again for slow reflection that re-sets the gates: it <strong>matches the flat scripted explorer (4,113 vs 4,563.5) and does not beat it</strong>. The layers are individually legible: reflexes alone survive 1,489 turns and chart 1 room; decisions triple the rooms; reflection provably steers (DESCEND chosen 0 times in ~300 replies before a directive, 76 times after). The chart never lied under any configuration — 0 merges / 0 splits in 11/11 runs.</td></tr>
+</table>
+<h3>The ESP32 chess box — a fixed hull, swappable crews</h3>
+<table>
+<tr><th>Report</th><th>Verdict</th></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/ESP32-BOX-FORMAT.md">ESP32-BOX-FORMAT</a></td>
+<td>The format: a pinned ESP32-class hull (520 KB SRAM, 4 MB flash, 10:00 clock) that never changes, so season-over-season improvement is attributable; crews are source + build recipe, flashable in principle. The proof games bought the §6 interface contract — explicit relay acknowledgement, the referee owns the position — after micro-Max forfeited a won-looking game to its own golfed legality checker.</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/SEASON0.md">SEASON0</a></td>
+<td>Season 0 (9 games, 446 plies, zero desyncs / illegal moves / flag falls): hoardbox champion. And <strong>Underfill confirmed</strong> — mean crew binary 1.7% of the flash cap, carried manifest data 0 bytes for every crew; the only budget anyone spent was RAM. Legality is the floor, not the event.</td></tr>
+<tr><td><a href="https://github.com/patchwork-quilt/liquid-world-model/blob/main/SEASON1.md">SEASON1</a></td>
+<td>Season 1 (12 games, 1,013 plies, every game checkmate, zero incidents): the order holds but compresses, and two of three v2 crews beat their own parents — the champion's heir did not. <strong>Pruning confirmed as behaviour, one axis over:</strong> eight documented cuts at the workbench, in RAM (a first transposition table measured 560 KiB against the 520 cap and was cut before the crew froze); flash is still 1.73% used, for a diagnosed reason — nine honest games only support hundreds of book entries.</td></tr>
+</table>
+<h3>Box results</h3>
+<table>
+<tr><th>Fixture</th><th>hoardbox (Materialist)</th><th>tickbox (Accountant)</th><th>sliver (Minimalist)</th></tr>
+<tr><td>Season 0 round-robin</td><td><strong>3.5 / 4</strong></td><td>2.5 / 4</td><td>0 / 4</td></tr>
+<tr><td>Season 0 replay at 4× (8 games each)</td><td><strong>7.5 / 8</strong></td><td>4.5 / 8</td><td>0 / 8</td></tr>
+<tr><td>Season 1 round-robin (v2 crews)</td><td><strong>3 / 4</strong></td><td>2 / 4</td><td>1 / 4</td></tr>
+</table>
+<p>The 4× replay answered the two questions it was bought for: tickbox's
+fivefold-repetition draw with the champion <strong>replicated exactly</strong>
+(same colours, same termination — a property of the matchup, not an
+accident), and sliver, winless against crews in both samples
+(combined round-robin 0/12), took its first half-point against the
+pawnbox control as Black. One blemish is on the replay's record: a
+single RAM-gate FAIL reading against hoardbox in game x4-ab3,
+documented in full in ORACLE-SCALEUP. In Season 1's lineage duels,
+tickbox2 and sliver2 beat their Season 0 parents; hoardbox (Season 0)
+beat hoardbox2.</p>
+<footer>liquid-world-model · SuperInstance · the framework above, and the
+programme it grew: JEPA perception has run against this chart machinery
+on the Thor (THOR-TEST, VJEPA-PROBE); learned nightly adapters remain a
+named slot, not built. Record state: 2026-10-27.</footer>
 </main></body></html>

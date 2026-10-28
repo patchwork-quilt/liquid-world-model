@@ -124,6 +124,31 @@ shortest charted path to the goal-belief, else walk toward the
 nearest uncharted edge. Seeded and deterministic. Improvement in
 the demo is therefore attributable to the chart, not the explorer.
 
+## The programme around the framework
+
+This repo is also the filed record of the programme the framework
+grew — every experiment a full report with its process in the body,
+negatives filed as negatives. The project page carries the one-line
+verdicts; the documents carry the receipts.
+
+- **Perception (Thor):** [THOR-TEST.md](THOR-TEST.md) ·
+  [FOLLOWUP-OBSERVATORY.md](FOLLOWUP-OBSERVATORY.md) ·
+  [VJEPA-PROBE.md](VJEPA-PROBE.md)
+- **Memory:** [MEMORY-PATHS.md](MEMORY-PATHS.md) ·
+  [FALTERING-WALK.md](FALTERING-WALK.md) (prototype shipped as
+  `faltering-walk.patch`, not merged into the framework)
+- **The farms:** [ORIN-FARM.md](ORIN-FARM.md) ·
+  [ORACLE-FARM.md](ORACLE-FARM.md) ·
+  [ORACLE-SCALEUP.md](ORACLE-SCALEUP.md)
+- **Games as sealed fields:** [GAME-SUBSTRATES.md](GAME-SUBSTRATES.md) ·
+  [GAME-PLAYERS.md](GAME-PLAYERS.md) ·
+  [HARNESS-EXPERIMENT.md](HARNESS-EXPERIMENT.md) ·
+  [NETHACK-CHART.md](NETHACK-CHART.md) ·
+  [QW-MANAGER.md](QW-MANAGER.md) · [QW-REMATCH.md](QW-REMATCH.md) ·
+  [THREE-SPEED.md](THREE-SPEED.md)
+- **The ESP32 chess box:** [ESP32-BOX-FORMAT.md](ESP32-BOX-FORMAT.md) ·
+  [SEASON0.md](SEASON0.md) · [SEASON1.md](SEASON1.md)
+
 ## Honest limits
 
 - **The liquid model here is chart + cycle machinery.** JEPA-class
@@ -131,20 +156,26 @@ the demo is therefore attributable to the chart, not the explorer.
   slots*: the seams are the observation's trust flag (where a
   perception provider would grade the senses) and the dream's
   distillation (where an adapter would be trained). Nothing in
-  this slice learns weights. **One slot now has a receipt:**
-  [THOR-TEST.md](THOR-TEST.md) ran the trust seam against a real
-  I-JEPA on the Thor — the chart keyed places by embedding
-  similarity, confused two near-twin rooms, and a night upgrade
-  (prototypes re-derived from the day's labelled replay)
+  this slice learns weights. **The perception slot now has
+  receipts:** [THOR-TEST.md](THOR-TEST.md) ran the trust seam
+  against a real I-JEPA on the Thor — the chart keyed places by
+  embedding similarity, confused two near-twin rooms, and a night
+  upgrade (prototypes re-derived from the day's labelled replay)
   measurably repaired recognition while the player script never
-  changed. Numbers, caveats, and warts are in the report;
-  `results.json` is its raw record.
+  changed; [FOLLOWUP-OBSERVATORY.md](FOLLOWUP-OBSERVATORY.md)
+  live-proved the twin separation, qualifications kept; and
+  [VJEPA-PROBE.md](VJEPA-PROBE.md) showed transition signal in
+  V-JEPA view-pairs. Numbers, caveats, and warts are in the
+  reports; the `results*.json` files are their raw records.
+  Learned nightly adapters remain a slot, not a build.
 - The policy is intentionally minimal — it reacts to a locked door
   after meeting it rather than planning for the key (see the curve:
   that cost is visible, and it is the policy's, not the chart's).
-- One toy environment (a 13-room dungeon) and one goal type
-  (contents named `treasure`). The contract is the product; the
-  dungeon is its proof, not its scope.
+- In this slice, one toy environment (a 13-room dungeon) and one
+  goal type (contents named `treasure`). The contract is the
+  product; the dungeon is its proof, not its scope. (The Chart
+  itself has since run unmodified inside a second, much larger
+  environment — NetHack; see [NETHACK-CHART.md](NETHACK-CHART.md).)
 - Perceived identity is taken as given by the observation; two
   places that perceive identically would be merged by the chart —
   aliasing is a known open edge, not handled here.
@@ -159,3 +190,6 @@ the demo is therefore attributable to the chart, not the explorer.
 - `lwm/dungeon_demo.py` — the demo + the chart-map renderer
 - `tests/` — invariants for all of the above (`run_tests.py`)
 - `docs/` — the project page, with the seed-7 day maps
+- The filed programme reports — the `*.md` documents at the root
+  listed under *The programme around the framework* above, each
+  with its raw results record (`*results*.json`) beside it
