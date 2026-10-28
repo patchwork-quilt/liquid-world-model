@@ -1,0 +1,802 @@
+{
+ "season": "ESP32 Chess Box - Season 2",
+ "venue": "Oracle (enforceable-native sim), runner season2_run.py (rigging identical to Season 1)",
+ "format": {
+  "clock_sim_s": 600,
+  "speed_factor_F": 20,
+  "flash_cap_bytes": 4194304,
+  "ram_cap_bytes": 532480,
+  "ram_measure": "peak Anonymous (smaps_rollup)",
+  "ply_cap": 240
+ },
+ "games": [
+  {
+   "tag": "rr3-ab1",
+   "fixture": "round-robin",
+   "white": {
+    "crew": "hoardbox3",
+    "name": "hoardbox3 (A - Materialist, S2)",
+    "binary_bytes": 465976,
+    "binary_sha256": "fc800ec585ca1d1faa8c8031bf9f9aeae5683227ef7d891bf85a3af35a17a588",
+    "source_bytes": 43224,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 460,
+    "peak_rss_kb": 1528,
+    "manifest_bytes": 399056,
+    "moves": 68,
+    "host_s": 22.448,
+    "charged_sim_s": 449.0
+   },
+   "black": {
+    "crew": "sliver3",
+    "name": "sliver3 (B - Minimalist, S2)",
+    "binary_bytes": 71984,
+    "binary_sha256": "73a2e11a2f04b7a5b5c96eb1c0c473b253dff36f172548e33f89088052b0dd41",
+    "source_bytes": 18519,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 288,
+    "peak_rss_kb": 1476,
+    "manifest_bytes": 0,
+    "moves": 67,
+    "host_s": 24.494,
+    "charged_sim_s": 489.9
+   },
+   "result": "1-0",
+   "termination": "checkmate by hoardbox3 (A - Materialist, S2)",
+   "plies": 135,
+   "final_clocks_sim_s": {
+    "white": 151.0,
+    "black": 110.1
+   }
+  },
+  {
+   "tag": "rr3-ab2",
+   "fixture": "round-robin",
+   "white": {
+    "crew": "sliver3",
+    "name": "sliver3 (B - Minimalist, S2)",
+    "binary_bytes": 71984,
+    "binary_sha256": "73a2e11a2f04b7a5b5c96eb1c0c473b253dff36f172548e33f89088052b0dd41",
+    "source_bytes": 18519,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 292,
+    "peak_rss_kb": 1468,
+    "manifest_bytes": 0,
+    "moves": 58,
+    "host_s": 23.345,
+    "charged_sim_s": 466.9
+   },
+   "black": {
+    "crew": "hoardbox3",
+    "name": "hoardbox3 (A - Materialist, S2)",
+    "binary_bytes": 465976,
+    "binary_sha256": "fc800ec585ca1d1faa8c8031bf9f9aeae5683227ef7d891bf85a3af35a17a588",
+    "source_bytes": 43224,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 460,
+    "peak_rss_kb": 1844,
+    "manifest_bytes": 399056,
+    "moves": 58,
+    "host_s": 19.931,
+    "charged_sim_s": 398.6
+   },
+   "result": "1/2-1/2",
+   "termination": "draw: FIVEFOLD_REPETITION",
+   "plies": 116,
+   "final_clocks_sim_s": {
+    "white": 133.1,
+    "black": 201.4
+   }
+  },
+  {
+   "tag": "rr3-ac1",
+   "fixture": "round-robin",
+   "white": {
+    "crew": "hoardbox3",
+    "name": "hoardbox3 (A - Materialist, S2)",
+    "binary_bytes": 465976,
+    "binary_sha256": "fc800ec585ca1d1faa8c8031bf9f9aeae5683227ef7d891bf85a3af35a17a588",
+    "source_bytes": 43224,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 468,
+    "peak_rss_kb": 1544,
+    "manifest_bytes": 399056,
+    "moves": 31,
+    "host_s": 11.355,
+    "charged_sim_s": 227.1
+   },
+   "black": {
+    "crew": "tickbox3",
+    "name": "tickbox3 (C - Accountant, S2)",
+    "binary_bytes": 73152,
+    "binary_sha256": "f27f98a0852cdda6804ea0b539b44dcce67e9d91d7e3a268c97c7d914720c53d",
+    "source_bytes": 35230,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 424,
+    "peak_rss_kb": 1412,
+    "manifest_bytes": 482,
+    "moves": 31,
+    "host_s": 17.893,
+    "charged_sim_s": 357.9
+   },
+   "result": "0-1",
+   "termination": "checkmate by tickbox3 (C - Accountant, S2)",
+   "plies": 62,
+   "final_clocks_sim_s": {
+    "white": 372.9,
+    "black": 242.1
+   }
+  },
+  {
+   "tag": "rr3-ac2",
+   "fixture": "round-robin",
+   "white": {
+    "crew": "tickbox3",
+    "name": "tickbox3 (C - Accountant, S2)",
+    "binary_bytes": 73152,
+    "binary_sha256": "f27f98a0852cdda6804ea0b539b44dcce67e9d91d7e3a268c97c7d914720c53d",
+    "source_bytes": 35230,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 420,
+    "peak_rss_kb": 1424,
+    "manifest_bytes": 482,
+    "moves": 57,
+    "host_s": 26.147,
+    "charged_sim_s": 522.9
+   },
+   "black": {
+    "crew": "hoardbox3",
+    "name": "hoardbox3 (A - Materialist, S2)",
+    "binary_bytes": 465976,
+    "binary_sha256": "fc800ec585ca1d1faa8c8031bf9f9aeae5683227ef7d891bf85a3af35a17a588",
+    "source_bytes": 43224,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 460,
+    "peak_rss_kb": 1856,
+    "manifest_bytes": 399056,
+    "moves": 56,
+    "host_s": 20.932,
+    "charged_sim_s": 418.6
+   },
+   "result": "1-0",
+   "termination": "checkmate by tickbox3 (C - Accountant, S2)",
+   "plies": 113,
+   "final_clocks_sim_s": {
+    "white": 77.1,
+    "black": 181.4
+   }
+  },
+  {
+   "tag": "rr3-bc1",
+   "fixture": "round-robin",
+   "white": {
+    "crew": "tickbox3",
+    "name": "tickbox3 (C - Accountant, S2)",
+    "binary_bytes": 73152,
+    "binary_sha256": "f27f98a0852cdda6804ea0b539b44dcce67e9d91d7e3a268c97c7d914720c53d",
+    "source_bytes": 35230,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 416,
+    "peak_rss_kb": 1420,
+    "manifest_bytes": 482,
+    "moves": 76,
+    "host_s": 27.001,
+    "charged_sim_s": 540.0
+   },
+   "black": {
+    "crew": "sliver3",
+    "name": "sliver3 (B - Minimalist, S2)",
+    "binary_bytes": 71984,
+    "binary_sha256": "73a2e11a2f04b7a5b5c96eb1c0c473b253dff36f172548e33f89088052b0dd41",
+    "source_bytes": 18519,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 288,
+    "peak_rss_kb": 1468,
+    "manifest_bytes": 0,
+    "moves": 76,
+    "host_s": 24.75,
+    "charged_sim_s": 495.0
+   },
+   "result": "0-1",
+   "termination": "checkmate by sliver3 (B - Minimalist, S2)",
+   "plies": 152,
+   "final_clocks_sim_s": {
+    "white": 60.0,
+    "black": 105.0
+   }
+  },
+  {
+   "tag": "rr3-bc2",
+   "fixture": "round-robin",
+   "white": {
+    "crew": "sliver3",
+    "name": "sliver3 (B - Minimalist, S2)",
+    "binary_bytes": 71984,
+    "binary_sha256": "73a2e11a2f04b7a5b5c96eb1c0c473b253dff36f172548e33f89088052b0dd41",
+    "source_bytes": 18519,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 296,
+    "peak_rss_kb": 1484,
+    "manifest_bytes": 0,
+    "moves": 72,
+    "host_s": 24.669,
+    "charged_sim_s": 493.4
+   },
+   "black": {
+    "crew": "tickbox3",
+    "name": "tickbox3 (C - Accountant, S2)",
+    "binary_bytes": 73152,
+    "binary_sha256": "f27f98a0852cdda6804ea0b539b44dcce67e9d91d7e3a268c97c7d914720c53d",
+    "source_bytes": 35230,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 424,
+    "peak_rss_kb": 1428,
+    "manifest_bytes": 482,
+    "moves": 71,
+    "host_s": 26.983,
+    "charged_sim_s": 539.7
+   },
+   "result": "1-0",
+   "termination": "checkmate by sliver3 (B - Minimalist, S2)",
+   "plies": 143,
+   "final_clocks_sim_s": {
+    "white": 106.6,
+    "black": 60.3
+   }
+  },
+  {
+   "tag": "ctrl3-hoardbox-w",
+   "fixture": "control",
+   "white": {
+    "crew": "hoardbox3",
+    "name": "hoardbox3 (A - Materialist, S2)",
+    "binary_bytes": 465976,
+    "binary_sha256": "fc800ec585ca1d1faa8c8031bf9f9aeae5683227ef7d891bf85a3af35a17a588",
+    "source_bytes": 43224,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 456,
+    "peak_rss_kb": 1528,
+    "manifest_bytes": 399056,
+    "moves": 19,
+    "host_s": 4.17,
+    "charged_sim_s": 83.4
+   },
+   "black": {
+    "crew": "pawnbox",
+    "name": "pawnbox 1.0 (proof baseline)",
+    "binary_bytes": 67608,
+    "binary_sha256": "7556e735140be6ca0ae2e43331d7a43c213c336782d221a1d33af8a1b5f2778c",
+    "source_bytes": 9851,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 136,
+    "peak_rss_kb": 1064,
+    "manifest_bytes": 0,
+    "moves": 18,
+    "host_s": 0.271,
+    "charged_sim_s": 5.4
+   },
+   "result": "1-0",
+   "termination": "checkmate by hoardbox3 (A - Materialist, S2)",
+   "plies": 37,
+   "final_clocks_sim_s": {
+    "white": 516.6,
+    "black": 594.6
+   }
+  },
+  {
+   "tag": "ctrl3-hoardbox-b",
+   "fixture": "control",
+   "white": {
+    "crew": "pawnbox",
+    "name": "pawnbox 1.0 (proof baseline)",
+    "binary_bytes": 67608,
+    "binary_sha256": "7556e735140be6ca0ae2e43331d7a43c213c336782d221a1d33af8a1b5f2778c",
+    "source_bytes": 9851,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 132,
+    "peak_rss_kb": 1060,
+    "manifest_bytes": 0,
+    "moves": 17,
+    "host_s": 0.273,
+    "charged_sim_s": 5.5
+   },
+   "black": {
+    "crew": "hoardbox3",
+    "name": "hoardbox3 (A - Materialist, S2)",
+    "binary_bytes": 465976,
+    "binary_sha256": "fc800ec585ca1d1faa8c8031bf9f9aeae5683227ef7d891bf85a3af35a17a588",
+    "source_bytes": 43224,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 456,
+    "peak_rss_kb": 1532,
+    "manifest_bytes": 399056,
+    "moves": 17,
+    "host_s": 5.466,
+    "charged_sim_s": 109.3
+   },
+   "result": "0-1",
+   "termination": "checkmate by hoardbox3 (A - Materialist, S2)",
+   "plies": 34,
+   "final_clocks_sim_s": {
+    "white": 594.5,
+    "black": 490.7
+   }
+  },
+  {
+   "tag": "ctrl3-tickbox-w",
+   "fixture": "control",
+   "white": {
+    "crew": "tickbox3",
+    "name": "tickbox3 (C - Accountant, S2)",
+    "binary_bytes": 73152,
+    "binary_sha256": "f27f98a0852cdda6804ea0b539b44dcce67e9d91d7e3a268c97c7d914720c53d",
+    "source_bytes": 35230,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 412,
+    "peak_rss_kb": 1400,
+    "manifest_bytes": 482,
+    "moves": 39,
+    "host_s": 21.553,
+    "charged_sim_s": 431.1
+   },
+   "black": {
+    "crew": "pawnbox",
+    "name": "pawnbox 1.0 (proof baseline)",
+    "binary_bytes": 67608,
+    "binary_sha256": "7556e735140be6ca0ae2e43331d7a43c213c336782d221a1d33af8a1b5f2778c",
+    "source_bytes": 9851,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 136,
+    "peak_rss_kb": 1064,
+    "manifest_bytes": 0,
+    "moves": 38,
+    "host_s": 0.377,
+    "charged_sim_s": 7.5
+   },
+   "result": "1-0",
+   "termination": "checkmate by tickbox3 (C - Accountant, S2)",
+   "plies": 77,
+   "final_clocks_sim_s": {
+    "white": 168.9,
+    "black": 592.5
+   }
+  },
+  {
+   "tag": "ctrl3-tickbox-b",
+   "fixture": "control",
+   "white": {
+    "crew": "pawnbox",
+    "name": "pawnbox 1.0 (proof baseline)",
+    "binary_bytes": 67608,
+    "binary_sha256": "7556e735140be6ca0ae2e43331d7a43c213c336782d221a1d33af8a1b5f2778c",
+    "source_bytes": 9851,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 144,
+    "peak_rss_kb": 1072,
+    "manifest_bytes": 0,
+    "moves": 25,
+    "host_s": 0.349,
+    "charged_sim_s": 7.0
+   },
+   "black": {
+    "crew": "tickbox3",
+    "name": "tickbox3 (C - Accountant, S2)",
+    "binary_bytes": 73152,
+    "binary_sha256": "f27f98a0852cdda6804ea0b539b44dcce67e9d91d7e3a268c97c7d914720c53d",
+    "source_bytes": 35230,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 412,
+    "peak_rss_kb": 1416,
+    "manifest_bytes": 482,
+    "moves": 25,
+    "host_s": 13.955,
+    "charged_sim_s": 279.1
+   },
+   "result": "0-1",
+   "termination": "checkmate by tickbox3 (C - Accountant, S2)",
+   "plies": 50,
+   "final_clocks_sim_s": {
+    "white": 593.0,
+    "black": 320.9
+   }
+  },
+  {
+   "tag": "ctrl3-sliver-w",
+   "fixture": "control",
+   "white": {
+    "crew": "sliver3",
+    "name": "sliver3 (B - Minimalist, S2)",
+    "binary_bytes": 71984,
+    "binary_sha256": "73a2e11a2f04b7a5b5c96eb1c0c473b253dff36f172548e33f89088052b0dd41",
+    "source_bytes": 18519,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 296,
+    "peak_rss_kb": 1484,
+    "manifest_bytes": 0,
+    "moves": 20,
+    "host_s": 10.813,
+    "charged_sim_s": 216.3
+   },
+   "black": {
+    "crew": "pawnbox",
+    "name": "pawnbox 1.0 (proof baseline)",
+    "binary_bytes": 67608,
+    "binary_sha256": "7556e735140be6ca0ae2e43331d7a43c213c336782d221a1d33af8a1b5f2778c",
+    "source_bytes": 9851,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 136,
+    "peak_rss_kb": 1052,
+    "manifest_bytes": 0,
+    "moves": 19,
+    "host_s": 0.324,
+    "charged_sim_s": 6.5
+   },
+   "result": "1-0",
+   "termination": "checkmate by sliver3 (B - Minimalist, S2)",
+   "plies": 39,
+   "final_clocks_sim_s": {
+    "white": 383.7,
+    "black": 593.5
+   }
+  },
+  {
+   "tag": "ctrl3-sliver-b",
+   "fixture": "control",
+   "white": {
+    "crew": "pawnbox",
+    "name": "pawnbox 1.0 (proof baseline)",
+    "binary_bytes": 67608,
+    "binary_sha256": "7556e735140be6ca0ae2e43331d7a43c213c336782d221a1d33af8a1b5f2778c",
+    "source_bytes": 9851,
+    "size_gate": "PASS",
+    "ram_gate": "FAIL",
+    "peak_anon_kb": 2172,
+    "peak_rss_kb": 3100,
+    "manifest_bytes": 0,
+    "moves": 17,
+    "host_s": 0.203,
+    "charged_sim_s": 4.1
+   },
+   "black": {
+    "crew": "sliver3",
+    "name": "sliver3 (B - Minimalist, S2)",
+    "binary_bytes": 71984,
+    "binary_sha256": "73a2e11a2f04b7a5b5c96eb1c0c473b253dff36f172548e33f89088052b0dd41",
+    "source_bytes": 18519,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 284,
+    "peak_rss_kb": 1464,
+    "manifest_bytes": 0,
+    "moves": 17,
+    "host_s": 8.903,
+    "charged_sim_s": 178.1
+   },
+   "result": "0-1",
+   "termination": "checkmate by sliver3 (B - Minimalist, S2)",
+   "plies": 34,
+   "final_clocks_sim_s": {
+    "white": 595.9,
+    "black": 421.9
+   }
+  },
+  {
+   "tag": "lin3-hoardbox-w",
+   "fixture": "lineage",
+   "white": {
+    "crew": "hoardbox3",
+    "name": "hoardbox3 (A - Materialist, S2)",
+    "binary_bytes": 465976,
+    "binary_sha256": "fc800ec585ca1d1faa8c8031bf9f9aeae5683227ef7d891bf85a3af35a17a588",
+    "source_bytes": 43224,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 460,
+    "peak_rss_kb": 1536,
+    "manifest_bytes": 399056,
+    "moves": 63,
+    "host_s": 21.986,
+    "charged_sim_s": 439.7
+   },
+   "black": {
+    "crew": "hoardbox2",
+    "name": "hoardbox2 (A - Materialist, S1)",
+    "binary_bytes": 72568,
+    "binary_sha256": "5052f63daa17ccc8b9a5d9322e47d46fe87abd46b46bf44627e6b847232b9839",
+    "source_bytes": 38160,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 420,
+    "peak_rss_kb": 1424,
+    "manifest_bytes": 5504,
+    "moves": 63,
+    "host_s": 20.079,
+    "charged_sim_s": 401.6
+   },
+   "result": "1/2-1/2",
+   "termination": "draw: FIVEFOLD_REPETITION",
+   "plies": 126,
+   "final_clocks_sim_s": {
+    "white": 160.3,
+    "black": 198.4
+   }
+  },
+  {
+   "tag": "lin3-hoardbox-b",
+   "fixture": "lineage",
+   "white": {
+    "crew": "hoardbox2",
+    "name": "hoardbox2 (A - Materialist, S1)",
+    "binary_bytes": 72568,
+    "binary_sha256": "5052f63daa17ccc8b9a5d9322e47d46fe87abd46b46bf44627e6b847232b9839",
+    "source_bytes": 38160,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 432,
+    "peak_rss_kb": 1428,
+    "manifest_bytes": 5504,
+    "moves": 120,
+    "host_s": 24.921,
+    "charged_sim_s": 498.4
+   },
+   "black": {
+    "crew": "hoardbox3",
+    "name": "hoardbox3 (A - Materialist, S2)",
+    "binary_bytes": 465976,
+    "binary_sha256": "fc800ec585ca1d1faa8c8031bf9f9aeae5683227ef7d891bf85a3af35a17a588",
+    "source_bytes": 43224,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 472,
+    "peak_rss_kb": 1856,
+    "manifest_bytes": 399056,
+    "moves": 120,
+    "host_s": 24.924,
+    "charged_sim_s": 498.5
+   },
+   "result": "1/2-1/2",
+   "termination": "ply cap 240: material level (declared runner rule)",
+   "plies": 240,
+   "final_clocks_sim_s": {
+    "white": 101.6,
+    "black": 101.5
+   }
+  },
+  {
+   "tag": "lin3-tickbox-w",
+   "fixture": "lineage",
+   "white": {
+    "crew": "tickbox3",
+    "name": "tickbox3 (C - Accountant, S2)",
+    "binary_bytes": 73152,
+    "binary_sha256": "f27f98a0852cdda6804ea0b539b44dcce67e9d91d7e3a268c97c7d914720c53d",
+    "source_bytes": 35230,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 428,
+    "peak_rss_kb": 1432,
+    "manifest_bytes": 482,
+    "moves": 68,
+    "host_s": 26.888,
+    "charged_sim_s": 537.8
+   },
+   "black": {
+    "crew": "tickbox2",
+    "name": "tickbox2 (C - Accountant, S1)",
+    "binary_bytes": 72960,
+    "binary_sha256": "86266e3f50cf07dafa4a2f848c6dbc471fc9390bbb5eb12d5e769455cd987a73",
+    "source_bytes": 29551,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 428,
+    "peak_rss_kb": 1432,
+    "manifest_bytes": 444,
+    "moves": 68,
+    "host_s": 26.606,
+    "charged_sim_s": 532.1
+   },
+   "result": "0-1",
+   "termination": "checkmate by tickbox2 (C - Accountant, S1)",
+   "plies": 136,
+   "final_clocks_sim_s": {
+    "white": 62.2,
+    "black": 67.9
+   }
+  },
+  {
+   "tag": "lin3-tickbox-b",
+   "fixture": "lineage",
+   "white": {
+    "crew": "tickbox2",
+    "name": "tickbox2 (C - Accountant, S1)",
+    "binary_bytes": 72960,
+    "binary_sha256": "86266e3f50cf07dafa4a2f848c6dbc471fc9390bbb5eb12d5e769455cd987a73",
+    "source_bytes": 29551,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 432,
+    "peak_rss_kb": 1436,
+    "manifest_bytes": 444,
+    "moves": 66,
+    "host_s": 26.781,
+    "charged_sim_s": 535.6
+   },
+   "black": {
+    "crew": "tickbox3",
+    "name": "tickbox3 (C - Accountant, S2)",
+    "binary_bytes": 73152,
+    "binary_sha256": "f27f98a0852cdda6804ea0b539b44dcce67e9d91d7e3a268c97c7d914720c53d",
+    "source_bytes": 35230,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 420,
+    "peak_rss_kb": 1424,
+    "manifest_bytes": 482,
+    "moves": 66,
+    "host_s": 26.763,
+    "charged_sim_s": 535.3
+   },
+   "result": "0-1",
+   "termination": "checkmate by tickbox3 (C - Accountant, S2)",
+   "plies": 132,
+   "final_clocks_sim_s": {
+    "white": 64.4,
+    "black": 64.7
+   }
+  },
+  {
+   "tag": "lin3-sliver-w",
+   "fixture": "lineage",
+   "white": {
+    "crew": "sliver3",
+    "name": "sliver3 (B - Minimalist, S2)",
+    "binary_bytes": 71984,
+    "binary_sha256": "73a2e11a2f04b7a5b5c96eb1c0c473b253dff36f172548e33f89088052b0dd41",
+    "source_bytes": 18519,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 296,
+    "peak_rss_kb": 1484,
+    "manifest_bytes": 0,
+    "moves": 28,
+    "host_s": 14.882,
+    "charged_sim_s": 297.6
+   },
+   "black": {
+    "crew": "sliver2",
+    "name": "sliver2 (B - Minimalist, S1)",
+    "binary_bytes": 71984,
+    "binary_sha256": "c5d0e1d7aad6011eb3465034f093eb90b2cfe48673e7f18699f35d2eb7cc74e9",
+    "source_bytes": 14906,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 228,
+    "peak_rss_kb": 1416,
+    "manifest_bytes": 0,
+    "moves": 27,
+    "host_s": 12.896,
+    "charged_sim_s": 257.9
+   },
+   "result": "1-0",
+   "termination": "checkmate by sliver3 (B - Minimalist, S2)",
+   "plies": 55,
+   "final_clocks_sim_s": {
+    "white": 302.4,
+    "black": 342.1
+   }
+  },
+  {
+   "tag": "lin3-sliver-b",
+   "fixture": "lineage",
+   "white": {
+    "crew": "sliver2",
+    "name": "sliver2 (B - Minimalist, S1)",
+    "binary_bytes": 71984,
+    "binary_sha256": "c5d0e1d7aad6011eb3465034f093eb90b2cfe48673e7f18699f35d2eb7cc74e9",
+    "source_bytes": 14906,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 224,
+    "peak_rss_kb": 1400,
+    "manifest_bytes": 0,
+    "moves": 36,
+    "host_s": 16.341,
+    "charged_sim_s": 326.8
+   },
+   "black": {
+    "crew": "sliver3",
+    "name": "sliver3 (B - Minimalist, S2)",
+    "binary_bytes": 71984,
+    "binary_sha256": "73a2e11a2f04b7a5b5c96eb1c0c473b253dff36f172548e33f89088052b0dd41",
+    "source_bytes": 18519,
+    "size_gate": "PASS",
+    "ram_gate": "PASS",
+    "peak_anon_kb": 284,
+    "peak_rss_kb": 1472,
+    "manifest_bytes": 0,
+    "moves": 35,
+    "host_s": 18.778,
+    "charged_sim_s": 375.6
+   },
+   "result": "1-0",
+   "termination": "checkmate by sliver2 (B - Minimalist, S1)",
+   "plies": 71,
+   "final_clocks_sim_s": {
+    "white": 273.2,
+    "black": 224.4
+   }
+  }
+ ],
+ "standings": {
+  "hoardbox3": {
+   "round_robin": 1.5,
+   "control": 2,
+   "lineage": 1.0,
+   "total": 4.5,
+   "manifest_bytes": 399056,
+   "binary_bytes": 465976,
+   "peak_anon_kb_max": 472,
+   "peak_anon_kb_min": 456,
+   "peak_anon_pct_of_hull_max": 90.8
+  },
+  "tickbox3": {
+   "round_robin": 2,
+   "control": 2,
+   "lineage": 1,
+   "total": 5,
+   "manifest_bytes": 482,
+   "binary_bytes": 73152,
+   "peak_anon_kb_max": 428,
+   "peak_anon_kb_min": 412,
+   "peak_anon_pct_of_hull_max": 82.3
+  },
+  "sliver3": {
+   "round_robin": 2.5,
+   "control": 2,
+   "lineage": 1,
+   "total": 5.5,
+   "manifest_bytes": 0,
+   "binary_bytes": 71984,
+   "peak_anon_kb_max": 296,
+   "peak_anon_kb_min": 284,
+   "peak_anon_pct_of_hull_max": 56.9
+  }
+ },
+ "incidents": [
+  {
+   "game": "ctrl3-sliver-b",
+   "kind": "RAM gate event on the control's receipt (one-off reading)",
+   "detail": "pawnbox (White, the frozen proof baseline) recorded peak anonymous 2172 KB / VmHWM 3100 KB -> RAM gate FAIL on its receipt. Its five other Season 2 appearances read 132-144 KB; a fresh pawnbox replaying the identical 34-ply game on the venue read 136 KB peak. Named as a one-off reading of the x4-ab3 sampler class, published with this proof. sliver3's own gate PASSED (284 KB); the game and its result stand."
+  }
+ ],
+ "totals": {
+  "games": 18,
+  "plies": 1752,
+  "checkmates": 15,
+  "desyncs": 0,
+  "illegal_moves": 0,
+  "flag_falls": 0
+ }
+}
