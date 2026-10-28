@@ -414,10 +414,10 @@ experiment: <code>llm-tiny-135</code> and <code>llm-tiny-360</code>
 (SmolLM2-135M / 360M).</p>
 <p><strong>The Oracle farm (OCI Ampere A1, CPU only)</strong> — served
 remotely through an SSH-tunnelled shim: <code>llm</code> (Qwen3-0.6B) ·
-<code>embed</code> · <code>judge</code> · <code>whisper</code>.
-<code>llm-big</code> (Qwen2.5-7B) is registered and answers via the farm's
-CLI / <code>call()</code> only — the remote shim does not carry it yet
-(checked live 2026-10-27; the shim still lists the original four).</p>
+<code>embed</code> · <code>judge</code> · <code>whisper</code> ·
+<code>llm-big</code> (Qwen2.5-7B) — the shim restart that carries it
+landed with the farm-maturity round (FARM-MATURITY, filed 2026-10-27);
+all five members verified through the remote door.</p>
 <p><strong>The Thor's JEV rack</strong> — I-JEPA (ViT-H) and the
 jev-semantic judge are the warm slice the Thor experiments ran against;
 V-JEPA 2 answers when called (it lazy-loads — its health flag reads
